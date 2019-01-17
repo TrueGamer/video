@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:focusable="true"
+              android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/happy_bg" />
+
+    <com.huanxi.renrentoutiao.ui.view.luckwalk.LuckyContainerView
+        android:id="@+id/lvContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/happy_jizi"
+        android:clickable="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <com.huanxi.renrentoutiao.ui.view.luckwalk.Luckywalk
+            android:id="@+id/lwView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:duplicateParentState="true"
+            android:focusable="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:clickable="false"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btGift"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/turn_gift" />
+
+            <Button
+                android:id="@+id/btStart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/turn_start" />
+
+            <Button
+                android:id="@+id/btRule"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/turn_rule" />
+        </LinearLayout>
+    </com.huanxi.renrentoutiao.ui.view.luckwalk.LuckyContainerView>
+
+</LinearLayout>

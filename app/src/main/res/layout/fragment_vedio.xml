@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/view_status_re" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/red_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="270dp"
+            android:layout_height="25dp"
+            android:background="@drawable/shape_home_search_bg"
+            android:gravity="center_vertical"
+            android:hint="搜索"
+            android:paddingLeft="10dp"
+            android:textColorHint="#f3c1c2"
+            android:textSize="12sp"
+            />
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+            <TextView
+                android:id="@+id/tv_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="05:23"
+                android:textSize="@dimen/sp_12"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <com.ajguan.library.EasyRefreshLayout
+        android:id="@+id/rl_refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            />
+
+    </com.ajguan.library.EasyRefreshLayout>
+
+</LinearLayout>

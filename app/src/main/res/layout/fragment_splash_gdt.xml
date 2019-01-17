@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--//广点通广告的容器；-->
+<FrameLayout
+    android:id="@+id/fl_gdt_ad_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+
+    <FrameLayout
+        android:id="@+id/fl_splash_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"/>
+
+
+
+    <!-- 3.自定义跳过按钮区域：开发者可以根据需要自己实现不同样式的跳过按钮 -->
+    <!-- 注意1：根据广告法规定，跳过按钮必须在屏幕当中出现。因此广告展示的时候，必须让将SkipView显示出来，即visible，否则将SDK将不展示广告，返回错误码608。。 -->
+    <!-- 注意2：SDK除了会检查跳过按钮的可见性，还将检测它的尺寸，其尺寸不得小于3dp*3dp，否则将SDK将不展示广告，返回错误码608。 -->
+    <TextView
+        android:id="@+id/skip_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_circle"
+        android:gravity="center"
+        android:text="跳过"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_gravity="right"
+        />
+
+</FrameLayout>

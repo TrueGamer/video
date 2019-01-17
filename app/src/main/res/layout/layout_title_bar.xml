@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--这里是一个通用的titleBar的效果；-->
+
+
+    <include layout="@layout/view_status_re" />
+
+    <include layout="@layout/layout_title"/>
+
+
+</LinearLayout>

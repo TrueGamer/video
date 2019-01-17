@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_navigation"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal"
+    android:background="#ffeee5"
+    android:gravity="center"
+    >
+
+    <!--导航的View的一个操作；-->
+    <LinearLayout
+        android:id="@+id/ll_navigation_default"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信首次登陆领取1000金币"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/text_light_black"
+            />
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="立即前往登陆>>"
+            android:textColor="@color/base_color_blue"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_navigation_notify_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:gravity="center"
+        android:textColor="@color/text_light_black"
+        />
+
+</LinearLayout>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/ll_title"
+        layout="@layout/layout_title_bar"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_time_bg">
+
+                <TextView
+                    android:id="@+id/tv_tip1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_circle"
+                    android:textColor="@color/white_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:gravity="center"
+                    android:text="1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tip1"
+                    android:layout_margin="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/timeCountTip1"
+                    android:textColor="@color/text_light_black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_time_bg">
+
+                <TextView
+                    android:id="@+id/tv_tip2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_circle"
+                    android:textColor="@color/white_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:gravity="center"
+                    android:text="2"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tip2"
+                    android:layout_margin="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/timeCountTip2"
+                    android:textColor="@color/text_light_black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_time_bg">
+
+                <TextView
+                    android:id="@+id/tv_tip3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_circle"
+                    android:textColor="@color/white_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:gravity="center"
+                    android:text="3"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tip3"
+                    android:layout_margin="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/timeCountTip3"
+                    android:textColor="@color/text_light_black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_time_bg">
+
+                <TextView
+                    android:id="@+id/tv_tip4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_circle"
+                    android:textColor="@color/white_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:gravity="center"
+                    android:text="4"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tip4"
+                    android:layout_margin="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/timeCountTip4"
+                    android:textColor="@color/text_light_black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_time_bg">
+
+                <TextView
+                    android:id="@+id/tv_tip5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_circle"
+                    android:textColor="@color/white_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:gravity="center"
+                    android:text="5"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tip5"
+                    android:layout_margin="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/timeCountTip5"
+                    android:textColor="@color/text_light_black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_time_bg">
+
+                <TextView
+                    android:id="@+id/tv_tip6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_circle"
+                    android:textColor="@color/white_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:gravity="center"
+                    android:text="6"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tip6"
+                    android:layout_margin="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/timeCountTip6"
+                    android:textColor="@color/text_light_black"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_time_bg">
+
+                <TextView
+                    android:id="@+id/tv_tip7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_circle"
+                    android:textColor="@color/white_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:gravity="center"
+                    android:text="6"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tip7"
+                    android:layout_margin="10dp"
+                    android:textSize="@dimen/sp_14"
+                    android:text="@string/timeCountTip7"
+                    android:textColor="@color/text_light_black"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

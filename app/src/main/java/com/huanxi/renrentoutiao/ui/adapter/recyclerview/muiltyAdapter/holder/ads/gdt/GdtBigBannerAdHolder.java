@@ -1,0 +1,51 @@
+package com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.gdt;
+
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.chad.library.adapter.base.BaseViewHolder;
+import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.base.BaseMuiltyViewHolder;
+import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.ads.gdt.GdtBigBannerBean;
+import com.qq.e.ads.nativ.NativeExpressADView;
+
+/**
+ * Created by Dinosa on 2018/4/11.
+ */
+
+public class GdtBigBannerAdHolder extends BaseMuiltyViewHolder<GdtBigBannerBean> {
+
+    @Override
+    public void init(GdtBigBannerBean gdtBigBannerBean, BaseViewHolder helper, Context context) {
+
+        //这里我们要做的一个逻辑就是；
+
+        ViewGroup adContainer = (ViewGroup) helper.itemView;
+
+        NativeExpressADView gdtadView = gdtBigBannerBean.getGdtadView();
+
+        if(gdtadView != null){
+
+        /*gdtadView.setPadding(UIUtil.dip2px(context, 12), UIUtil.dip2px(context, 12),
+            UIUtil.dip2px(context, 10), UIUtil.dip2px(context, 10));*/
+
+            if (adContainer.getChildCount() > 0
+                    && adContainer.getChildAt(0) == gdtadView) {
+                return;
+            }
+
+            if (adContainer.getChildCount() > 0) {
+                adContainer.removeAllViews();
+            }
+
+            if (gdtadView.getParent() != null) {
+                ((ViewGroup) gdtadView.getParent()).removeView(gdtadView);
+            }
+
+            adContainer.addView(gdtadView);
+            gdtadView.render(); // 调用render方法后sdk才会开始展示广告
+        }
+
+    }
+}

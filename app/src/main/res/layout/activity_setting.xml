@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/settingItemStyle"
+        >
+
+        <TextView
+           style="@style/settingLeftTextStyle"
+           android:text="头像"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_icon_user"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/img_user_icon"
+            app:civ_border_color="@color/user_icon_border_color"
+            />
+
+        <ImageView
+            style="@style/userOperationItemIndicatorStyle"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/withdrawals_record_divider_color"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/ll_alter_nickname"
+        style="@style/settingItemStyle"
+        >
+
+        <TextView
+            style="@style/settingLeftTextStyle"
+            android:text="昵称"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_nick_name"
+            style="@style/settingRightTextStyle"
+            android:text="请叫我小五福"
+            />
+
+        <ImageView
+            style="@style/userOperationItemIndicatorStyle"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/withdrawals_record_divider_color"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_userinfo"
+        style="@style/settingItemStyle"
+        android:visibility="visible"
+        >
+
+        <TextView
+            style="@style/settingLeftTextStyle"
+            android:text="完善资料"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            style="@style/settingRightTextStyle"
+            android:text="有助于更精确的推荐"
+            />
+
+        <ImageView
+            style="@style/userOperationItemIndicatorStyle"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/user_item_horizontal_divider_color_bg"
+        android:visibility="visible"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_code"
+        style="@style/settingItemStyle"
+        android:visibility="visible"
+        >
+
+        <TextView
+            style="@style/settingLeftTextStyle"
+            android:text="给人人头条好评"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            style="@style/settingRightTextStyle"
+            android:text="联系客服奖励1000金币"
+            />
+
+        <ImageView
+            style="@style/userOperationItemIndicatorStyle"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/withdrawals_record_divider_color"
+        />
+    <LinearLayout
+        android:id="@+id/ll_clear_cache"
+        style="@style/settingItemStyle"
+        android:visibility="visible"
+        >
+
+        <TextView
+            style="@style/settingLeftTextStyle"
+            android:text="清除缓存"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_clear_cache"
+            style="@style/settingRightTextStyle"
+            android:text="0.0m"/>
+
+        <ImageView
+            style="@style/userOperationItemIndicatorStyle"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/user_item_horizontal_divider_color_bg"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_help"
+        style="@style/settingItemStyle"
+        android:visibility="visible"
+        >
+
+        <TextView
+            style="@style/settingLeftTextStyle"
+            android:text="帮助反馈"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />
+
+
+        <ImageView
+            style="@style/userOperationItemIndicatorStyle"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/withdrawals_record_divider_color"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_about_us"
+        style="@style/settingItemStyle"
+        android:visibility="gone"
+        >
+
+        <TextView
+            style="@style/settingLeftTextStyle"
+            android:text="关于我们"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />
+
+
+        <ImageView
+            style="@style/userOperationItemIndicatorStyle"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/withdrawals_record_divider_color"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+
+        style="@style/settingItemStyle"
+        android:visibility="gone"
+        >
+
+        <TextView
+            style="@style/settingLeftTextStyle"
+            android:text="检查更新"
+            />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            style="@style/settingRightTextStyle"
+            android:text="当前已是最新版本了"
+            />
+
+        <ImageView
+            style="@style/userOperationItemIndicatorStyle"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/user_item_horizontal_divider_color_bg"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_exit"
+        style="@style/settingItemStyle"
+        android:gravity="center"
+        >
+
+        <TextView
+            style="@style/settingLeftTextStyle"
+            android:text="退出"
+            android:textColor="@color/red_color"
+            android:layout_marginRight="20dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

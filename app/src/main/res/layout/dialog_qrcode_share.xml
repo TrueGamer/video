@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--这里是分享二维码的对话框；-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:orientation="vertical"
+    >
+    <!--去阅读的弹窗；-->
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_pure_white_bg"
+        android:clipChildren="false"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/tv_title"
+            android:layout_width="177.3dp"
+            android:layout_height="112dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-60dp"
+            android:src="@drawable/bg_qrcode_share"
+            />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.2"
+            android:text="邀请好友打开微信\n点击右上角的“+”\n使用“扫一扫”扫描下方二维码"
+            android:textColor="#999999"
+            android:textSize="15sp"
+            />
+
+        <ImageView
+            android:id="@+id/tv_read_button"
+            android:layout_width="114dp"
+            android:layout_height="114dp"
+            android:layout_below="@id/tv_desc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/icon_qrcode_demo"
+            />
+
+        <ImageView
+            android:id="@+id/tv_detail_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_read_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/button_qrcode_share"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_marginBottom="15dp"
+            />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_go_read_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/ll_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/icon_qrcode_share_close"
+        />
+
+</RelativeLayout>
+

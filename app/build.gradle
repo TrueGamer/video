@@ -1,0 +1,275 @@
+apply plugin: 'com.android.application'
+apply plugin: "com.mob.sdk"
+// 依赖插件脚本
+apply from: 'tinker-support.gradle'
+
+// 在MobSDK的扩展中注册ShareSDK的相关信息
+MobSDK {
+    appKey "242a4fdf7b4b4"
+    appSecret "1292d6b8281f69f227f3b7b36e6d7979"
+
+    ShareSDK {
+        devInfo {
+            SinaWeibo {
+                appKey "1264565878"
+                appSecret "55835ccd44983309106e659387347844"
+                callbackUri "http://www.sharesdk.cn"
+                shareByAppClient false
+            }
+            Wechat {
+                appId "wxaddf8032a6b4fc30"
+                appSecret "9dd0fd0ef73b8fd13061e2ea5589344a"
+                bypassApproval false
+            }
+            WechatMoments {
+                appId "wxaddf8032a6b4fc30"
+                appSecret "9dd0fd0ef73b8fd13061e2ea5589344a"
+                bypassApproval false
+            }
+
+            QQ {
+                appId "1106944311"
+                appKey "2UUEUwzUdOvymlBX"
+                shareByAppClient true
+                bypassApproval false
+                enable true
+            }
+        }
+    }
+}
+
+android {
+
+    signingConfigs {
+        release {
+            storeFile file(rootProject.ext.sign.storeFile)
+            keyAlias rootProject.ext.sign.keyAlias
+            keyPassword rootProject.ext.sign.keyPassword
+            storePassword rootProject.ext.sign.storePassword
+            //v1和v2的签名使用
+//            只勾选v1签名并不会影响什么，但是在7.0上不会使用更安全的验证方式
+//            只勾选V2签名7.0以下会直接安装完显示未安装，7.0以上则使用了V2的方式验证
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
+        }
+    }
+
+    compileSdkVersion  rootProject.ext.android.compileSdkVersion
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "versionCode"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+//            abiFilters 'armeabi-v7a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "d67cb4329e40f933332bddd2", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
+    }
+
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            // 签名
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 是否开启apk zip优化
+            zipAlignEnabled true
+            manifestPlaceholders = [DEBUG: false]
+        }
+
+        debug {
+            // DEBUG 签名
+            signingConfig signingConfigs.release
+            manifestPlaceholders = [DEBUG: true]
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+
+        //2.3.3配置的方法；
+       /* variant.outputs.each { output ->
+            //这里表示调试模式的包；
+            output.outputFile = new File(output.outputFile.parent, "toutiao" + "-" + variant.productFlavors[0].name + "-" + buildType.name + "-v" +
+                    defaultConfig.versionName + "-" + defaultConfig.versionCode + ".apk");
+        }*/
+
+        variant.outputs.each { output ->
+
+            //这里表示调试模式的包；
+            //3.0.1配置的方法；
+            output.outputFileName = "toutiao" + "-" + variant.productFlavors[0].name + "-" + buildType.name + "-v" +
+                    defaultConfig.versionName + "-" + defaultConfig.versionCode + ".apk";
+        }
+    }
+
+
+    productFlavors {
+
+        oppo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 1]
+        }
+        vivo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 2]
+        }
+        meizu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 3]
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 4]
+        }
+        huawei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 5]
+        }
+
+        jionee {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 6]
+        }
+
+        ali {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 7]
+        }
+        anzhi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 8]
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 9]
+        }
+        sogou {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 10]
+        }
+
+        qihu360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 11]
+        }
+
+        yingyongbao {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 12]
+        }
+        lenovo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 13]
+        }
+        pc6 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 14]
+        }
+
+        pconline {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 16]
+        }
+
+        jifeng {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 18]
+        }
+
+        huanxi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: 100]
+        }
+    }
+
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+repositories {
+    flatDir {
+        dirs 'libs', '../adpoymer/libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["support-v4"]
+    implementation rootProject.ext.dependencies["design"]
+    implementation rootProject.ext.dependencies["recyclerview"]
+    implementation rootProject.ext.dependencies["baseRecyclerViewAdaperHelper"]
+    implementation rootProject.ext.dependencies["statusBarUtils"]
+    implementation rootProject.ext.dependencies["glide"]
+    implementation rootProject.ext.dependencies["butterKnife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    implementation rootProject.ext.dependencies["lottie"]
+    implementation rootProject.ext.dependencies["easyRefreshLayout"]
+    implementation rootProject.ext.dependencies["flowLayout"]
+    implementation rootProject.ext.dependencies["viewpagerIndicator"]
+    implementation rootProject.ext.dependencies["videoPlayer"]
+    implementation rootProject.ext.dependencies["circleImageView"]
+    implementation rootProject.ext.dependencies["datePicker"]
+    implementation rootProject.ext.dependencies["circleProgressBar"]
+    implementation rootProject.ext.dependencies["RxPermission"]
+    implementation project(':rxretrofitlibrary')
+    /*rx-android-java*/
+    //极光
+    // 此处以JPush 3.1.1 版本为例。
+    // 此处以JCore 1.1.9 版本为例。
+//    implementation files('libs/GDTUnionSDK.4.16.564.min.jar')
+//    implementation files('libs/android-query-full.0.26.7.jar')
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    //没有使用特殊Header，可以不加这行
+    implementation rootProject.ext.dependencies["rebound"]
+    implementation 'cn.jiguang.sdk:jpush:3.1.1'
+    implementation 'cn.jiguang.sdk:jcore:1.1.9'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.tuia:sdk:2.2.5'
+    implementation 'com.umeng.sdk:common:latest.integration'
+    implementation 'com.umeng.sdk:analytics:latest.integration'
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.3.5'
+    // 指定tinker依赖版本（注：应用升级1.3.5版本起，不再内置tinker）
+    implementation 'com.tencent.tinker:tinker-android-lib:1.9.6'
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    implementation 'me.yokeyword:fragmentation:1.3.2'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+    implementation 'com.android.support:multidex:1.0.0'
+    implementation files('libs/core-3.2.1.jar')
+    implementation 'com.android.support:percent:27.1.1'
+    // 简化版 Adapter
+    implementation 'me.drakeet.multitype:multitype:3.4.4'
+    //    // RxJava 2
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.12'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    // RxBinding
+    implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.1.1'
+    implementation(name: 'open_ad_sdk', ext: 'aar')
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+//    implementation files('libs/Baidu_MobAds_SDK.jar')
+    implementation 'com.facebook.fresco:fresco:1.9.0'
+    implementation 'com.facebook.fresco:animated-gif:1.9.0'
+
+    //adhub广告
+    implementation(name: 'adhub_sdk_2.2.2', ext: 'aar')
+    implementation(name: 'open_ad_sdk', ext: 'aar')
+    implementation(name: 'adpoymer', ext: 'aar')
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+}

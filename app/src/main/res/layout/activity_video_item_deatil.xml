@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--//这里是视频详情页面；-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <!--这里是视频的播放器；-->
+            <com.huanxi.renrentoutiao.ui.view.MyVideoPlayer
+                android:id="@+id/videoplayer"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <!--这里是添加一个广告的操作-->
+            <FrameLayout
+                android:id="@+id/fl_ads"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <FrameLayout
+                    android:id="@+id/fl_ad_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/skip_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="right"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/shape_darker_gray_rectangle"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    />
+            </FrameLayout>
+
+        </FrameLayout>
+
+
+        <!--中间的部分-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/fl_comment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_pro"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="bottom"
+                android:visibility="gone">
+
+                <com.huanxi.renrentoutiao.ui.view.CircleImageView
+                    android:id="@+id/img_pro_box"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@mipmap/icon_read_progress_close"
+                    android:layout_gravity="center"/>
+
+                <com.huanxi.renrentoutiao.ui.view.RoundProgressBar
+                    android:id="@+id/pb_read_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:chargingColor="@color/white_t"
+                    app:defaultRoundColor="@color/textColorPrimary"
+                    app:electriTextColor="@color/white_color"
+                    app:electriTextSize="13sp"
+                    app:max="100"
+                    app:percenTextColor="@color/white_color"
+                    app:percenTextSize="14sp"
+                    app:roundProgressColor="@color/color_blue"
+                    app:roundWidth="5dp" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <include
+            layout="@layout/layout_common_comment"
+            android:visibility="visible"
+            />
+
+    </LinearLayout>
+
+
+    <com.huanxi.renrentoutiao.ui.view.ReadArticleAwaryView
+        android:id="@+id/award_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="-100dp"
+        android:alpha="0"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        >
+
+    </com.huanxi.renrentoutiao.ui.view.ReadArticleAwaryView>
+
+</FrameLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_color"
+    >
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="    人人头条是人人都爱用的新闻、短视频浏览赚钱神器。\n
+    通过汇聚全网资讯，利用大数据及人工智能，根据您的喜好，为您精准推荐新闻、短视频资讯，助您实时关注国内及世界各地发生的新鲜事儿。汇集八方信息，知晓世间百态，一网打尽您的资讯需求。\n
+    在您浏览新闻的同时，人人头条还为您提供了各种赚钱的新手、日常任务，边看新闻边赚金币，在您知晓天下大事的同时可以坐享收益，一举两得。"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="16sp"
+        android:lineSpacingMultiplier="1.2"
+        />
+
+
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--这里是相关推荐的条目；-->
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@style/newsItemBaseStyle"
+        >
+
+        <ImageView
+            android:id="@+id/iv_news_img"
+            android:layout_width="110dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center_vertical"
+            android:src="@color/defaultImgColor"
+            android:layout_marginRight="12dp"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_news_title"
+                style="@style/newsItemImgOneTextTitleStyle"
+                />
+
+            <include layout="@layout/layout_news_bottom"></include>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/home_item_divider_color"
+        />
+
+
+</LinearLayout>

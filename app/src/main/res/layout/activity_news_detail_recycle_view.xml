@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.huanxi.renrentoutiao.ui.activity.news.NewsDetailRecycleViewActivity">
+
+        <RelativeLayout
+            android:id="@+id/rl_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+
+            <com.huanxi.renrentoutiao.ui.view.loading.SimpleMultiStateView
+                android:id="@+id/SimpleMultiStateView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/refreshLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srlAccentColor="#999"
+                    app:srlPrimaryColor="#e7e9ee"
+                    app:srlFixedHeaderViewId="@+id/profile"
+                    app:srlEnablePreviewInEditMode="false">
+
+                    <com.huanxi.renrentoutiao.ui.view.refresh.MyClassicsHeader
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srlClassicsSpinnerStyle="FixedBehind"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                    <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srlClassicsSpinnerStyle="FixedBehind"
+                        />
+                </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+            </com.huanxi.renrentoutiao.ui.view.loading.SimpleMultiStateView>
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:padding="0dp"
+                android:layout_marginBottom="50dp"
+                android:minHeight="0dp"
+                android:progressDrawable="@drawable/layer_read_progress"
+                android:max="100"
+                android:visibility="gone"
+                />
+
+            <FrameLayout
+                android:id="@+id/fl_pro"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="10dp"
+                android:visibility="gone">
+
+                <com.huanxi.renrentoutiao.ui.view.CircleImageView
+                    android:id="@+id/img_pro_box"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@mipmap/icon_read_progress_close"
+                    android:layout_gravity="center"/>
+
+                <com.huanxi.renrentoutiao.ui.view.RoundProgressBar
+                    android:id="@+id/pb_read_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:chargingColor="@color/white_t"
+                    app:defaultRoundColor="@color/textColorPrimary"
+                    app:electriTextColor="@color/white_color"
+                    app:electriTextSize="13sp"
+                    app:max="100"
+                    app:percenTextColor="@color/white_color"
+                    app:percenTextSize="14sp"
+                    app:roundProgressColor="@color/color_blue"
+                    app:roundWidth="5dp" />
+
+            </FrameLayout>
+
+            <include
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                layout="@layout/layout_news_detail_notify"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/home_item_divider_color"
+            />
+
+        <include
+            layout="@layout/layout_common_comment"
+            android:visibility="visible"
+            />
+
+    </LinearLayout>
+
+    <com.huanxi.renrentoutiao.ui.view.ReadArticleAwaryView
+        android:id="@+id/award_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="-100dp"
+        android:alpha="0"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:visibility="visible">
+
+    </com.huanxi.renrentoutiao.ui.view.ReadArticleAwaryView>
+
+</FrameLayout>
+

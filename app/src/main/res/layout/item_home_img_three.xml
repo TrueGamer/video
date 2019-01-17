@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white_color"
+    android:maxHeight="165dp"
+    android:minHeight="140dp"
+    >
+
+    <!-- 这里是三图的条目样式；-->
+    <TextView
+        android:id="@+id/tv_news_title"
+        style="@style/newsItemTitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/ll_img_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tv_news_title"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_img1"
+            style="@style/newsItemThreeImgStyple"
+            />
+
+        <ImageView
+            android:id="@+id/iv_img2"
+            style="@style/newsItemThreeImgStyple"
+            android:layout_marginRight="6dp"
+            android:layout_marginLeft="6dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_img3"
+            style="@style/newsItemThreeImgStyple"
+            />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/bottom_comment"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        layout="@layout/layout_news_bottom"
+        android:layout_marginTop="5dp"
+        android:layout_alignLeft="@+id/ll_img_container"
+        android:layout_alignStart="@+id/ll_img_container"
+        android:layout_below="@id/ll_img_container"
+        android:layout_marginRight="10dp"
+        />
+
+    <View
+        android:layout_below="@id/bottom_comment"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/home_item_divider_color"
+        android:id="@+id/view"
+        android:layout_marginTop="5dp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/color_half"
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_login"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@drawable/shape_rectangle_login_gray_bg"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal"
+        >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="福利"
+            android:textColor="@color/text_light_black"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d0cfcf"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首次登陆立即可以获取"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/text_light_black"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1000金币"
+            android:textSize="25sp"
+            android:textColor="@color/base_color_blue"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"
+            />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d0cfcf"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_login_gold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="人人头条详情查看"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:textColor="#757575"
+                />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                style="@style/userOperationItemIndicatorStyle_v1"
+                android:layout_marginRight="0dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d0cfcf"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="立即微信登陆"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white_color"
+            android:gravity="center"
+            android:background="@drawable/shape_bg_login_green_button"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_login_dialog_close"
+        android:layout_marginTop="20dp"
+        />
+
+
+</LinearLayout>

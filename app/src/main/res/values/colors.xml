@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/red_color</color>
+    <color name="colorPrimaryDark">@color/red_color</color>
+    <color name="colorAccent">@color/red_color</color>
+
+    <!--tab的文字的颜色-->
+    <color name="main_tab_text_checked_color">#FF000000</color>
+    <color name="main_tab_text_normal_color">#999999</color>
+
+    <color name="dialog_bg">#33999999</color>
+
+   <!-- 首页tab切换；-->
+    <color name="home_tab_checked_color">#FF000000</color>
+    <color name="home_tab_normal_color">#999999</color>
+    <color name="home_tab_divider_color">#cdcdcd</color>
+
+    
+    <color name="text_gray">#999999</color>
+    <color name="text_gray_c3c3c3">#c3c3c3</color>
+    <color name="text_black">#222222</color>
+    <color name="text_light_black">#333333</color>
+    <color name="text_light_black_666">#666666</color>
+    <color name="text_light_black_777">#777777</color>
+    <color name="text_light_black_999">#999999</color>
+
+    <color name="status_bar_color">#bdbdbd</color>
+
+    <color name="message_text_desc_gray">#5b5858</color>
+
+    <color name="home_item_divider_color">#e8e8e8</color>
+
+
+    <color name="red_color">#dd4449</color>
+    <color name="white_color">@android:color/white</color>
+
+    
+    <color name="money_detail_text_gray">#ecb1b3</color>
+
+    <color name="tab_indicator_main_text_checked_color">#FF000000 </color>
+    <color name="user_ranking_bg">#be2836</color>
+    
+    
+    <color name="base_color_orange">#ff7c34</color>
+    <color name="base_color_blue">#3577ff</color>
+    <color name="color_blue">#0099ff</color>
+
+    <!--用户相关的颜色配置信息-->
+    <color name="user_id_txt_color">#f8e6e7</color>
+    <color name="user_icon_border_color">#dc8085</color>
+    <color name="user_item_horizontal_divider_color">#ececec</color>
+    <color name="user_item_vetical_divider_color">#e5eeed</color>
+    <color name="user_item_horizontal_divider_color_bg">#f1f1f1</color>
+
+    <color name="task_content_bg_color">#f2f2f2</color>
+
+    <color name="task_text_gold_color">#fb9a00</color>
+
+    <color name="signed_color_bg">#ffcb4e</color>
+    <color name="sign_day_gray_text_color">#b2b2b2</color>
+    <color name="sign_day_black_text_color">#666666</color>
+
+
+    <color name="task_title_color_bg">#f1f1f1</color>
+
+    <!--//积分商城的bg-->
+    <color name="intergral_shop_gray_bg">#f1f1f1</color>
+
+    <!--提现的样式；-->
+    <color name="withdrawals_divider_color">#eaeaea</color>
+    <color name="withdrawals_gold_coin_checked">#ef9b01</color>
+
+
+    <color name="withdrawals_record_divider_color">#ececed</color>
+
+    <color name="withdrawals_record_state_success">#5cb85c</color>
+    <color name="withdrawals_record_state_doing">#ec6941</color>
+    <color name="withdrawals_record_state_failed">@color/text_light_black_666</color>
+
+
+    <color name="comment_link_bg_color">#f4f4f4</color>
+    <color name="comment_link_text_color">#7e8993</color>
+
+    <color name="invite_divider_color">#ededed</color>
+    <color name="invite_gray_bg_color">#f6f6f6</color>
+    <color name="invite_blue_color">#3577ff</color>
+    <color name="invite_font_red_color">#df484a</color>
+
+
+    <color name="search_gray_bg">#f1f1f1</color>
+    <color name="search_recomment_gray_bg">#f4f4f4</color>
+    <color name="search_history_divide_color">#dedede</color>
+
+
+    <color name="dialog_red_pack_button_bg_color">#fde33f</color>
+    <color name="dialog_red_pack_button_text_color">#602a2a</color>
+    <color name="dialog_red_pack_number_text_color">#fff600</color>
+
+    <color name="defaultImgColor">#e9e9e9</color>
+
+    <color name="tab_view_page_divider_color">#dbd2d2</color>
+
+    <!-- v1版本用户界面所用颜色 -->
+    <color name="color_ff7e34">#ff7e34</color>
+    <color name="color_fb7c53">#fb7c53</color>
+    <color name="color_19bf5c">#19bf5c</color>
+    <color name="color_ffffff">#ffffff</color>
+    <color name="color_f29f01">#f29f01</color>
+    <color name="color_fde41c">#fde41c</color>
+    <color name="transparent">#00ffffff</color>
+
+    <color name="Grey50">#FAFAFA</color>
+    <color name="Grey100">#F5F5F5</color>
+    <color name="Grey200">#EEEEEE</color>
+    <color name="Grey300">#E0E0E0</color>
+    <color name="Grey400">#bdbdbd</color>
+    <color name="Grey500">#9e9e9e</color>
+    <color name="Grey600">#757575</color>
+    <color name="Grey700">#616161</color>
+    <color name="Grey800">#424242</color>
+    <color name="Grey900">#212121</color>
+    <color name="textColorPrimary">#616161</color>
+    <color name="line_divider">@color/Grey300</color>
+    <color name="viewBackground_night">#212a2f</color>
+    <color name="viewBackground">@android:color/white</color>
+    <color name="gray">#9cffffff</color>
+    <color name="white_t">#00ffffff</color>
+    <color name="color_d9">#dad9d9</color>
+    
+    <color name="color_69">#696c6c</color>
+    <color name="color_e2">#e25c56</color>
+    <color name="color_cc">#cccfcf</color>
+
+    <color name="color_half">#0fffffff</color>
+
+    <color name="grey">#cdcdcd</color>
+</resources>

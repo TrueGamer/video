@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    >
+
+
+    <FrameLayout
+        android:background="@drawable/bg_dialog_sign_success_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/tv_current_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前899金币"
+            android:layout_gravity="bottom|center_horizontal"
+            android:textSize="18sp"
+            android:layout_marginBottom="65dp"
+            android:textColor="#999999"
+            />
+        <TextView
+            android:id="@+id/tv_get_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:text="+5金币"
+            android:layout_marginBottom="30dp"
+            android:textSize="18sp"
+            android:textColor="#999999"
+            />
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_dialog_sign_close"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        />
+
+</LinearLayout>

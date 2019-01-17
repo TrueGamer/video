@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red_color"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/statusbar_view_height"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            >
+            <TextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/left_white_back"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/white_color"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="晒收入"
+                android:textColor="@color/white_color"
+                android:textSize="18sp"
+
+                />
+        </RelativeLayout>
+
+        <!--这里是晒收入的界面；-->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="280dp"
+            android:layout_height="400dp"
+            android:background="@drawable/bg_exposure_income"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:paddingTop="90dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的人人头条赚了"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/text_black"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200元"
+                android:layout_gravity="center_horizontal"
+                android:textSize="25sp"
+                android:textColor="@color/red_color"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@color/red_color"
+                android:layout_marginTop="10dp"
+                />
+            <android.support.v4.widget.Space
+                android:layout_width="1px"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="或者在各大应用市场搜索(人人头条)下载，登陆后输入邀请码领取大奖"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/text_black"
+                android:lineSpacingMultiplier="1.2"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="50dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_wechat_comment"
+                style="@style/share_item_style"
+                >
+
+                <ImageView
+                    style="@style/share_icon_style"
+                    android:src="@drawable/icon_wechat_comment"
+                    />
+                <TextView
+
+                    android:text="朋友圈"
+                    style="@style/share_text_style"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_wechat_friend"
+                style="@style/share_item_style"
+                >
+
+                <ImageView
+                    style="@style/share_icon_style"
+                    android:src="@drawable/icon_friend"
+                    />
+                <TextView
+                    style="@style/share_text_style"
+                    android:text="好友"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

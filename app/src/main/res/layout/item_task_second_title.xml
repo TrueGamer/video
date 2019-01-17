@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:orientation="vertical"
+    >
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/home_tab_divider_color"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <!--任务的二级标题-->
+
+        <CheckBox
+            android:id="@+id/cb_is_complete"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/selector_task_indicator_bg"
+            android:button="@null"
+            android:clickable="false"
+            android:focusable="false"
+            />
+
+        <TextView
+            android:id="@+id/tv_task_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="新手阅读"
+            android:textColor="@color/text_light_black"
+            android:textSize="14sp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_task_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="+4500"
+            android:textColor="@color/base_color_orange"
+            android:layout_marginLeft="20dp"
+            android:textSize="13sp"
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/icon_item_task_gold"
+            android:layout_marginLeft="5dp"
+            />
+
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="20dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_arrow_down"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

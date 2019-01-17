@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">人人头条</string>
+
+    <!-- 状态视图  -->
+    <string name="loading">加载中...</string>
+    <string name="text_empty">暂无相关数据!</string>
+    <string name="text_nonet">网络出现故障~</string>
+    <string name="text_retry">点击重试</string>
+
+
+    <string name="main_tab_name_home">看点</string>
+    <string name="main_tab_name_video">视频</string>
+    <string name="main_tab_name_apprentice">收徒</string>
+    <string name="main_tab_task">任务</string>
+    <string name="main_tab_name_user">我的</string>
+    <string name="main_tab_name_picture">美图</string>
+    <string name="main_tab_name_rrh">人人号</string>
+
+
+    <item name="tag_adapter" type="id"></item>
+    <item name="tag_linearlayou_manager" type="id"></item>
+
+    <string name="network_error">网络不给力</string>
+    <string name="media_hint_desc">头条号订阅为空</string>
+
+    <string name="button_allow">允许</string>
+    <string name="button_deny">拒绝</string>
+    <string name="button_enter">确定</string>
+    <string name="button_cancel">取消</string>
+    <string name="action_share">分享</string>
+    <string name="share_to">分享</string>
+    <string name="subscribe">订阅</string>
+
+    <string name="error">发生错误</string>
+    <string name="no_more_content">暂无更多内容</string>
+
+    <string name="timeCountTip1">认真阅读，满<font color='#3577ff'>30</font>秒即可获得1次金币奖励</string>
+    <string name="timeCountTip2">每人每天可获得约<font color='#3577ff'>30</font>篇阅读奖励</string>
+    <string name="timeCountTip3">文章/视频分享后被阅读，奖励随机金币/阅读</string>
+    <string name="timeCountTip4">仔细阅读还能发现隐藏在页面里的<font color='#3577ff'>随机红包</font>哦</string>
+    <string name="timeCountTip5">仔细阅读浏览到<font color='#3577ff'>页面底部</font>才可以得到金币哦</string>
+    <string name="timeCountTip6">收徒奖励：徒弟上供<font color='#3577ff'>100%</font></string>
+    <string name="timeCountTip7">每篇文章仅能获得1次奖励，重复阅读无奖励</string>
+
+    <string name="tv_tx_money">可提现金额:</string>
+    <string name="tv_tx_wxts">温馨提示</string>
+    <string name="tv_tx_wxts_sm">\t\t\t\t10元以内小额提现秒到账，10元及以上大额提现3个工作日内到账</string>
+
+    <string name="tv_tx_alipay">支付宝</string>
+    <string name="tv_tx_wechat">微信</string>
+    <string name="tv_tx_zwkt">暂未开通</string>
+
+    <string name="tv_bdwx">绑定微信 :</string>
+    <string name="tv_tx_alipay_ts">请输入账号对应的真实姓名</string>
+    <string name="tv_tx_wechat_ts">请填写微信实名身份证上的姓名</string>
+
+    <string name="tv_tx_sqtx">申请提现</string>
+    <string name="withdraw_num" >剩%1$d份</string>
+
+    <string name="load_yw" formatted="false">
+          <![CDATA[
+          <font color=#c6c6c6>— 该页面已由%1$s优化 </font>
+          <font color=#CECEFF>查看原文</font>
+          <font color=#c6c6c6> —</font>
+          ]]>
+    </string>
+</resources>

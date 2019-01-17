@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="17dp"
+    android:background="@color/white_color"
+    >
+
+
+    <TextView
+        android:id="@+id/tv_questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="问：我的头条不能刷新加载怎么办"
+        android:lineSpacingMultiplier="1.2"
+        android:textSize="16sp"
+        android:textColor="@color/text_black"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="答：你好，请先在您的头条App设置处，清理缓存，关机重启试一试，如仍有问题，请先在您的头条"
+        android:lineSpacingMultiplier="1.2"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/home_tab_divider_color"
+        android:layout_marginTop="20dp"
+        />
+
+</LinearLayout>

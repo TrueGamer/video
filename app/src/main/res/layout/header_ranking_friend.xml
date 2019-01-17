@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shape_bg_header_invite_friend"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <!--这里是好友排名的一个头部的-->
+        <!--邀请好友的排名-->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="排名"
+            android:textColor="@color/white_color"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:gravity="left"
+            android:text="昵称"
+            android:textColor="@color/white_color"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="贡献金币数"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white_color"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+

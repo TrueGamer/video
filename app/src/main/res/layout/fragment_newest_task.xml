@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nsv_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#19a3ff"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    >
+
+    <!-- //这里是title的一个过程；-->
+
+    <LinearLayout
+        android:id="@+id/ll_task_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:skin="http://schemas.android.com/android/skin"
+            android:id="@+id/fake_status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/statusbar_view_height"
+            android:background="#19a3ff"
+            android:fitsSystemWindows="true"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            >
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/icon_back_task_new"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="任务中心"
+                android:textColor="@color/white_color"
+                android:textSize="18sp"
+                />
+
+
+            <ImageView
+                android:id="@+id/iv_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="15dp"
+                android:src="@drawable/icon_task_question"
+                />
+
+        </RelativeLayout>
+
+
+        <!--这里是签到的头部；-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/shape_task_new_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            >
+
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/icon_blue_sign"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_sign_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="今日还未签到"
+                    android:textColor="@color/base_color_orange"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="连续签到领取更多奖励"
+                    android:textSize="12sp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/selector_bg_sign_new"
+                android:enabled="true"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:paddingTop="8dp"
+                android:text="签到+5金币"
+                android:textColor="@color/selector_sign_award_text_color"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            >
+
+            <FrameLayout
+                android:id="@+id/fl_open_red_packet"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                >
+
+
+                <ImageView
+                    android:id="@+id/iv_red_packet_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_task_new_bg"
+                    android:src="@drawable/bg_task_red_packet_waiting"
+                    android:padding="13dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_open_red_pack_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:textColor="@color/white_color"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="25dp"
+                    android:visibility="visible"
+                    />
+
+            </FrameLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_gold_game"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_task_new_bg"
+                android:src="@drawable/bg_gold_game"
+                android:paddingBottom="10dp"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.huanxi.renrentoutiao.ui.activity.news.search.SearchActivity">
+
+    <include
+        layout="@layout/view_status_re"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            >
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:padding="6dp"
+                android:src="@drawable/ic_read_back"
+                />
+
+
+            <EditText
+                android:id="@+id/ev_search"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@drawable/shape_search_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:textColorHint="@color/text_light_black_666"
+                android:textSize="12sp"
+                android:visibility="visible"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_back"
+                android:layout_weight="1"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="10dp"
+                android:text="搜索"
+                android:textColor="@color/text_light_black"
+                android:paddingLeft="10dp"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#e6e6e6"
+            />
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fl_serach_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+
+</LinearLayout>

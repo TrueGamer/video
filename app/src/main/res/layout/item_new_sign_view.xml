@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--这里是新的签到的页面；-->
+
+    <com.huanxi.renrentoutiao.ui.view.sign.SmallSignView
+        android:id="@+id/ssv_sign_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
+
+    </com.huanxi.renrentoutiao.ui.view.sign.SmallSignView>
+
+
+</LinearLayout>

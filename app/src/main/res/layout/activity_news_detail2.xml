@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- //这里我们获取的得到新闻详情页面；-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_read_back"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/iv_back"
+            android:visibility="gone">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_icon_user"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/img_user_icon"
+                app:civ_border_color="@color/user_icon_border_color"
+                />
+
+            <TextView
+                android:id="@+id/tv_topname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/iv_icon_user"
+                android:layout_marginLeft="8dp"
+                android:layout_toEndOf="@+id/iv_icon_user"
+                android:text="荆楚网"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/tv_TopUpdateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_icon_user"
+                android:layout_marginLeft="8dp"
+                android:layout_toEndOf="@+id/iv_icon_user"
+                android:text="6小时前"
+                android:textColor="#989898"
+                android:textSize="@dimen/sp_12"
+                />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="菜单"
+            android:textColor="@color/text_light_black"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#e6e6e6"
+            />
+    </RelativeLayout>
+
+
+    <com.huanxi.renrentoutiao.ui.view.loading.SimpleMultiStateView
+        android:id="@+id/SimpleMultiStateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.ajguan.library.EasyRefreshLayout
+            android:id="@+id/erl_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ListView
+                    android:id="@+id/lv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </ListView>
+
+                <include
+                    android:id="@+id/ll_empty"
+                    layout="@layout/view_empty"
+                    />
+            </LinearLayout>
+
+        </com.ajguan.library.EasyRefreshLayout>
+
+    </com.huanxi.renrentoutiao.ui.view.loading.SimpleMultiStateView>
+</LinearLayout>
+

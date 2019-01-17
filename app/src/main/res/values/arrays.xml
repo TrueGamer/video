@@ -1,0 +1,103 @@
+<resources>
+
+
+    <string-array name="channel">
+        <item>oppo</item>
+        <item>vivo</item>
+        <item>魅族</item>
+        <item>小米</item>
+        <item>华为</item>
+        <item>金立</item>
+        <item>阿里</item>
+        <item>安智</item>
+        <item>百度</item>
+        <item>搜狗</item>
+        <item>360</item>
+        <item>腾讯应用宝</item>
+        <item>联想</item>
+        <item>PC6</item>
+        <item>乐视</item>
+        <item>太平洋</item>
+        <item>友盟</item>
+        <item>机锋</item>
+        <item>木蚂蚁</item>
+        <item>应用汇</item>
+        <item>爱奇艺</item>
+        <item>锤子</item>
+        <item>人人</item>
+    </string-array>
+
+
+    <!--加载的动画；-->
+    <string-array name="loading_anim">
+
+        <item>@drawable/loading00000</item>
+        <item>@drawable/loading00001</item>
+        <item>@drawable/loading00002</item>
+        <item>@drawable/loading00003</item>
+        <item>@drawable/loading0004</item>
+        <item>@drawable/loading00005</item>
+        <item>@drawable/loading00006</item>
+        <item>@drawable/loading00007</item>
+        <item>@drawable/loading00008</item>
+        <item>@drawable/loading00009</item>
+        <item>@drawable/loading00011</item>
+        <item>@drawable/loading00012</item>
+        <item>@drawable/loading00013</item>
+        <item>@drawable/loading00014</item>
+        <item>@drawable/loading00015</item>
+        <item>@drawable/loading00016</item>
+        <item>@drawable/loading00017</item>
+        <item>@drawable/loading00018</item>
+        <item>@drawable/loading00019</item>
+        <item>@drawable/loading00020</item>
+        <item>@drawable/loading00021</item>
+        <item>@drawable/loading00022</item>
+        <item>@drawable/loading00023</item>
+        <item>@drawable/loading00024</item>
+        <item>@drawable/loading00025</item>
+        <item>@drawable/loading00026</item>
+        <item>@drawable/loading00027</item>
+        <item>@drawable/loading00028</item>
+        <item>@drawable/loading00029</item>
+        <item>@drawable/loading00030</item>
+        <item>@drawable/loading00031</item>
+        <item>@drawable/loading00032</item>
+        <item>@drawable/loading00033</item>
+        <item>@drawable/loading00035</item>
+    </string-array>
+
+
+    <!--下拉刷新的动画-->
+    <string-array name="refresh_anim">
+
+        <item>@drawable/refresh_00000</item>
+        <item>@drawable/refresh_00001</item>
+        <item>@drawable/refresh_00002</item>
+        <item>@drawable/refresh_00003</item>
+        <item>@drawable/refresh_00004</item>
+        <item>@drawable/refresh_00005</item>
+        <item>@drawable/refresh_00006</item>
+        <item>@drawable/refresh_00007</item>
+        <item>@drawable/refresh_00008</item>
+        <item>@drawable/refresh_00009</item>
+        <item>@drawable/refresh_00010</item>
+        <item>@drawable/refresh_00011</item>
+        <item>@drawable/refresh_00012</item>
+        <item>@drawable/refresh_00013</item>
+        <item>@drawable/refresh_00014</item>
+        <item>@drawable/refresh_00015</item>
+        <item>@drawable/refresh_00016</item>
+        <item>@drawable/refresh_00017</item>
+        <item>@drawable/refresh_00018</item>
+        <item>@drawable/refresh_00019</item>
+        <item>@drawable/refresh_00020</item>
+        <item>@drawable/refresh_00021</item>
+        <item>@drawable/refresh_00022</item>
+        <item>@drawable/refresh_00023</item>
+        <item>@drawable/refresh_00024</item>
+
+    </string-array>
+
+
+</resources>

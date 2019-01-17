@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_profit_detail"
+    tools:context="com.huanxi.renrentoutiao.ui.activity.user.IntergralShopActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_income"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_rectangle_white_bg"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+        <ImageView
+            android:id="@+id/iv_exposure_income"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/icon_exposure_income"
+            />
+
+
+
+    </FrameLayout>
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_ads"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</FrameLayout>

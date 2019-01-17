@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants">
+
+    <!--微头条列表-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <com.huanxi.renrentoutiao.ui.view.CircleImageView
+            android:id="@+id/cImg_mediaUserIcon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/tv_mediaAttention"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/img_close"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
+            android:text="关注"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tv_mediaAttention"
+            android:layout_toRightOf="@id/cImg_mediaUserIcon"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_mediaUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_mediaRes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_mediaContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:maxLines="3"
+        android:ellipsize="end"/>
+
+    <ImageView
+        android:id="@+id/img_mediaPicOne"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"/>
+
+    <com.huanxi.renrentoutiao.ui.view.MyGridView
+        android:id="@+id/mGv_mediaPicTwo"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:numColumns="2"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="3dp"
+        android:visibility="gone"/>
+
+    <com.huanxi.renrentoutiao.ui.view.MyGridView
+        android:id="@+id/mGv_mediaPic"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:numColumns="3"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="3dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_zhuanfa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="21"
+            android:drawableLeft="@drawable/icon_w_zhuanfa"/>
+
+        <TextView
+            android:id="@+id/tv_pinglun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="25"
+            android:drawableLeft="@drawable/icon_w_pinglun"/>
+
+        <TextView
+            android:id="@+id/tv_zan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="170"
+            android:drawableLeft="@drawable/icon_w_zan"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <Button
+        android:id="@+id/btn_test4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启Test4"
+        />
+
+    <!--    //这里对其添加一个动画；-->
+
+<Button
+    android:id="@+id/btn_rotate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="分享到朋友圈"
+    />
+
+    <Button
+        android:id="@+id/btn_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="分享到微信"
+        android:visibility="visible"
+        />
+
+    <ImageView
+        android:id="@+id/iv_ad_img"
+        android:layout_width="500px"
+        android:layout_height="250px"
+        />
+
+</LinearLayout>

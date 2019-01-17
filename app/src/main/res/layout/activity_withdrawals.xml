@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_color"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context="com.huanxi.renrentoutiao.ui.activity.user.WithdrawalsActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="14sp"
+        android:text="可提现金额(元)"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/text_light_black_666"
+        />
+    <TextView
+        android:id="@+id/tv_can_withdrawals_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="28sp"
+        android:text="$155.2"
+        android:textColor="@color/red_color"
+        android:layout_marginBottom="20dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/withdrawals_divider_color"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+
+        >
+
+        <TextView
+            style="@style/withdrawals_input_text_style"
+            android:text="支付宝账号"
+            />
+
+        <EditText
+            android:id="@+id/et_pay_username"
+            style="@style/withdrawals_input_edittext_style"
+            android:hint="请输入邮箱、手机号格式账号"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/withdrawals_divider_color"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+
+        >
+
+        <TextView
+            android:text="姓名"
+            style="@style/withdrawals_input_text_style"
+            />
+
+        <EditText
+            android:id="@+id/et_real_name"
+            style="@style/withdrawals_input_edittext_style"
+            android:hint="请输入账号对应的真实姓名"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/withdrawals_divider_color"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        >
+
+        <TextView
+
+            android:text="手机号"
+            style="@style/withdrawals_input_text_style"
+            />
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            style="@style/withdrawals_input_edittext_style"
+            android:hint="请输入手机号"
+            />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/withdrawals_divider_color"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+
+        >
+
+        <TextView
+
+            android:text="提现金额"
+            style="@style/withdrawals_input_text_style"
+            />
+
+        <EditText
+            android:id="@+id/et_withdrawals_money"
+            android:hint="1元起提"
+            style="@style/withdrawals_input_edittext_style"
+            />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/withdrawals_divider_color"
+        />
+
+    <TextView
+        android:id="@+id/tv_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_button_update"
+        android:gravity="center"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp"
+        android:text="申请提现"
+        android:textSize="18sp"
+        android:textColor="@color/white_color"
+        />
+
+</LinearLayout>

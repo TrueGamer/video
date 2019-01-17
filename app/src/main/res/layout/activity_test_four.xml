@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/shape_rectangle_darker_gray_bg"
+    >
+
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.huanxi.renrentoutiao.ui.activity.TestFourActivity">
+
+        <!--这里实现帧动画；-->
+
+        <Button
+            android:id="@+id/btn_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点我"
+            />
+
+        <Button
+            android:id="@+id/btn_get_all_package"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取所有的包名"
+            />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="启动应用宝"
+            />
+
+        <Button
+            android:id="@+id/btn_start_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载网页"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22222222"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2222323232"
+            />
+
+        <Button
+            android:id="@+id/btn_synthesis_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点我合成图片并显示"
+            />
+
+        <Button
+            android:id="@+id/btn_red_pack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="红包"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btn_play_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击1"
+            />
+        <Button
+            android:id="@+id/btn_play_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击2"
+            />
+        <Button
+            android:id="@+id/btn_play_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击3"
+            />
+        <Button
+            android:id="@+id/btn_play_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击4"
+            />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_img_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/iv_img_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/iv_img_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/iv_img_four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlAccentColor="#999"
+        app:srlPrimaryColor="#e7e9ee"
+        app:srlFixedHeaderViewId="@+id/profile"
+        app:srlEnablePreviewInEditMode="false"
+        android:visibility="gone"
+        >
+
+        <com.huanxi.renrentoutiao.ui.view.refresh.MyClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlClassicsSpinnerStyle="FixedBehind"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlClassicsSpinnerStyle="FixedBehind"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+
+</LinearLayout>
+

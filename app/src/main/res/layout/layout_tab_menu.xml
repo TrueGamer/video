@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/white_color"
+    >
+
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="50dp"
+        android:layout_height="46dp"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:src="@drawable/icon_tab_menu_add"
+        android:background="@drawable/bg_tab_menu_add_new"
+        android:layout_gravity="right"
+        />
+
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/magic_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_toLeftOf="@id/iv_add"
+        android:layout_weight="1"
+        android:overScrollMode="never"
+        />
+
+    <!--app:tabMaxWidth="50dp"-->
+
+
+</RelativeLayout>
+

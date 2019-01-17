@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_popwindow_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+    <!--详情的通知栏的布局的一个操作；-->
+
+    <RelativeLayout
+        android:id="@+id/rl_pop_window"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_news_detail_notify"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_title_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            >
+
+            <TextView
+                android:id="@+id/tv_pop_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信登陆领1000金币"
+                />
+
+            <TextView
+                android:id="@+id/tv_pop_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="海量任务、限时红包、边看边赚"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_news_detail_right_arrow"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/ll_title_container"
+            android:layout_marginLeft="5dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_news_detail_notify_close"
+            android:paddingTop="12dp"
+            android:paddingRight="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

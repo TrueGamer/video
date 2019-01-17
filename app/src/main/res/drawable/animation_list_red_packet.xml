@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <!-- 这里是拆红包的动画；-->
+
+<!--    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />
+    <item android:drawable="" android:duration="30" />-->
+
+</animation-list>

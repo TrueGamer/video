@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" cont="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="read.js"></script>
+
+    <script>
+
+        var imgNum = $('img').length;
+        $('img').load(function () {
+            if (!--imgNum) {
+                $("img").each(function (i) {
+
+                    if ($(this).attr('src') == 'image/load.jpg') {
+                        return;
+                    }
+                    //alert($(this).parent().get(0).tagName);
+                    var tagP = $(this).parent().get(0).tagName;
+                    // var toFrontImg = document.getElementsByTagName('img')[i];
+                    if (tagP != 'DIV' && tagP != 'div') {
+                        if (document.body.offsetWidth < this.width * 2) {
+                            $(this).replaceWith("<div align='middle' style='margin: 10px auto 10px; overflow: hidden;text-align: center;'><img class='" + $(this).attr('class') + "' onClick='" + $(this).attr('onClick') + "' width='100%' src='" + this.src + "'/></div>");
+                        }
+                    } else {
+                        if (document.body.offsetWidth < this.width) {
+                            $(this).width(document.body.offsetWidth - 30);
+                        }
+                    }
+                    //
+
+
+                });
+
+                //$("img:not(.zimg)").bind("click", function(e) {clickImg($(this).attr("src"));});
+                $("img").not(".zimg,.click").bind("click", function (e) {
+                    clickImg($(this).attr("src"));
+                });
+            }
+        });
+        var images = '';
+              $("img").each(function (i) {
+
+                if ($('img:last').attr('src') == $(this).attr('src')) {
+                    images += reImgName($(this).attr('src'));
+                } else {
+                    images += reImgName($(this).attr('src')) + ",";
+                }
+
+        });
+
+
+    function reImgName(imgsrc) {
+        if (imgsrc.indexOf("http://") > 0 || imgsrc.indexOf("https://") > 0) {
+            return imgsrc;
+        } else {
+            var strs = new Array();
+            strs = imgsrc.split("/");
+
+            return strs[strs.length - 2] + '/' + strs[strs.length - 1];
+        }
+    }
+    function clickImg(curimg) {
+        var arr = new Array('pause.png', 'play.png', 'zhu.png');
+        if (!Array.indexOf) {
+            Array.prototype.indexOf = function (obj) {
+                for (var i = 0; i < this.length; i++) {
+                    if (this[i] == obj) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+        if (arr.indexOf(curimg) != -1) {
+            return;
+        }
+        if (dataJson.pictozip != '1') {
+
+            curimg = reImgName(curimg);
+        }
+
+
+        window.jscontrolimg.jsFunctionimg(curimg + '|' + images);
+
+    }
+    </script>
+</head>
+<body>
+<style>
+
+img{
+vertical-align:top;border:none
+margin:0;padding:0
+}
+
+body {
+    margin: 3%;
+    color:#202020;
+    text-align: justify;
+    font-family: "Helvetica Neue", "Microsoft Yahei";
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+
+img{
+width:100%;
+max-width: 100%;
+}
+
+p{
+font-size:17px;
+letter-spacing:0px;
+line-height: 1.5em;
+}
+</style>
+<div id="main_content">
+
+<!--<p>美联社报道，1月25日，美国国会召开听证会，邀请前国务卿亨利·基辛格、里根时期国务卿乔治·舒尔茨、老布什时期副国防部长理查德·阿米蒂奇等“肱股老臣”，向他们咨询核武器、中东、与中俄竞争以及新技术带来挑战等问题，希望他们为美国面对的重大问题建言献策。</p><p>作为美国当代影响力最大的外交家，亨利·基辛格在美国政界几乎被当做“先知”，在这次听证会上他说了什么，我们不妨看看。</p><p><img src="http://p0.ifengimg.com/pmop/2018/0127/980422CEE390C7C3D88D55A3CA9A08FF05CFC562_size29_w600_h398.jpeg"></p><p>基辛格、舒尔茨、阿米蒂奇在听证会上（美国《星条旗报》图）</p><p><strong>朝鲜核问题</strong></p><p>基辛格认为，朝鲜如果不弃核，将可能动摇国际核不扩散体系。</p><p>基辛格在听证会上说：“如果朝鲜在未来一段时间内保持军事核能力，这将对核不扩散体系的基础造成动摇。”</p><p>“因为朝鲜能够在中美两国反对，世界其他国家不允许的情况下保持这种能力，其他国家将会感觉这是获得国际重视和主动权的方法。”</p><p>他认为，韩国和日本也会希望获得核武器，“到那时，我们将生活在一个新的世界里……这需要新思维。”基辛格说。</p><p>这种扩散可能会形成一种新的模式，影响美国威慑其他国家避免使用核武器的效果。</p><p>基辛格在证词中说，朝鲜的姿态“是对国际社会和平与安全的最迫切的挑战。”他说，解除朝鲜核武装“必须成为事关根本的目标。”</p><p>不过，基辛格反对在中俄的门口，对朝鲜发起一场单方面的预防性战争。他说，美国很快“就会走到岔路口”，这将需要“虔诚的思考”。</p><p>基辛格说：“运用预防性打击解决问题的欲望会很强，但反对意见更合理。如果美国在中俄身边单方面发动战争，我会感到非常担心，要知道我们在世界上相当重要的这个地区，是得不到支持的。”</p><p>基辛格认为，美国的目标应该是促进中国通过制裁向朝鲜施加压力，迫使其放弃核武器。</p><p>关于朝鲜停止核导试验换取美韩停止军事演习（双暂停）的想法，基辛格认为，这可能会刺激进一步瓦解美国在这一地区的联盟关系（美日、美韩同盟）的要求。</p><p><img height="337" width="600" src="http://p0.ifengimg.com/pmop/2018/0127/1522F6141B3D4DBD2F40A59176BEE473586623CC_size41_w600_h337.jpeg"></p><p>美韩暂停演习，对于解决朝鲜核问题是有利的一步</p><p>“这（双暂停提议）将把‘合法的安全行动’（美韩演习）和联合国安理会几十年来谴责的行动（朝鲜核导开发）画上等号。”基辛格说。</p><p>观察者网军事评论员认为，作为帮助美国走过冷战最困难时期的“老臣”，基辛格在朝核问题上的观点其实是非常“冷战”化的。其基本出发点依然是，把中朝关系和美韩关系对应起来，认为中国应该对朝鲜担负“无限责任”。这种认识其实是不符合冷战后国际关系的实质现状的。</p><p>在东北亚地区，美国对日、韩的安全问题仍拥有最终的决定权，而中俄对朝鲜的决策，并没有那么大的影响力。</p><p>在这种前提下，基辛格这次虽然点明了一些美国政界所忌讳谈论的话题，但提出的解决方案却并不现实。</p><p>据报道，我国外交部副部长孔铉佑5日在韩国与韩国外交部副部长会面后接受韩国记者采访时说：“你们可以不说是双暂停，但事实上是双暂停，我想这有利于推动半岛局势向缓和和稳定的方向发展。”</p><p>而理查德·阿米蒂奇则说了这样一番话：“要用核武器毁灭美国，在我看来，你必须同时具备两个要素，能力和欲望。中国有能力，但没有欲望——他们和我们有太多共同利益。俄罗斯有能力，但也没有欲望，他们更倾向于利用东欧和乌克兰来削弱美国。朝鲜和伊朗，他们还没有能力，而且他们是否有欲望也不清楚。ISIS和其他恐怖集团肯定是有意图这么干，但他们没有能力。所以我们应该盯着关键问题，而这个关键问题在于，避免让我们竞争者变成我们的敌人。"</p><p>中东问题</p><p>关于中东问题，基辛格说，目前中东局势表明，二战后的国际体系在这里正在崩溃。</p><p>“每个国家都参加了战争，或者受到冲突的威胁，”基辛格说，击败IS后，主导的问题是“接下来怎么办”，以及如何瓜分恐怖分子曾经占领区的问题。</p><p><img height="298" width="530" src="http://p0.ifengimg.com/pmop/2018/0127/BA0BC339F9E7383917601B9FC9C1E1E99F64BF4A_size47_w530_h298.jpeg"></p><p>中东：每个国家都参加了战争</p><p>“伊朗核俄罗斯的力量将主导这一地区，我们将会看到从德黑兰到贝鲁特都被整合起来，”基辛格说，他认为，这“将会削弱这个地区的基础，并成为长期的挑战。”</p><p><strong>中国、俄罗斯和美国</strong></p><p>基辛格表示，世界政治的核心问题，将是中国、俄罗斯和美国之间的大国关系。他认为，未来的问题是，这三个大国间如何构建和平前景下的战略关系，三国间的价值观能否互相容忍，并达成一致建立新的国际法。</p><p>“力量的平衡必须维护，”基辛格说，“这是三国间关系的关键问题。”</p><p>基辛格说，为了世界和平，美国和俄罗斯必须合作，因为俄罗斯拥有庞大的军事实力，并且其领土横跨11个时区。</p><p>“我认为现在应该寻找与俄罗斯进行有意义对话的方法，”他说，与俄罗斯冲突的主要障碍是乌克兰，基辛格认为，吸收乌克兰参加北约是“不明智的”，但“也不可能让它成为俄罗斯的卫星国。”</p><p>“乌克兰是我们新概念下的边境地带，”基辛格说，理想的解决方案是，让乌克兰在政治上和经济上成为西方的一部分，但如同冷战期间的芬兰一样，对俄罗斯保持中立。</p><p>“问题是，如何达成军事上的协议，结束该地区的冲突。”他说。</p>-->
+
+</div>
+
+
+</body>
+
+
+</html>

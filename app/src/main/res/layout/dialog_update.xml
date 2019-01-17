@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+
+    >
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_app_update"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button_update"
+            android:paddingBottom="8dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="8dp"
+            android:text="立即升级"
+            android:textColor="@color/white_color"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            />
+
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_above="@id/tv_sure"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="升级到最新版本"
+                android:textSize="16sp"
+                android:textColor="@color/text_light_black"
+                />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="一. 更新用户的模块，更快，更强的内容，更多金币\n 二. 修复了若干的bug \n 三. 增加了答题冲顶模块。"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.3"
+                android:textColor="@color/text_light_black_666"
+                />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

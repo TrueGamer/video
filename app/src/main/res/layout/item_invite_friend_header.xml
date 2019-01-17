@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_rectangle_white_bg"
+
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:paddingTop="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:src="@drawable/bg_invite_content"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="邀请好友，躺赚金币"
+                        android:textColor="@color/invite_blue_color"
+                        android:textSize="16sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_help"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="怎么玩?"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="12sp"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_invite_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:lineSpacingMultiplier="1.2"
+                    android:text="所有您邀请的好友\n在获得邀请奖励的同时\n您还可以持续获取他们所赚金币的5%"
+                    android:textColor="@color/text_light_black_666"
+                    android:textSize="12sp"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/invite_divider_color"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分享到"
+                android:textColor="@color/text_black"
+                android:textSize="16sp"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/invite_divider_color"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_wechat_comment"
+                style="@style/share_item_style"
+                >
+
+                <ImageView
+                    style="@style/share_icon_style"
+                    android:src="@drawable/icon_wechat_comment"
+                    />
+
+                <TextView
+                    style="@style/share_text_style"
+                    android:text="朋友圈"
+                    android:textColor="@color/text_light_black"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_wechat_friend"
+                style="@style/share_item_style"
+                >
+
+                <ImageView
+                    style="@style/share_icon_style"
+                    android:src="@drawable/icon_wechat_friend"
+                    />
+
+                <TextView
+                    style="@style/share_text_style"
+                    android:text="微信好友"
+                    android:textColor="@color/text_light_black"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_my_friends"
+                style="@style/share_item_style"
+                >
+
+                <ImageView
+                    style="@style/share_icon_style"
+                    android:src="@drawable/icon_friend"
+                    />
+
+                <TextView
+                    style="@style/share_text_style"
+                    android:text="好友"
+                    android:textColor="@color/text_light_black"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_invite_code"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/invite_gray_bg_color"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.2"
+                android:paddingBottom="5dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="5dp"
+                android:text="通过我的邀请码邀请好友\n2333333"
+                />
+
+            <TextView
+                android:id="@+id/tv_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_invite_button"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="8dp"
+                android:text="一键复制"
+                android:textColor="@color/white_color"
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.huanxi.renrentoutiao">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!-- 如果需要精确定位的话请加上此权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!-- 必选权限 -->
+    <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 可选权限，不声明此部分权限将放弃部分设备信息的采集，对数据分析及设备指纹的精准度有一定影响 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <!--//趣米的sdk-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/NoTranslucent"
+        tools:replace="name">
+
+
+        <!-- //渠道 -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}"/>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5b3ca7d0f29d980cf40000a7"/>
+
+        <!-- 推啊的key; -->
+        <meta-data
+            android:name="TUIA_APPKEY"
+            android:value="3ThfjmMjDSM7z5gk5QBx3nbho1Dy"/>
+
+        <!--百度的key-->
+        <meta-data
+            android:name="BaiduMobAd_APP_ID"
+            android:value="ae477682"/>
+
+        <activity
+            android:name=".ui.activity.other.SplashActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <!--<provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.huanxi.renrentoutiao.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>-->
+
+        <activity
+            android:name=".ui.activity.other.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.QuestionsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.user.UserBrowerRecordsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.user.ProfitDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.user.ProfitDetailV1Activity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.TestActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.TestActivity2"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.TestThreeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.TestFourActivity"
+            android:screenOrientation="portrait">
+
+
+        </activity>
+        <activity
+            android:name=".ui.activity.user.MyFriendsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.user.UserTaskActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".ui.activity.user.MyMessageActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.UserSignActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.video.VideoItemDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.IntergralShopActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity
+            android:name=".ui.activity.user.WithdrawalsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.WithdrawalsActivity2"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.WithdrawalRecordsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.UserCollectionActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.UserCommentActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.ExposureIncomeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.TestRecyclerView"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.LoginActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/loginNoTitleTheme"
+            >
+        </activity>
+        <activity
+            android:name=".ui.activity.other.LoginActivityOld"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.news.search.SearchActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.news.search.SearchDetailActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.user.RankingActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.SettingActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.EmptyActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.GuideActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.AboutUsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.UserInfoActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.HelpActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.WebHelperActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 广点通广告必加 -->
+        <!--<service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false"/>-->
+
+        <!--<activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"/>-->
+        <activity
+            android:name=".ui.activity.Test3Activity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.test.RecyclerViewDemo"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.test.RecyclerViewConvert"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.news.NewsDetailActivity2"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.ContactKeFuActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.FriendRankingActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.BindPhoneNumberActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ui.activity.other.LoginActivityFirst"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <service android:name=".service.AdDownloadServiceNew"/>
+        <service android:name=".service.DownloadService"/>
+
+        <activity
+            android:name=".ui.activity.other.InviteFriendActivityNew"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+
+        <!--极光的推送消息接收，然后进行一个数据的获取操作；-->
+
+        <receiver
+            android:name=".broadcast.JPushReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION"/>
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+
+                <category android:name="com.huanxi.renrentoutiao"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".ui.activity.other.LuckyWalkActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+
+        <activity android:name=".ui.activity.XianWanActivity">
+        </activity>
+
+        <service android:name=".service.DownloadServiceWithNotifytation"/>
+
+        <activity android:name=".ui.activity.other.PictureDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.media.home.MediaHomeActivity"/>
+
+        <activity android:name=".ui.activity.TimeCountTipsActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--微信分享回调 -->
+        <activity android:name=".wxapi.WXEntryActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true"/>
+
+        <activity android:name=".ui.media.MediaArticleDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--<activity android:name="com.baidu.mobads.AppActivity"-->
+            <!--android:configChanges="keyboard|keyboardHidden|orientation"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
+
+        <!--<provider
+            android:name="com.baidu.mobads.openad.FileProvider"
+            android:authorities="com.huanxi.renrentoutiao.bd.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/bd_file_paths" />
+
+        </provider>-->
+
+        <!-- Adhub-->
+        <activity
+            android:name="com.hubcloud.adhubsdk.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@style/AdhubDialogStyle" />
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false" />
+        <activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="screenSize|keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".ui.activity.other.ChannelActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.huanxi.renrentoutiao.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/gdt_file_path" />
+        </provider>
+        <provider
+            android:name="com.baidu.mobads.openad.FileProvider"
+            android:authorities="com.huanxi.renrentoutiao.bd.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/bd_file_paths" />
+        </provider>
+        <!-- Adhub-->
+
+    </application>
+
+</manifest>

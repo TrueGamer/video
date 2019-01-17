@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white_color"
+    >
+
+    <View
+        style="@style/userItemHorizotalStyle"
+        android:visibility="visible"
+        android:layout_height="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="全部评论"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:textColor="@color/text_light_black"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/home_item_divider_color"
+        />
+
+
+</LinearLayout>

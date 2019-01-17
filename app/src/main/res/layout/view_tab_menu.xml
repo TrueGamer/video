@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.huanxi.renrentoutiao.ui.view.MyScrollerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:overScrollMode="never"
+    android:fillViewport="true"
+    >
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/activity_channel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_tab_menu_bg"
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/btn_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击弹出对话框"
+            android:visibility="gone"
+            />
+
+
+        <ImageView
+            android:id="@+id/icon_collapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:padding="15dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_new_back"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:padding="8dp"
+                android:overScrollMode="never"
+                />
+
+        </FrameLayout>
+    </LinearLayout>
+
+</com.huanxi.renrentoutiao.ui.view.MyScrollerView>
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:layout_marginTop="15dp"
+    android:orientation="horizontal"
+    >
+
+    <!--这里是评论的公共模块；-->
+
+    <TextView
+        android:id="@+id/tv_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="置顶"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/white_color"
+        android:background="@drawable/shape_red_rect_bg"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textSize="10sp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_hot"
+        style="@style/newsItemDescBaseStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="热点"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/red_color"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/tv_source"
+        style="@style/newsItemDescBaseStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_comment_count"
+        style="@style/newsItemDescBaseStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17评论"
+        android:visibility="gone"
+        />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/newsItemDescBaseStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        />
+
+    <ImageView
+        android:id="@+id/iv_item_delete"
+        android:layout_width="28dp"
+        android:layout_height="16dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:src="@drawable/icon_news_item_delete"
+        android:visibility="gone"
+        />
+
+</LinearLayout>
