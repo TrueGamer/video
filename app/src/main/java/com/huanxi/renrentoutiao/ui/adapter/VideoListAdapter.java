@@ -43,12 +43,14 @@ public class VideoListAdapter extends BaseAdsAdapter {
 
     public LinkedList<View> mTaViews;
 
+    private String homeTabId;
 
-    public VideoListAdapter(Activity activity, @Nullable List<VideoBean> data,LinkedList<View> taViews) {
+    public VideoListAdapter(Activity activity, @Nullable List<VideoBean> data, LinkedList<View> taViews,String homeTabId) {
         super(data);
         addItemType(VIDEO_ITEM, R.layout.item_new_vedio_layout);
         mActivity = activity;
         mTaViews=taViews;
+        this.homeTabId = homeTabId;
     }
 
 
@@ -75,7 +77,7 @@ public class VideoListAdapter extends BaseAdsAdapter {
                             public void onClick(View v) {
                               //  mActivity.startActivity(VideoItemDetailActivity.getIntent(mActivity, videoItem));
                                 //这里我们要用presenter将其转换为对应的对象；
-                                mActivity.startActivity(VideoItemDetailActivity.getIntent(mActivity, ((VideoListBean) getVideo(videoItem))));
+                                mActivity.startActivity(VideoItemDetailActivity.getIntent(mActivity, ((VideoListBean) getVideo(videoItem)),homeTabId));
 
                             }
                         });

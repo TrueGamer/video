@@ -3,8 +3,6 @@ package com.huanxi.renrentoutiao.model.bean;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.huanxi.renrentoutiao.service.DownloadServiceInterface;
-import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.ads.adhub.AdhubNativeBean;
-import com.hubcloud.adhubsdk.NativeAdResponse;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,7 +23,6 @@ public class NewsItemBean implements MultiItemEntity,DownloadServiceInterface{
     public static final int TA_NATIVE_AD=4;
     public static final int CSJ_NATIVE_AD = 11;
     public static final int BAIDU_AD = 12;
-    public static final int ADHUB_NATIVE_AD = 13;
 
     public static final int CUSTOM_ONLY_IMG=5;      //仅仅只有图
     public static final int CUSTOM_UP_TITLE_DOWN_IMG=6; //上文下图
@@ -39,7 +36,6 @@ public class NewsItemBean implements MultiItemEntity,DownloadServiceInterface{
     public static final String TYPE_CSJ = "csj";
     public static final String AD="qmttad";
     public static final String TYPE_BD = "baidu";
-    public static final String TYPE_ADHUB = "adhub";
 
     //这里是自定义的广告的操作：
     public static final String TYPE_CUSTOM_TYPE_IMG ="qmtt_tl";
@@ -104,15 +100,6 @@ public class NewsItemBean implements MultiItemEntity,DownloadServiceInterface{
 
     // 穿山甲广告
     TTFeedAd ttFeedAd;
-    NativeAdResponse nativeAdResponse;
-
-    public NativeAdResponse getNativeAdResponse() {
-        return nativeAdResponse;
-    }
-
-    public void setNativeAdResponse(NativeAdResponse nativeAdResponse) {
-        this.nativeAdResponse = nativeAdResponse;
-    }
 
     public TTFeedAd getTtFeedAd() {
         return ttFeedAd;
@@ -385,9 +372,7 @@ public class NewsItemBean implements MultiItemEntity,DownloadServiceInterface{
             }else if(TYPE_CUSTOM_TYPE_LEFT_TITLE_RIGHT_IMG.equals(type)){
                 //这里是左文右边图；
                 return CUSTOM_LEFT_TITLE_RIGHT_IMG;
-            } else if(TYPE_ADHUB.equals(type)) {
-                return ADHUB_NATIVE_AD;
-            } else {
+            }else {
                 //这里推压的处理方式；
                 return TA_NATIVE_AD;
             }

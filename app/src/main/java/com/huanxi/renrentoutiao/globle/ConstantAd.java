@@ -63,6 +63,12 @@ public class ConstantAd {
         public static final String APP_ID = "902510857";
 
         public static final String BannerID = "902510218";
+
+        public static final String SPLASH_AD = "802510252";
+        public static final String VIDEO_AD = "902510903";
+        public static final String VIDEO_DETAIL_ID = "902510585";
+
+        public static final String NEWS_DETAIL_AD = "902510346";
     }
 
     /**
@@ -75,14 +81,5 @@ public class ConstantAd {
 
         public static final String SPLASH_AD = "5897390";
 
-    }
-
-    public static class ADHUBAD {
-
-        public static final String APP_ID = "2544";
-
-        public static final String FPLASH_AD = "7299";
-
-        public static final String NATIVE_ID = "7377";
     }
 }

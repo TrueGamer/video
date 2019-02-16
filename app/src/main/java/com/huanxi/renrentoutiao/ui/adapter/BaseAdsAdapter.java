@@ -21,13 +21,13 @@ import com.huanxi.renrentoutiao.presenter.ads.ta.MyTMNaTmView;
 import com.huanxi.renrentoutiao.presenter.ads.ta.TaBannerPresenter;
 import com.huanxi.renrentoutiao.presenter.ads.ta.TaNativeAds;
 import com.huanxi.renrentoutiao.presenter.ads.ta.TaUpTextDownImgPresernter;
-import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.ads.adhub.AdhubNativeBean;
-import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.adhub.AdhubNativeHolder;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.baidu.BaiDuAdHolder;
 import com.huanxi.renrentoutiao.ui.media.hoder.LargeAdViewHolder;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import java.util.List;
+
+import cn.tongdun.android.shell.db.utils.LogUtil;
 
 /**
  * Created by Dinosa on 2018/2/10.
@@ -53,7 +53,6 @@ public abstract class BaseAdsAdapter<T extends MultiItemEntity> extends BaseMult
 
     public static final int CSJ_LARGE = -11; // 穿山甲
     public static final int BAIDU_AD = -12; // 百度
-    public static final int TYPE_ADHUB_NATIVE_AD = -13;
 
     protected final CustomImageAd mCustomerBannerAd;
     protected final TitleAndImgAd mCustomerTitleAndImgAd;
@@ -67,7 +66,6 @@ public abstract class BaseAdsAdapter<T extends MultiItemEntity> extends BaseMult
 
     protected final LargeAdViewHolder largeAdViewHolder;
     protected final BaiDuAdHolder baiDuAdHolder;
-    private final AdhubNativeHolder adhubHolder;
 
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with
@@ -109,8 +107,6 @@ public abstract class BaseAdsAdapter<T extends MultiItemEntity> extends BaseMult
         largeAdViewHolder = new LargeAdViewHolder();
         baiDuAdHolder = new BaiDuAdHolder();
 
-        addItemType(TYPE_ADHUB_NATIVE_AD, R.layout.item_adhub_native);
-        adhubHolder = new AdhubNativeHolder();
     }
 
     @Override
@@ -167,14 +163,14 @@ public abstract class BaseAdsAdapter<T extends MultiItemEntity> extends BaseMult
                 case CSJ_LARGE:
                     TTFeedAd ttFeedAd = ((AdBean) item).getTtFeedAd();
                     if(ttFeedAd != null) {
+                        LogUtil.d(TAG,"ttfeedAd is not null");
                         largeAdViewHolder.init2(ttFeedAd , helper , mContext);
+                    } else {
+                        LogUtil.d(TAG,"ttfeedAd is null");
                     }
                     break;
                 case BAIDU_AD:
                     baiDuAdHolder.init2(helper , mContext);
-                    break;
-                case TYPE_ADHUB_NATIVE_AD:
-                    adhubHolder.init((AdhubNativeBean) item,helper,mContext);
                     break;
             }
         }

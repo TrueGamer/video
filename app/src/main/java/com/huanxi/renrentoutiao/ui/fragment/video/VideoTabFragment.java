@@ -15,6 +15,7 @@ import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.huanxi.renrentoutiao.R;
+import com.huanxi.renrentoutiao.globle.ConstantAd;
 import com.huanxi.renrentoutiao.net.api.video.ApiVedioList;
 import com.huanxi.renrentoutiao.net.bean.news.HomeTabBean;
 import com.huanxi.renrentoutiao.net.bean.news.ResNewsAndVideoBean;
@@ -129,7 +130,7 @@ public class VideoTabFragment extends BaseLoadingRecyclerViewFragment {
 
         //feed广告请求类型参数
         AdSlot adSlot = new AdSlot.Builder()
-                .setCodeId("902510857")
+                .setCodeId(ConstantAd.CSJAD.VIDEO_AD)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(640, 320)
                 .setAdCount(3)
@@ -483,7 +484,7 @@ public class VideoTabFragment extends BaseLoadingRecyclerViewFragment {
     @Override
     public RecyclerView.Adapter getAdapter() {
         if (mVideoListAdapter == null) {
-            mVideoListAdapter = new VideoListAdapter(null);
+            mVideoListAdapter = new VideoListAdapter(null,mHomeTabBean.getCode());
         }
         return mVideoListAdapter;
     }

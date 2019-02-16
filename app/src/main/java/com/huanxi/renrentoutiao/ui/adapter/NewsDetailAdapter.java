@@ -30,7 +30,6 @@ public class NewsDetailAdapter extends BaseAdsAdapter{
     public static final int TYPE_COMMENT = 3;
     public static final int TYPE_RECOMMENT = 4;
     public static final int TYPE_NEW_COMMENT = 5;
-
     private final NewsDetailActivity2 mActivity;
 
     /**
@@ -47,7 +46,6 @@ public class NewsDetailAdapter extends BaseAdsAdapter{
         addItemType(TYPE_COMMENT, R.layout.item_vedio_comment);
         addItemType(TYPE_RECOMMENT, R.layout.item_layout_relvant_recomm);
         addItemType(TYPE_NEW_COMMENT, R.layout.layout_news_comment);
-
     }
 
     CommentAdapter mCommentAdapter;

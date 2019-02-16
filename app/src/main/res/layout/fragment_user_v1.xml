@@ -792,42 +792,6 @@
                 android:layout_height="1px"
                 android:background="@color/user_item_horizontal_divider_color"/>
 
-            <LinearLayout
-                android:id="@+id/ll_channel"
-                style="@style/userOperationItemStyle"
-                >
-
-                <ImageView
-                    style="@style/userOperationItemImageStyle"
-                    android:layout_marginLeft="@dimen/dp_20"
-                    android:layout_marginStart="@dimen/dp_20"
-                    android:src="@drawable/icon_kefu"/>
-
-                <TextView
-                    style="@style/userOperationItemTextStyle_v1"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:layout_marginStart="@dimen/dp_10"
-                    android:text="渠道号"/>
-
-
-                <android.support.v4.widget.Space
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    />
-
-                <ImageView
-                    style="@style/userOperationItemIndicatorStyle"
-                    />
-
-            </LinearLayout>
-            <!-- 水平分割线-->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/user_item_horizontal_divider_color"/>
-
             <View
                 android:id="@+id/view_divider"
                 style="@style/userItemHorizotalStyle_v1"

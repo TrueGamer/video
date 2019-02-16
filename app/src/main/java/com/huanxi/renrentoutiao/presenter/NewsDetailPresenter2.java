@@ -1,7 +1,7 @@
 package com.huanxi.renrentoutiao.presenter;
 
-import android.os.Build;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -9,14 +9,13 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.bytedance.sdk.openadsdk.TTImage;
 import com.huanxi.renrentoutiao.globle.ConstantAd;
 import com.huanxi.renrentoutiao.globle.ConstantThreePart;
 import com.huanxi.renrentoutiao.model.bean.NewsCommentBean;
 import com.huanxi.renrentoutiao.model.bean.NewsItemBean;
-import com.huanxi.renrentoutiao.model.bean.media.MediaChannelDao;
 import com.huanxi.renrentoutiao.net.api.news.ApiEndReadIssure;
 import com.huanxi.renrentoutiao.net.api.news.ApiHomeNews;
-import com.huanxi.renrentoutiao.net.api.news.ApiNewAdLog;
 import com.huanxi.renrentoutiao.net.api.news.ApiNewsCommentList;
 import com.huanxi.renrentoutiao.net.api.news.ApiNewsDetail;
 import com.huanxi.renrentoutiao.net.api.news.ApiStartReadIssure;
@@ -38,14 +37,8 @@ import com.huanxi.renrentoutiao.net.bean.news.ResNewsDetailBean;
 import com.huanxi.renrentoutiao.net.bean.news.ResTabBean;
 import com.huanxi.renrentoutiao.ui.activity.news.NewsDetailActivity2;
 import com.huanxi.renrentoutiao.ui.adapter.AdBean;
-import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.ads.adhub.AdhubNativeBean;
-import com.huanxi.renrentoutiao.utils.InfoUtil;
-import com.huanxi.renrentoutiao.utils.SharedPreferencesUtils;
 import com.huanxi.renrentoutiao.utils.TTAdManagerHolder;
 import com.huanxi.renrentoutiao.utils.TToast;
-import com.hubcloud.adhubsdk.NativeAd;
-import com.hubcloud.adhubsdk.NativeAdListener;
-import com.hubcloud.adhubsdk.NativeAdResponse;
 import com.zhxu.library.exception.HttpTimeException;
 import com.zhxu.library.http.HttpManager;
 import com.zhxu.library.listener.HttpOnNextListener;
@@ -54,8 +47,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-
-import cn.tongdun.android.shell.db.utils.LogUtil;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Dinosa on 2018/2/6.
@@ -77,33 +70,14 @@ public class NewsDetailPresenter2 {
     private String mNewsType;
     private int mPageNum;
     private ApiUserDoLike mApiUserDoLike;
-    private NativeAd mNativeAd;
-    private LinkedList<NativeAdResponse> mAdhubNativeData;
 
-    public NewsDetailPresenter2(NewsDetailActivity2 activity,LinkedList<NativeAdResponse> adResponses) {
+    public NewsDetailPresenter2(NewsDetailActivity2 activity) {
         mActivity = activity;
         mArticleId = mActivity.getIntent().getStringExtra(ARTICLE_ID);
         mMd5Url = mActivity.getIntent().getStringExtra(MD5URL);
         mNewsType = mActivity.getIntent().getStringExtra(NEWSTYPE);
         mPageNum = mActivity.getIntent().getIntExtra(PAGENUM , 0);
 
-        mAdhubNativeData = adResponses;
-    }
-
-    private void loadAdhubAd() {
-        mNativeAd = new NativeAd(mActivity,ConstantAd.ADHUBAD.NATIVE_ID, 1, new NativeAdListener() {
-            @Override
-            public void onAdLoaded(NativeAdResponse nativeAdResponse) {
-                mAdhubNativeData.add(nativeAdResponse);
-            }
-
-            @Override
-            public void onAdFailed(int i) {
-                LogUtil.e("info","adhub load add fail "+i);
-//                throw new IllegalStateException("adhub load add fail "+i);
-            }
-        });
-        mNativeAd.loadAd();
     }
 
     public String getUrlMd5(){
@@ -199,70 +173,7 @@ public class NewsDetailPresenter2 {
                 }
             }
         },mActivity,paramsMap);
-        /*InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-            @Override
-            public void onSuccess(String value) {
-                HashMap<String, String> paramsMap = new HashMap<>();
-                paramsMap.put(ApiNewAdLog.TYPE,"0");
-                paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(mActivity).getString(SharedPreferencesUtils.CHANNEL));
-                paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                paramsMap.put(ApiNewAdLog.IP,value);
-                paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-//                paramsMap.put(ApiNewAdLog.AD_ID,);
-                paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                    @Override
-                    public void onNext(String str) {
-                        Log.d("TAG","onNext");
-                        mActivity.requestStartCountDown();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                        if (e instanceof HttpTimeException) {
-                            HttpTimeException exception = (HttpTimeException) e;
-                            //这里表示已经领取过该任务了
-                            if(exception.getMessage().equals("您已领取过任务了")){
-                                //这里我们是需要切换宝箱的状态了；
-//                        mActivity.showOpenBoxLogo();
-                                Toast toast = Toast.makeText(mActivity , "您已领取过任务了" , Toast.LENGTH_SHORT);
-                                TextView v = (TextView)toast.getView().findViewById(android.R.id.message);
-                                v.setTextSize(20);
-                                toast.show();
-                            }else if(exception.getMessage().equals("已领取")){
-//                        mActivity.showOpenBoxLogo();
-                                Toast toast = Toast.makeText(mActivity , "已领取" , Toast.LENGTH_SHORT);
-                                TextView v = (TextView)toast.getView().findViewById(android.R.id.message);
-                                v.setTextSize(20);
-                                toast.show();
-                            } else if (exception.getMessage().equals("今天已达到最大次数")) {
-                                mActivity.hideReadProgress();
-                                Toast toast = Toast.makeText(mActivity , "今天已达到最大次数" , Toast.LENGTH_SHORT);
-                                TextView v = (TextView)toast.getView().findViewById(android.R.id.message);
-                                v.setTextSize(20);
-                                toast.show();
-                            }
-//                   mActivity.hideReadProgress();
-                        } else {
-                            e.printStackTrace();
-                        }
-                    }
-                },mActivity,paramsMap);
-                HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                e.printStackTrace();
-            }
-        });*/
-
+        HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
     }
 
     public boolean mHasGetCoin=false;
@@ -421,66 +332,54 @@ public class NewsDetailPresenter2 {
      */
     public void getRecomment() {
 
+        latch = new CountDownLatch(3);
         // 先请求穿山甲广告, 然后再请求推荐数据
         loadListAd();
+        loadListAd();
+        loadListAd();
+        getData();
         //这里我们要做第一个操作就是拼接内容；
 //        getData();
     }
 
-    List<TTFeedAd> mData;
+    LinkedList<TTFeedAd> mData;
+    CountDownLatch latch;
 
     /**
      * 加载feed广告
      */
     private void loadListAd() {
-        mData = new ArrayList<>();
+        mData = new LinkedList<>();
         TTAdManager ttAdManager = TTAdManagerHolder.getInstance(mActivity);
         TTAdNative mTTAdNative = ttAdManager.createAdNative(mActivity);
         TTAdManagerHolder.getInstance(mActivity).requestPermissionIfNecessary(mActivity);
 
         //feed广告请求类型参数
         AdSlot adSlot = new AdSlot.Builder()
-                .setCodeId("902510857")
+                .setCodeId(ConstantAd.CSJAD.NEWS_DETAIL_AD)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(640, 320)
-                .setAdCount(1)
+                .setAdCount(8)
                 .build();
         //调用feed广告异步请求接口
         mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
             @Override
             public void onError(int code, String message) {
-//                getAdhubAd();
-                getData();
+                if(latch.getCount() > 0) {
+                    latch.countDown();
+                }
             }
             @Override
             public void onFeedAdLoad(List<TTFeedAd> ads) {
                 Log.i("info" , "ads==="+ads.size());
                 if(ads.size()>0) {
-                    mData.clear();
                     mData.addAll(ads);
                 }
-//                getAdhubAd();
-                getData();
+                if(latch.getCount() > 0) {
+                    latch.countDown();
+                }
             }
         });
-    }
-
-    private void getAdhubAd() {
-        mNativeAd = new NativeAd(mActivity,ConstantAd.ADHUBAD.NATIVE_ID, 1, new NativeAdListener() {
-            @Override
-            public void onAdLoaded(NativeAdResponse nativeAdResponse) {
-                mAdhubNativeData.add(nativeAdResponse);
-                getData();
-            }
-
-            @Override
-            public void onAdFailed(int i) {
-                LogUtil.e("info","adhub load add fail "+i);
-//                throw new IllegalStateException("adhub load add fail "+i);
-                getData();
-            }
-        });
-        mNativeAd.loadAd();
     }
 
 
@@ -498,58 +397,68 @@ public class NewsDetailPresenter2 {
             public void onNext(ResTabBean resTabBean) {
                 //这里表示获取得到了返回的内容；
                 List<NewsItemBean> list = resTabBean.getList();
-                //这里我们要取出来两条；
+
                 if (list!=null ) {
+                    try {
+                        latch.await(3, TimeUnit.SECONDS);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     ArrayList<NewsItemBean> multiItemEntities = new ArrayList<>();
 
+                    int count = 0;
                     //以下是为adhub单独写的
-                    /*for(int i = 0; i < list.size(); i++) {
-                        if(i >= 5) break;
-                        NewsItemBean item = list.get(i);
+                    for(NewsItemBean item : list) {
                         if("qmttad".equals(item.getQmttcontenttype())) {
-                            NativeAdResponse adResponse = mAdhubNativeData.removeFirst();
-                            if(adResponse != null) {
-                                NewsItemBean bean = new NewsItemBean("qmttad", "adhub");
-                                bean.setNativeAdResponse(adResponse);
-//                            bean.setAdResponse(adResponse);
-                                multiItemEntities.add(bean);
-                                if (mAdhubNativeData.size() < 2) {
-                                    loadAdhubAd();
-                                    loadAdhubAd();
-                                }
-                            } else {
-                                loadAdhubAd();
-                            }
-                        } else {
-                            multiItemEntities.add(item);
+                            continue;
                         }
-                    }*/
+                        if(count==11)break;
+                        TTFeedAd ttFeedAd = getCstAd();
+                        if(ttFeedAd != null) {
+                            NewsItemBean bean = new NewsItemBean("qmttad", "csj");
+                            bean.setTtFeedAd(ttFeedAd);
+                            multiItemEntities.add(bean);
+                            count++;
+                        }
+                        multiItemEntities.add(item);
+                        count++;
+                    }
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mActivity.updateRecomment(multiItemEntities);
+                        }
+                    });
+                }
 
+                //这里我们要取出来两条；
+                /*if (list!=null ) {
+                    ArrayList<NewsItemBean> multiItemEntities = new ArrayList<>();
                     if(list.size()>5){
                         //这里我们要做的一个操作就是；
-                        ResSplashAds resAds = mActivity.getMyApplication().getResAds();
-                        ArrayList<AdBean> newdetail = resAds.getNewdetail();
+//                        ResSplashAds resAds = mActivity.getMyApplication().getResAds();
+//                        ArrayList<AdBean> newdetail = resAds.getNewdetail();
 
-                        NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "ta");
+                        NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "csj");
+                        newsItemBean1.setTtFeedAd();
                         //拼接广告的操作；
-                        if (newdetail!=null && newdetail.size()>0) {
-                            //这里做一个适配的操作；
-                            AdBean adBean = newdetail.get(0);
-
-                            newsItemBean1.setQmttcontenttype(NewsItemBean.AD);
+//                        if (newdetail!=null && newdetail.size()>0) {
+//                            //这里做一个适配的操作；
+//                            AdBean adBean = newdetail.get(0);
+//
+//                            newsItemBean1.setQmttcontenttype(NewsItemBean.AD);
 //                            newsItemBean1.setType(adBean.getType());
-                            newsItemBean1.setType("gdt");
-
-                            newsItemBean1.setId(adBean.getId());
-                            newsItemBean1.setTitle(adBean.getTitle());
-                            newsItemBean1.setCont(adBean.getCont());
-                            newsItemBean1.setImgurl(adBean.getImgurl());
-                            newsItemBean1.setUrl(adBean.getUrl());
-                            newsItemBean1.setDownurl(adBean.getDownurl());
-                            newsItemBean1.setSize(adBean.getSize());
-                            newsItemBean1.setPackename(adBean.getPackageName());
-                            newsItemBean1.setAppname(adBean.getAppname());
-                            newsItemBean1.setImgurls(adBean.getImgurls());
+//
+//                            newsItemBean1.setId(adBean.getId());
+//                            newsItemBean1.setTitle(adBean.getTitle());
+//                            newsItemBean1.setCont(adBean.getCont());
+//                            newsItemBean1.setImgurl(adBean.getImgurl());
+//                            newsItemBean1.setUrl(adBean.getUrl());
+//                            newsItemBean1.setDownurl(adBean.getDownurl());
+//                            newsItemBean1.setSize(adBean.getSize());
+//                            newsItemBean1.setPackename(adBean.getPackageName());
+//                            newsItemBean1.setAppname(adBean.getAppname());
+//                            newsItemBean1.setImgurls(adBean.getImgurls());
 //                            if("csj".equals(adBean.getType())) {
 //                                if(mData.size()>0) {
 //                                    newsItemBean1.setTtFeedAd(mData.get(0));
@@ -557,36 +466,34 @@ public class NewsDetailPresenter2 {
 //                                    newsItemBean1.setType("gdt");
 //                                }
 //                            }
-                        }
-//                        NewsItemBean newsItemBean2 = new NewsItemBean("qmtt_lt", "gdt");
-                        NewsItemBean newsItemBean2 = new NewsItemBean("qmttad", "gdt");
-//                        NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "baidu");
-                        NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "gdt");
-//                        NewsItemBean newsItemBean4 = new NewsItemBean("qmttad", "ta");
+//                        }
+                        NewsItemBean newsItemBean2 = new NewsItemBean("qmttad", "csj");
+                        NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "csj");
+                        NewsItemBean newsItemBean4 = new NewsItemBean("qmttad", "csj");
                         if (mActivity.isHasAds()) {
 
                             multiItemEntities.add(newsItemBean1);
                             if(!"csj".equals(list.get(0).getType())) {
                                 multiItemEntities.add(list.get(0));
                             } else {
-                                multiItemEntities.add(new NewsItemBean("qmttad", "gdt"));
+                                multiItemEntities.add(new NewsItemBean("qmttad", "csj"));
                             }
 
                             if(!"csj".equals(list.get(1).getType())) {
                                 multiItemEntities.add(list.get(1));
                             } else {
-                                multiItemEntities.add(new NewsItemBean("qmttad", "gdt"));
+                                multiItemEntities.add(new NewsItemBean("qmttad", "csj"));
                             }
                             multiItemEntities.add(newsItemBean2);
                             if(!"csj".equals(list.get(2).getType())) {
                                 multiItemEntities.add(list.get(2));
                             } else {
-                                multiItemEntities.add(new NewsItemBean("qmttad", "gdt"));
+                                multiItemEntities.add(new NewsItemBean("qmttad", "csj"));
                             }
                             if(!"csj".equals(list.get(3).getType())) {
                                 multiItemEntities.add(list.get(3));
                             } else {
-                                multiItemEntities.add(new NewsItemBean("qmttad", "gdt"));
+                                multiItemEntities.add(new NewsItemBean("qmttad", "csj"));
                             }
                             multiItemEntities.add(newsItemBean3);
                             //multiItemEntities.add(newsItemBean4);
@@ -603,11 +510,9 @@ public class NewsDetailPresenter2 {
                     } else{
                         //这里表示小于2的逻辑
                         if(mActivity.isHasAds()){
-//                            NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "ta");
-                            NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "gdt");
-                            NewsItemBean newsItemBean2 = new NewsItemBean("qmttad", "gdt");
-//                            NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "baidu");
-                            NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "gdt");
+                            NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "csj");
+                            NewsItemBean newsItemBean2 = new NewsItemBean("qmtt_lt", "csj");
+                            NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "csj");
                             multiItemEntities.add(newsItemBean1);
                             multiItemEntities.addAll(list);
                             multiItemEntities.add(newsItemBean2);
@@ -617,11 +522,63 @@ public class NewsDetailPresenter2 {
                         }
                     }
                     mActivity.updateRecomment(multiItemEntities);
-                }
+                }*/
             }
         });
 
-        HttpManager.getInstance().doHttpDeal(apiHomeNews);
+        HttpManager.getInstance().doHttpDealBackground(apiHomeNews);
+    }
+
+    /**
+     * 这里是获取穿山甲的广告
+     *
+     * @return
+     */
+    private TTFeedAd getCstAd() {
+
+        TTFeedAd ttFeedAd = null;
+
+        if(mData != null && mData.size()>0) {
+            ttFeedAd = mData.removeFirst();
+
+            String title = ttFeedAd.getTitle();
+            String des = ttFeedAd.getDescription();
+            String source = ttFeedAd.getSource();
+            TTImage icon = ttFeedAd.getIcon();
+            List<TTImage> imageList = ttFeedAd.getImageList();
+            int interactionType = ttFeedAd.getInteractionType();
+            int imageMode = ttFeedAd.getImageMode();
+            View view = ttFeedAd.getAdView();
+
+            Log.i("info" , "ads-------"+title+",imageMode="+imageMode+",icon="+icon.getImageUrl());
+//            if (ttFeedAd.getImageMode() == TTAdConstant.IMAGE_MODE_SMALL_IMG) {
+//                TTFeedSmallPicAd smallPicAd = new TTFeedSmallPicAd(title , des , source , icon
+//                        , imageList , interactionType , imageMode , view);
+//                smallPicAd.setTtFeedAd(ttFeedAd);
+////                smallPicAd.setAdid(homeInfoBean.getAdid());
+//                multiItemEntity = smallPicAd;
+//            } else if (ttFeedAd.getImageMode() == TTAdConstant.IMAGE_MODE_LARGE_IMG) {
+//                TTFeedLargePicAd largePicAd = new TTFeedLargePicAd(title , des , source , icon
+//                        , imageList , interactionType , imageMode , view);
+//                largePicAd.setTtFeedAd(ttFeedAd);
+////                largePicAd.setAdid(homeInfoBean.getAdid());
+//                multiItemEntity = largePicAd;
+//            } else if (ttFeedAd.getImageMode() == TTAdConstant.IMAGE_MODE_GROUP_IMG) {
+//                groupPicAd = new TTFeedGroupPicAd(title , des , source , icon
+//                        , imageList , interactionType , imageMode , view);
+//                groupPicAd.setTtFeedAd(ttFeedAd);
+//                groupPicAd.setAdid(homeInfoBean.getAdid());
+//                multiItemEntity = groupPicAd;
+//            } else if (ttFeedAd.getImageMode() == TTAdConstant.IMAGE_MODE_VIDEO) {
+//                TTFeedVideoAd videoAd = new TTFeedVideoAd(title , des , source , icon
+//                        , imageList , interactionType , imageMode , view);
+//                videoAd.setTtFeedAd(ttFeedAd);
+////                videoAd.setAdid(homeInfoBean.getAdid());
+//                multiItemEntity = videoAd;
+//            }
+        }
+
+        return ttFeedAd;
     }
 
     /**

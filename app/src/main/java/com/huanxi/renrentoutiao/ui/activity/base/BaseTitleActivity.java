@@ -83,10 +83,6 @@ public abstract class BaseTitleActivity extends BaseActivity {
         finish();
     }
 
-    @OnClick(R.id.tv_right_option)
-    public void onClickRight() {
-
-    }
     /**
      * 设置返回键的文字和图片；
      * @param text

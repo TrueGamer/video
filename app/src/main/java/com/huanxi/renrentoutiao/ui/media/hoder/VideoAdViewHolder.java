@@ -118,7 +118,7 @@ public class VideoAdViewHolder extends BaseMuiltyViewHolder<TTFeedVideoAd> {
         mTitle.setText(ad.getTitle());
         mDescription.setText(ad.getDescription());
         mSource.setText(ad.getSource() == null ? "广告来源" : ad.getSource());
-        TTImage icon = ad.getIcon();
+        /*TTImage icon = ad.getIcon();
         if (icon != null && icon.isValid()) {
             ImageOptions options = new ImageOptions();
             mAQuery.id(mIcon).image(icon.getImageUrl(), options);
@@ -156,7 +156,7 @@ public class VideoAdViewHolder extends BaseMuiltyViewHolder<TTFeedVideoAd> {
                 mStopButton.setVisibility(View.GONE);
                 mRemoveButton.setVisibility(View.GONE);
                 TToast.show(context, "交互类型异常");
-        }
+        }*/
 
     }
 

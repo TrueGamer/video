@@ -27,20 +27,21 @@ import java.util.List;
  */
 
 public class VideoListAdapter extends BaseMuiltyAdapter {
+
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with
      * some initialization data.
      *
      * @param data A new list is created out of this one to avoid mutable list
      */
-    public VideoListAdapter(List<MultiItemEntity> data) {
+    public VideoListAdapter(List<MultiItemEntity> data,String homeTabId) {
         super(data);
         //这里要注册多种数据类型；
         //这里要注册多种数据类型；
         ArrayList<MuiltyBean> muiltyBeen = new ArrayList<>();
 
         //item_new_vedio_layout   item_news_article_video
-        muiltyBeen.add(new MuiltyBean(new VideoListBeanHolder(), R.layout.item_new_vedio_layout));  //视频的逻辑；
+        muiltyBeen.add(new MuiltyBean(new VideoListBeanHolder(homeTabId), R.layout.item_new_vedio_layout));  //视频的逻辑；
 
 
         muiltyBeen.add(new MuiltyBean(new BigBannerHolder(), R.layout.item_customer_ad1));  //大banner；

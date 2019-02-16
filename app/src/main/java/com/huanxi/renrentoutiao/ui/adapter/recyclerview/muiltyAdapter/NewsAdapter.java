@@ -4,7 +4,6 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.huanxi.renrentoutiao.R;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.base.BaseMuiltyAdapter;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.base.MuiltyBean;
-import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.adhub.AdhubNativeHolder;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.baidu.BaiDuAdHolder;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.custom.Banner20_3Holder;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.custom.BigBannerHolder;
@@ -49,14 +48,11 @@ public class NewsAdapter extends BaseMuiltyAdapter {
         muiltyBeen.add(new MuiltyBean(new NewsThreeImageHolder(), R.layout.item_home_img_three));  //新闻多图
 
 
-        muiltyBeen.add(new MuiltyBean(new AdhubNativeHolder(), R.layout.item_adhub_native));
-
         muiltyBeen.add(new MuiltyBean(new BigBannerHolder(), R.layout.item_customer_ad1));  //大banner；
         muiltyBeen.add(new MuiltyBean(new UpTitleDownImgHolder(), R.layout.item_customer_ad2));  //广告上文下图
         muiltyBeen.add(new MuiltyBean(new LeftTitleRightImgHolder(), R.layout.item_customer_ad3));  //左文右图
         muiltyBeen.add(new MuiltyBean(new Banner20_3Holder(), R.layout.item_customer_ad4));  //小banner；
         muiltyBeen.add(new MuiltyBean(new UpTitleDownThreeImgHolder(), R.layout.item_customer_ad5));  //上文下三图
-
 
 
         muiltyBeen.add(new MuiltyBean(new GdtBigBannerAdHolder(), R.layout.item_gdt_up_text_down_img));  //广点通的广告；

@@ -36,6 +36,21 @@ public class GroupAdViewHolder extends BaseMuiltyViewHolder<TTFeedGroupPicAd> {
 
     private Map<String , TTAppDownloadListener> mTTAppDownloadListenerMap = new WeakHashMap<>();
 
+    public void init2(TTFeedAd ttFeedAd, BaseViewHolder helper, Context context) {
+        String title = ttFeedAd.getTitle();
+        String des = ttFeedAd.getDescription();
+        String source = ttFeedAd.getSource();
+        TTImage icon = ttFeedAd.getIcon();
+        List<TTImage> imageList = ttFeedAd.getImageList();
+        int interactionType = ttFeedAd.getInteractionType();
+        int imageMode = ttFeedAd.getImageMode();
+        View view = ttFeedAd.getAdView();
+        TTFeedGroupPicAd groupPicAd = new TTFeedGroupPicAd(title , des , source , icon
+                , imageList , interactionType , imageMode , view);
+        groupPicAd.setTtFeedAd(ttFeedAd);
+        init(groupPicAd,helper,context);
+    }
+
     @Override
     public void init(TTFeedGroupPicAd ad, BaseViewHolder helper, Context context) {
 
@@ -98,12 +113,12 @@ public class GroupAdViewHolder extends BaseMuiltyViewHolder<TTFeedGroupPicAd> {
         mTitle.setText(ad.getTitle());
         mDescription.setText(ad.getDescription());
         mSource.setText(ad.getSource() == null ? "广告来源" : ad.getSource());
-        TTImage icon = ad.getIcon();
-        if (icon != null && icon.isValid()) {
-            ImageOptions options = new ImageOptions();
-            mAQuery.id(mIcon).image(icon.getImageUrl(), options);
-        }
-        Button adCreativeButton = mCreativeButton;
+//        TTImage icon = ad.getIcon();
+//        if (icon != null && icon.isValid()) {
+//            ImageOptions options = new ImageOptions();
+//            mAQuery.id(mIcon).image(icon.getImageUrl(), options);
+//        }
+        /*Button adCreativeButton = mCreativeButton;
         switch (ad.getInteractionType()) {
             case TTAdConstant.INTERACTION_TYPE_DOWNLOAD:
                 //如果初始化ttAdManager.createAdNative(getApplicationContext())没有传入activity 则需要在此传activity，否则影响使用Dislike逻辑
@@ -136,7 +151,7 @@ public class GroupAdViewHolder extends BaseMuiltyViewHolder<TTFeedGroupPicAd> {
                 mStopButton.setVisibility(View.GONE);
                 mRemoveButton.setVisibility(View.GONE);
                 TToast.show(context, "交互类型异常");
-        }
+        }*/
     }
 
     private void bindDownLoadStatusController(Button mStopButton , Button mRemoveButton

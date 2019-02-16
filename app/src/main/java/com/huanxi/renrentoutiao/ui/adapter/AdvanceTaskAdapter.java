@@ -1,7 +1,6 @@
 package com.huanxi.renrentoutiao.ui.adapter;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.util.Log;
@@ -10,7 +9,6 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.huanxi.renrentoutiao.R;
-import com.huanxi.renrentoutiao.net.api.news.ApiNewAdLog;
 import com.huanxi.renrentoutiao.net.api.user.task.ApiCustomTaskEnd;
 import com.huanxi.renrentoutiao.net.api.user.task.ApiCustomTaskStart;
 import com.huanxi.renrentoutiao.net.bean.news.ResAward;
@@ -20,8 +18,6 @@ import com.huanxi.renrentoutiao.ui.adapter.bean.TaskItemBean;
 import com.huanxi.renrentoutiao.ui.adapter.bean.TaskItemContentBean;
 import com.huanxi.renrentoutiao.ui.adapter.bean.TaskTitleBean;
 import com.huanxi.renrentoutiao.ui.dialog.RedPacketDialog;
-import com.huanxi.renrentoutiao.utils.InfoUtil;
-import com.huanxi.renrentoutiao.utils.SharedPreferencesUtils;
 import com.zhxu.library.http.HttpManager;
 import com.zhxu.library.listener.HttpOnNextListener;
 
@@ -108,7 +104,7 @@ public class AdvanceTaskAdapter extends TaskAdapter{
                     }
 
                     mCurTaskId = bean.getId();
-                    /*HashMap<String, String> paramsMap = new HashMap<>();
+                    HashMap<String, String> paramsMap = new HashMap<>();
                     paramsMap.put(ApiCustomTaskEnd.FROM_UID,mBaseActivity.getUserBean().getUserid());
                     paramsMap.put(ApiCustomTaskEnd.TASK_ID, mCurTaskId);
 
@@ -127,43 +123,7 @@ public class AdvanceTaskAdapter extends TaskAdapter{
                         }
                     },mBaseActivity,paramsMap);
 
-                    HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);*/
-                    InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-                        @Override
-                        public void onSuccess(String value) {
-                            HashMap<String, String> paramsMap = new HashMap<>();
-                            paramsMap.put(ApiNewAdLog.TYPE,"0");
-                            paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(mBaseActivity).getString(SharedPreferencesUtils.CHANNEL));
-                            paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                            paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                            paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                            paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                            paramsMap.put(ApiNewAdLog.IP,value);
-                            paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-//                paramsMap.put(ApiNewAdLog.AD_ID,);
-//                            paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                            ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                                @Override
-                                public void onNext(String str) {
-                                    mBaseActivity.startActivity(WebHelperActivity.getIntent(mBaseActivity,bean.getUrl(),bean.getTitle(),false));
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-                                    super.onError(e);
-                                    mBaseActivity.startActivity(WebHelperActivity.getIntent(mBaseActivity,bean.getUrl(),bean.getTitle(),false));
-                                }
-                            },mBaseActivity,paramsMap);
-                            HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-                        }
-
-                        @Override
-                        public void onFail(Exception e) {
-                            e.printStackTrace();
-                        }
-                    });
+                    HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);
                 }else{
                     // 这里是youmi 操作 已经删除
                 }
@@ -188,7 +148,7 @@ public class AdvanceTaskAdapter extends TaskAdapter{
      */
     public void endTask(){
 
-        /*HashMap<String, String> paramsMap = new HashMap<>();
+        HashMap<String, String> paramsMap = new HashMap<>();
         paramsMap.put(ApiCustomTaskEnd.FROM_UID,mBaseActivity.getUserBean().getUserid());
         paramsMap.put(ApiCustomTaskEnd.TASK_ID, mCurTaskId);
 
@@ -203,41 +163,7 @@ public class AdvanceTaskAdapter extends TaskAdapter{
 
         },mBaseActivity,paramsMap);
 
-        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);*/
-        InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-            @Override
-            public void onSuccess(String value) {
-                HashMap<String, String> paramsMap = new HashMap<>();
-                paramsMap.put(ApiNewAdLog.TYPE,"1");
-                paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(mBaseActivity).getString(SharedPreferencesUtils.CHANNEL));
-                paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                paramsMap.put(ApiNewAdLog.IP,value);
-                paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-//                paramsMap.put(ApiNewAdLog.AD_ID,);
-//                paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                    @Override
-                    public void onNext(String str) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                    }
-                },mBaseActivity,paramsMap);
-                HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                e.printStackTrace();
-            }
-        });
+        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);
     }
 
 }

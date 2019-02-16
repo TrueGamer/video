@@ -140,7 +140,7 @@ public class MainActivity extends BaseActivity {
                 //这里是视频的详情页面；
 
                 VideoListBean videoBean = new VideoListBean(null, jPushBroadcastBean.getUrlmd5(), jPushBroadcastBean.getTitle(), null, null, null, jPushBroadcastBean.getVideo_id(), null, null);
-                Intent videoIntent = VideoItemDetailActivity.getIntent(context, videoBean);
+                Intent videoIntent = VideoItemDetailActivity.getIntent(context, videoBean,null);
                 context.startActivity(videoIntent);
 
             } else if (jPushBroadcastBean.getType().equals("3")) {

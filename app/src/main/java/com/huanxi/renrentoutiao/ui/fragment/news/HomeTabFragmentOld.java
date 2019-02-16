@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.baidu.mobad.feeds.NativeResponse;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdNative;
@@ -14,7 +13,6 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.huanxi.renrentoutiao.R;
 import com.huanxi.renrentoutiao.globle.ConstantAd;
 import com.huanxi.renrentoutiao.globle.ConstantThreePart;
-import com.huanxi.renrentoutiao.model.bean.media.MediaChannelDao;
 import com.huanxi.renrentoutiao.net.api.news.ApiHomeNews;
 import com.huanxi.renrentoutiao.net.api.news.ApiNewsAndVideoList;
 import com.huanxi.renrentoutiao.net.bean.news.HomeTabBean;
@@ -29,9 +27,6 @@ import com.huanxi.renrentoutiao.ui.view.ReadArticleAwaryView;
 import com.huanxi.renrentoutiao.utils.SharedPreferencesUtils;
 import com.huanxi.renrentoutiao.utils.TTAdManagerHolder;
 import com.huanxi.renrentoutiao.utils.TToast;
-import com.hubcloud.adhubsdk.NativeAd;
-import com.hubcloud.adhubsdk.NativeAdListener;
-import com.hubcloud.adhubsdk.NativeAdResponse;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.zhxu.library.http.HttpManager;
@@ -43,6 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -79,9 +75,6 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
 
     private LinkedList<TTFeedAd> mData; // 网盟广告列表
     private TTAdNative mTTAdNative; // 网盟广告
-    private LinkedList<NativeAdResponse> mAdhubNativeData;
-    private NativeAd mNativeAd;
-    private boolean isFirstLoadGdtAd;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -102,20 +95,20 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
         super.initView();
         // --- 网盟广告
         mData = new LinkedList<>();
-        mAdhubNativeData = new LinkedList<>();
         TTAdManager ttAdManager = TTAdManagerHolder.getInstance(getActivity());
         mTTAdNative = ttAdManager.createAdNative(getActivity());
         //申请部分权限，如read_phone_state,防止获取不了imei时候，下载类广告没有填充的问题。
         TTAdManagerHolder.getInstance(getActivity()).requestPermissionIfNecessary(getActivity());
 //        loadListAd();
-
+        mNewsInfoFlowPresenter = new NewsInfoFlowPresenter(mGdtImgAds ,mGdtAdLists ,mTaLeftTitleRightImgAds,mTTAdNative,mData);
     }
+
+    private CountDownLatch latch;
 
     /**
      * 加载feed广告
      */
     private void loadListAd(String type , boolean isFirst) {
-        isFirstLoadGdtAd = true;
         //这里初始化广点通广告的逻辑
         mGdtImgAds = new GDTImgAds(new GDTImgAds.OnAdReceived() {
             @Override
@@ -123,75 +116,40 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
                 if (mImgAds != null) {
                     mGdtAdLists.clear();
                     mGdtAdLists.addAll(mImgAds);
-                    if(isFirstLoadGdtAd) {
-                        loadAdNext(type, isFirst);
-                        isFirstLoadGdtAd = false;
-                    }
                 }
             }
         } , getBaseActivity());
-        mGdtImgAds.load();
-
-
-        /*mNativeAd = new NativeAd(getActivity(),ConstantAd.ADHUBAD.NATIVE_ID, 1, new NativeAdListener() {
-            @Override
-            public void onAdLoaded(NativeAdResponse nativeAdResponse) {
-                mAdhubNativeData.add(nativeAdResponse);
-            }
-
-            @Override
-            public void onAdFailed(int i) {
-                LogUtil.e("info","adhub load add fail "+i);
-//                throw new IllegalStateException("adhub load add fail "+i);
-            }
-        });
-        mNativeAd.loadAd();*/
-
-    }
-
-    private void loadAdNext(String type,boolean isFirst) {
         mTaLeftTitleRightImgAds = new TaLeftTitleRightImgAds();
-        mNewsInfoFlowPresenter = new NewsInfoFlowPresenter(getBaseActivity(),mGdtImgAds ,mGdtAdLists ,mTaLeftTitleRightImgAds, mAdhubNativeData,mNativeAd);
-
-        if("refresh".equals(type)) {
-            getData(isFirst);
-        } else if("more".equals(type)) {
-            loadMore();
-        }
 
         //feed广告请求类型参数
-        /*AdSlot adSlot = new AdSlot.Builder()
+        AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(ConstantAd.CSJAD.APP_ID)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(640, 320)
-                .setAdCount(3)
+                .setAdCount(10)
                 .build();
         //调用feed广告异步请求接口
         mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
             @Override
             public void onError(int code, String message) {
-                if("refresh".equals(type)) {
-                    getData(isFirst);
-                } else if("more".equals(type)) {
-                    loadMore();
+                LogUtil.e("info","loadFeedAd error:"+message);
+                if(latch.getCount() > 0) {
+                    latch.countDown();
                 }
             }
             @Override
             public void onFeedAdLoad(List<TTFeedAd> ads) {
-                mData.clear();
 //                if (ads == null || ads.isEmpty()) {
 //                    TToast.show(getContext(), "on FeedAdLoaded: ad is null!");
 //                    return;
 //                }
                 mData.addAll(ads);
-                Log.i("info" , "mode="+mData.get(0).getImageMode()+",title="+mData.get(0).getTitle());
-                if("refresh".equals(type)) {
-                    getData(isFirst);
-                } else if("more".equals(type)) {
-                    loadMore();
+                Log.i("info" , "ads size=="+mData.size());
+                if(latch.getCount() > 0) {
+                    latch.countDown();
                 }
             }
-        });*/
+        });
     }
 
     @Override
@@ -212,40 +170,55 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
             @Override
             public void onNext(ResNewsAndVideoBean resNewsAndVideoBean) {
 
-                if (resNewsAndVideoBean.getList() != null && resNewsAndVideoBean.getList().size() > 0) {
-                    mPage = 2;
-                    mAdapter.replaceData(mNewsInfoFlowPresenter.filterData(resNewsAndVideoBean.getList() , mData));
-                    if (isShowContent) {
-                        showSuccess();
-                    } else {
-                        refreshComplete();
-                        if (resNewsAndVideoBean.getList().size() > 0) {
+                try {
+                    latch.await(3,TimeUnit.SECONDS);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (resNewsAndVideoBean.getList() != null && resNewsAndVideoBean.getList().size() > 0) {
+                            mPage = 2;
+                            mAdapter.replaceData(mNewsInfoFlowPresenter.filterData(resNewsAndVideoBean.getList()));
+                            if (isShowContent) {
+                                showSuccess();
+                            } else {
+                                refreshComplete();
+                                if (resNewsAndVideoBean.getList().size() > 0) {
 
-                            ((MainActivity) getBaseActivity()).getNewsFragment().showRefreshBanner(resNewsAndVideoBean.getList().size());
+                                    ((MainActivity) getBaseActivity()).getNewsFragment().showRefreshBanner(resNewsAndVideoBean.getList().size());
 
+                                }
+                            }
+                        } else {
+                            showEmpty();
                         }
                     }
-                } else {
-                    showEmpty();
-                }
+                });
             }
 
             @Override
             public void onError(Throwable e) {
                 super.onError(e);
-                try {
-                    if (isShowContent) {
-                        showFaild();
-                    } else {
-                        refreshComplete();
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            if (isShowContent) {
+                                showFaild();
+                            } else {
+                                refreshComplete();
+                            }
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
                     }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+                });
             }
         }, ((RxAppCompatActivity) getActivity()), paramsMap);
 
-        HttpManager.getInstance().doHttpDeal(apiHomeNews);
+        HttpManager.getInstance().doHttpDealBackground(apiHomeNews);
     }
 
     /**
@@ -281,7 +254,7 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
                 if (resNewsAndVideoBean.getList() != null && resNewsAndVideoBean.getList().size() > 0) {
                     //这里表示服务器返回有数据；
                     List<MultiItemEntity> multiItemEntities = mNewsInfoFlowPresenter
-                            .filterData(resNewsAndVideoBean.getList() , mData);
+                            .filterData(resNewsAndVideoBean.getList());
 
                     if (multiItemEntities != null && multiItemEntities.size() > 0) {
                         mPage++;
@@ -313,15 +286,17 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
 
     @Override
     public void requestAdapterData(boolean isFirst) {
-        isFirstLoadGdtAd = true;
-        loadListAd("refresh" , isFirst);
-//        getData(isFirst);
+        latch = new CountDownLatch(6);
+        for(int i = 0; i < 10; i++) {
+            loadListAd("refresh", isFirst);
+        }
+        getData(isFirst);
     }
 
     @Override
     public void requestNextAdapterData() {
-        loadListAd("more" , false);
-//        loadMore();
+//        loadListAd("more" , false);
+        loadMore();
     }
 
     @Override
