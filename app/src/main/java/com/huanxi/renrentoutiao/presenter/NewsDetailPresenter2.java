@@ -407,18 +407,27 @@ public class NewsDetailPresenter2 {
                     ArrayList<NewsItemBean> multiItemEntities = new ArrayList<>();
 
                     int count = 0;
+                    int adCount = 0;
                     //以下是为adhub单独写的
                     for(NewsItemBean item : list) {
                         if("qmttad".equals(item.getQmttcontenttype())) {
                             continue;
                         }
-                        if(count==11)break;
-                        TTFeedAd ttFeedAd = getCstAd();
-                        if(ttFeedAd != null) {
-                            NewsItemBean bean = new NewsItemBean("qmttad", "csj");
-                            bean.setTtFeedAd(ttFeedAd);
+                        if(count==20)break;
+                        if(adCount%2==1) {
+                            TTFeedAd ttFeedAd = getCstAd();
+                            if (ttFeedAd != null) {
+                                NewsItemBean bean = new NewsItemBean("qmttad", "csj");
+                                bean.setTtFeedAd(ttFeedAd);
+                                multiItemEntities.add(bean);
+                                count++;
+                                adCount++;
+                            }
+                        } else {
+                            NewsItemBean bean = new NewsItemBean("qmttad", NewsItemBean.TYPE_GDT_AD);
                             multiItemEntities.add(bean);
                             count++;
+                            adCount++;
                         }
                         multiItemEntities.add(item);
                         count++;
