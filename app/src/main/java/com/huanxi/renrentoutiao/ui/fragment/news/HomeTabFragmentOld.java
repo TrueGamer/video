@@ -100,6 +100,7 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
         //申请部分权限，如read_phone_state,防止获取不了imei时候，下载类广告没有填充的问题。
         TTAdManagerHolder.getInstance(getActivity()).requestPermissionIfNecessary(getActivity());
 //        loadListAd();
+
         mNewsInfoFlowPresenter = new NewsInfoFlowPresenter(mGdtImgAds ,mGdtAdLists ,mTaLeftTitleRightImgAds,mTTAdNative,mData);
     }
 
@@ -113,12 +114,13 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
         mGdtImgAds = new GDTImgAds(new GDTImgAds.OnAdReceived() {
             @Override
             public void onGdtImgAdReceived(List<NativeExpressADView> mImgAds) {
+                LogUtil.d("loadListAd mImgAds "+(mImgAds==null?"null":""+mImgAds.size()));
                 if (mImgAds != null) {
-                    mGdtAdLists.clear();
                     mGdtAdLists.addAll(mImgAds);
                 }
             }
         } , getBaseActivity());
+        mNewsInfoFlowPresenter.setGdtImgAds(mGdtImgAds);
         mTaLeftTitleRightImgAds = new TaLeftTitleRightImgAds();
 
         //feed广告请求类型参数

@@ -55,6 +55,7 @@ public class NewsInfoFlowPresenter {
     private TaLeftTitleRightImgAds mTaLeftTitleRightImgAds;
     private LinkedList<TTFeedAd> mFeedAdList; // 网盟广告列表
     private TTAdNative mTTAdNative;
+    private int adCount;
 
     public NewsInfoFlowPresenter(GDTImgAds gdtImgAds, LinkedList<NativeExpressADView> gdtList
             , TaLeftTitleRightImgAds taLeftTitleRightImgAds,TTAdNative mTTAdNative, LinkedList<TTFeedAd> mData) {
@@ -65,6 +66,10 @@ public class NewsInfoFlowPresenter {
 
         this.mTTAdNative = mTTAdNative;
         this.mFeedAdList = mData;
+    }
+
+    public void setGdtImgAds(GDTImgAds mGdtImgAds) {
+        this.mGdtImgAds = mGdtImgAds;
     }
 
     /**
@@ -185,7 +190,7 @@ public class NewsInfoFlowPresenter {
     private MultiItemEntity getAd(ResNewsAndVideoBean.HomeInfoBean homeInfoBean) {
         Log.i("info" , "addType=========="+homeInfoBean.getType());
         MultiItemEntity multiItemEntity = null;
-        if (homeInfoBean.isTaAd()) {
+        /*if (homeInfoBean.isTaAd()) {
             multiItemEntity = getTuiAAd(homeInfoBean);
         } else if (homeInfoBean.isCustomAd()) {
             multiItemEntity = getCustomAd(homeInfoBean);
@@ -197,6 +202,12 @@ public class NewsInfoFlowPresenter {
         } else {
             // if (homeInfoBean.isGdtAd())
             multiItemEntity = getGdtAd(homeInfoBean);
+        }*/
+        adCount++;
+        if(adCount%2 == 1){
+            multiItemEntity = getGdtAd(homeInfoBean);
+        } else {
+            multiItemEntity = getCstAd(homeInfoBean);
         }
 
         // homeInfoBean
@@ -269,6 +280,7 @@ public class NewsInfoFlowPresenter {
         MultiItemEntity multiItemEntity=null;
 
         if (mGdtAdLists!=null && mGdtAdLists.size()>0) {
+            LogUtil.d("info","getGdtAd mGdtAdLists more than 0");
             NativeExpressADView gdtadView = mGdtAdLists.removeFirst();
 
             gdtadView.setPadding(UIUtil.dip2px(getContext(), 12), UIUtil.dip2px(getContext(), 12),
@@ -308,6 +320,7 @@ public class NewsInfoFlowPresenter {
         MultiItemEntity multiItemEntity = null;
 
         if(mFeedAdList != null && mFeedAdList.size()>0) {
+            LogUtil.d("info","getCstAd mFeedAdList more than 0");
             TTFeedAd ttFeedAd = mFeedAdList.removeFirst();
 
             String title = ttFeedAd.getTitle();
