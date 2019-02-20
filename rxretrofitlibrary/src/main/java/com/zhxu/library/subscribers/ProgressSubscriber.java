@@ -252,14 +252,20 @@ public class ProgressSubscriber<T> extends Subscriber<T> {
     private void errorDo(Throwable e) {
         Context context = mActivity.get();
         if (context == null) return;
-        api.handleException(e);
+        mActivity.get().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                api.handleException(e);
         /*if (mSubscriberOnNextListener.get() != null) {
             mSubscriberOnNextListener.get().onError(e);
         }*/
-        if (mListener != null) {
-            mListener.onError(e);
-        }
-        e.printStackTrace();
+                if (mListener != null) {
+                    mListener.onError(e);
+                }
+                e.printStackTrace();
+            }
+        });
+
     }
 
     /**

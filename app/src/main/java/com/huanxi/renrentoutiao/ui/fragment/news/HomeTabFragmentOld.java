@@ -202,7 +202,6 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
 
             @Override
             public void onError(Throwable e) {
-                super.onError(e);
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
