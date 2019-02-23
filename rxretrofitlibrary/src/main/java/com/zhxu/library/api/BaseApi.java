@@ -36,15 +36,15 @@ public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
     //这里是测试地址
     //private String baseUrl = "http://192.168.31.100:8888/api/index.php/news/";
     //这里是一个正式的
-     private String baseUrl = "http://app.izsjl.com/api/index.php/news/";
+     private String baseUrl = "http://game.appshow.cn/api/index.php/news/";
 //    private String baseUrl = "http://www.appshow.cn/toutiao/public/api/index.php/news/";
 //    private String baseUrl = "http://api.zhidaoweilai.com/public/api/index.php/news/";
 
 //    private static final String DEBUG_URL="http://118.31.4.145/html/hxtoutiao/public/api/index.php/news/";
 //    private static final String RELEASE_URL="http://118.31.4.145/html/hxtoutiao/public/api/index.php/news/";
 
-     private static final String DEBUG_URL="http://app.izsjl.com/api/index.php/news/";
-     private static final String RELEASE_URL="http://app.izsjl.com/api/index.php/news/";
+     private static final String DEBUG_URL="http://game.appshow.cn/api/index.php/news/";
+     private static final String RELEASE_URL="http://game.appshow.cn/api/index.php/news/";
 //    private static final String DEBUG_URL="http://api.zhidaoweilai.com/public/api/index.php/news/";
 //    private static final String RELEASE_URL="http://api.zhidaoweilai.com/public/api/index.php/news/";
 

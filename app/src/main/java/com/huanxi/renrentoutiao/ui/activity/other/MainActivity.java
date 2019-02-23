@@ -101,7 +101,7 @@ public class MainActivity extends BaseActivity {
 
         initPageckageName();
 
-//        checkVersion();
+        checkVersion();
 
         mGdtNativeAds = GdtNativeAds.newInstance();
 

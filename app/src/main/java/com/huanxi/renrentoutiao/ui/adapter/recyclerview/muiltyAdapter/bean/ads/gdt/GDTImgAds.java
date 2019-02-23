@@ -89,10 +89,10 @@ public class GDTImgAds implements NativeExpressAD.NativeExpressADListener{
      */
     private void initImageAds() {
         Random random = new Random();
-        int position = random.nextInt(9);
+        int position = random.nextInt(2);
         ADSize adSize = new ADSize(ADSize.FULL_WIDTH, ADSize.FULL_WIDTH); // 消息流中用AUTO_HEIGHT
         mImgAdManager = new NativeExpressAD(MyApplication.getConstantContext(), adSize,
-                ConstantAd.GdtAD.APPID, ConstantAd.GdtAD.AD_CODE[position], this);
+                ConstantAd.GdtAD.APPID, ConstantAd.GdtAD.AD_CODE_3[position], this);
         mImgAdManager.loadAD(AD_COUNT);
     }
 

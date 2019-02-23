@@ -7,7 +7,7 @@ ext {
             applicationId          : "com.huanxi.renrentoutiao",
             minSdkVersion          : 16,
             targetSdkVersion       : 27,
-            versionCode            : 15,
+            versionCode            : 16,
             versionName            : "3.8.0"
     ]
 

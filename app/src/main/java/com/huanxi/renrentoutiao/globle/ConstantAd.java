@@ -40,6 +40,7 @@ public class ConstantAd {
                 "2080334607220270"};
 
         public static final String AD_CODE_2 = "3050250425101232";
+        public static final String[] AD_CODE_3 = {"5080830779360404","6000939719868453"};
     }
 
     /**

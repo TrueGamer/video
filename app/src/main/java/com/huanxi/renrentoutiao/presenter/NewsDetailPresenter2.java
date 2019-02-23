@@ -413,24 +413,24 @@ public class NewsDetailPresenter2 {
                         if("qmttad".equals(item.getQmttcontenttype())) {
                             continue;
                         }
-                        if(count==20)break;
-                        if(adCount%2==1) {
-                            TTFeedAd ttFeedAd = getCstAd();
-                            if (ttFeedAd != null) {
-                                NewsItemBean bean = new NewsItemBean("qmttad", "csj");
-                                bean.setTtFeedAd(ttFeedAd);
-                                multiItemEntities.add(bean);
-                                count++;
-                                adCount++;
-                            }
-                        } else {
+                        if(count==15)break;
+//                        if(adCount%2==1) {
+//                            TTFeedAd ttFeedAd = getCstAd();
+//                            if (ttFeedAd != null) {
+//                                NewsItemBean bean = new NewsItemBean("qmttad", "csj");
+//                                bean.setTtFeedAd(ttFeedAd);
+//                                multiItemEntities.add(bean);
+//                                count++;
+//                                adCount++;
+//                            }
+//                        } else {
                             NewsItemBean bean = new NewsItemBean("qmttad", NewsItemBean.TYPE_GDT_AD);
                             multiItemEntities.add(bean);
-                            count++;
-                            adCount++;
-                        }
+//                            count++;
+//                            adCount++;
+//                        }
                         multiItemEntities.add(item);
-                        count++;
+//                        count++;
                     }
                     mActivity.runOnUiThread(new Runnable() {
                         @Override

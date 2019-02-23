@@ -203,12 +203,12 @@ public class NewsInfoFlowPresenter {
             // if (homeInfoBean.isGdtAd())
             multiItemEntity = getGdtAd(homeInfoBean);
         }*/
-        adCount++;
-        if(adCount%2 == 1){
+//        adCount++;
+//        if(adCount%2 == 1){
             multiItemEntity = getGdtAd(homeInfoBean);
-        } else {
-            multiItemEntity = getCstAd(homeInfoBean);
-        }
+//        } else {
+//            multiItemEntity = getCstAd(homeInfoBean);
+//        }
 
         // homeInfoBean
         return multiItemEntity;
