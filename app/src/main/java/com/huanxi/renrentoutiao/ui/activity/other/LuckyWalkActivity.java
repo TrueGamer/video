@@ -23,6 +23,7 @@ import com.huanxi.renrentoutiao.net.api.user.userInfo.ApiBindPhoneNumber;
 import com.huanxi.renrentoutiao.net.api.user.userInfo.ApiOnlyBindPhoneNumber;
 import com.huanxi.renrentoutiao.net.bean.ResEmpty;
 import com.huanxi.renrentoutiao.net.bean.luckywalk.ResLuckwalkProductBean;
+import com.huanxi.renrentoutiao.ui.activity.TiXianWebActivity;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseTitleActivity;
 import com.huanxi.renrentoutiao.ui.activity.user.UserTaskActivity;
 import com.huanxi.renrentoutiao.ui.activity.user.WithdrawalsActivity2;
@@ -220,6 +221,7 @@ public class LuckyWalkActivity extends BaseTitleActivity {
      */
     private void onClickWithdrawals() {
         startActivity(new Intent(this,WithdrawalsActivity2.class));
+//        startActivity(new Intent(this, TiXianWebActivity.class));
     }
 
 

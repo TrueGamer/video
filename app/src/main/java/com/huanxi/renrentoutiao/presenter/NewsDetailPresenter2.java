@@ -332,18 +332,13 @@ public class NewsDetailPresenter2 {
      */
     public void getRecomment() {
 
-        latch = new CountDownLatch(3);
         // 先请求穿山甲广告, 然后再请求推荐数据
         loadListAd();
-        loadListAd();
-        loadListAd();
-        getData();
         //这里我们要做第一个操作就是拼接内容；
 //        getData();
     }
 
     LinkedList<TTFeedAd> mData;
-    CountDownLatch latch;
 
     /**
      * 加载feed广告
@@ -365,9 +360,7 @@ public class NewsDetailPresenter2 {
         mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
             @Override
             public void onError(int code, String message) {
-                if(latch.getCount() > 0) {
-                    latch.countDown();
-                }
+                getData();
             }
             @Override
             public void onFeedAdLoad(List<TTFeedAd> ads) {
@@ -375,9 +368,7 @@ public class NewsDetailPresenter2 {
                 if(ads.size()>0) {
                     mData.addAll(ads);
                 }
-                if(latch.getCount() > 0) {
-                    latch.countDown();
-                }
+                getData();
             }
         });
     }
@@ -398,7 +389,7 @@ public class NewsDetailPresenter2 {
                 //这里表示获取得到了返回的内容；
                 List<NewsItemBean> list = resTabBean.getList();
 
-                if (list!=null ) {
+                /*if (list!=null ) {
                     try {
                         latch.await(3, TimeUnit.SECONDS);
                     } catch (InterruptedException e) {
@@ -438,71 +429,70 @@ public class NewsDetailPresenter2 {
                             mActivity.updateRecomment(multiItemEntities);
                         }
                     });
-                }
+                }*/
 
                 //这里我们要取出来两条；
-                /*if (list!=null ) {
+                if (list!=null ) {
                     ArrayList<NewsItemBean> multiItemEntities = new ArrayList<>();
-                    if(list.size()>5){
+                    /*if(list.size()>5){
                         //这里我们要做的一个操作就是；
-//                        ResSplashAds resAds = mActivity.getMyApplication().getResAds();
-//                        ArrayList<AdBean> newdetail = resAds.getNewdetail();
+                        ResSplashAds resAds = mActivity.getMyApplication().getResAds();
+                        ArrayList<AdBean> newdetail = resAds.getNewdetail();
 
-                        NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "csj");
-                        newsItemBean1.setTtFeedAd();
+                        NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "ta");
                         //拼接广告的操作；
-//                        if (newdetail!=null && newdetail.size()>0) {
-//                            //这里做一个适配的操作；
-//                            AdBean adBean = newdetail.get(0);
-//
-//                            newsItemBean1.setQmttcontenttype(NewsItemBean.AD);
-//                            newsItemBean1.setType(adBean.getType());
-//
-//                            newsItemBean1.setId(adBean.getId());
-//                            newsItemBean1.setTitle(adBean.getTitle());
-//                            newsItemBean1.setCont(adBean.getCont());
-//                            newsItemBean1.setImgurl(adBean.getImgurl());
-//                            newsItemBean1.setUrl(adBean.getUrl());
-//                            newsItemBean1.setDownurl(adBean.getDownurl());
-//                            newsItemBean1.setSize(adBean.getSize());
-//                            newsItemBean1.setPackename(adBean.getPackageName());
-//                            newsItemBean1.setAppname(adBean.getAppname());
-//                            newsItemBean1.setImgurls(adBean.getImgurls());
-//                            if("csj".equals(adBean.getType())) {
-//                                if(mData.size()>0) {
-//                                    newsItemBean1.setTtFeedAd(mData.get(0));
-//                                } else {
-//                                    newsItemBean1.setType("gdt");
-//                                }
-//                            }
-//                        }
-                        NewsItemBean newsItemBean2 = new NewsItemBean("qmttad", "csj");
-                        NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "csj");
-                        NewsItemBean newsItemBean4 = new NewsItemBean("qmttad", "csj");
+                        if (newdetail!=null && newdetail.size()>0) {
+                            //这里做一个适配的操作；
+                            AdBean adBean = newdetail.get(0);
+
+                            newsItemBean1.setQmttcontenttype(NewsItemBean.AD);
+                            newsItemBean1.setType("gdt");
+
+                            newsItemBean1.setId(adBean.getId());
+                            newsItemBean1.setTitle(adBean.getTitle());
+                            newsItemBean1.setCont(adBean.getCont());
+                            newsItemBean1.setImgurl(adBean.getImgurl());
+                            newsItemBean1.setUrl(adBean.getUrl());
+                            newsItemBean1.setDownurl(adBean.getDownurl());
+                            newsItemBean1.setSize(adBean.getSize());
+                            newsItemBean1.setPackename(adBean.getPackageName());
+                            newsItemBean1.setAppname(adBean.getAppname());
+                            newsItemBean1.setImgurls(adBean.getImgurls());
+                            if("csj".equals(adBean.getType())) {
+                                if(mData.size()>0) {
+                                    newsItemBean1.setTtFeedAd(mData.get(0));
+                                } else {
+                                    newsItemBean1.setType("gdt");
+                                }
+                            }
+                        }
+                        NewsItemBean newsItemBean2 = new NewsItemBean("qmtt_lt", "gdt");
+                        NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "baidu");
+                        NewsItemBean newsItemBean4 = new NewsItemBean("qmttad", "ta");
                         if (mActivity.isHasAds()) {
 
                             multiItemEntities.add(newsItemBean1);
                             if(!"csj".equals(list.get(0).getType())) {
                                 multiItemEntities.add(list.get(0));
                             } else {
-                                multiItemEntities.add(new NewsItemBean("qmttad", "csj"));
+                                multiItemEntities.add(new NewsItemBean("qmttad", "gdt"));
                             }
 
                             if(!"csj".equals(list.get(1).getType())) {
                                 multiItemEntities.add(list.get(1));
                             } else {
-                                multiItemEntities.add(new NewsItemBean("qmttad", "csj"));
+                                multiItemEntities.add(new NewsItemBean("qmttad", "gdt"));
                             }
                             multiItemEntities.add(newsItemBean2);
                             if(!"csj".equals(list.get(2).getType())) {
                                 multiItemEntities.add(list.get(2));
                             } else {
-                                multiItemEntities.add(new NewsItemBean("qmttad", "csj"));
+                                multiItemEntities.add(new NewsItemBean("qmttad", "gdt"));
                             }
                             if(!"csj".equals(list.get(3).getType())) {
                                 multiItemEntities.add(list.get(3));
                             } else {
-                                multiItemEntities.add(new NewsItemBean("qmttad", "csj"));
+                                multiItemEntities.add(new NewsItemBean("qmttad", "gdt"));
                             }
                             multiItemEntities.add(newsItemBean3);
                             //multiItemEntities.add(newsItemBean4);
@@ -519,9 +509,9 @@ public class NewsDetailPresenter2 {
                     } else{
                         //这里表示小于2的逻辑
                         if(mActivity.isHasAds()){
-                            NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "csj");
-                            NewsItemBean newsItemBean2 = new NewsItemBean("qmtt_lt", "csj");
-                            NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "csj");
+                            NewsItemBean newsItemBean1 = new NewsItemBean("qmttad", "ta");
+                            NewsItemBean newsItemBean2 = new NewsItemBean("qmttad", "gdt");
+                            NewsItemBean newsItemBean3 = new NewsItemBean("qmttad", "baidu");
                             multiItemEntities.add(newsItemBean1);
                             multiItemEntities.addAll(list);
                             multiItemEntities.add(newsItemBean2);
@@ -529,13 +519,14 @@ public class NewsDetailPresenter2 {
                         }else{
                             multiItemEntities.addAll(list);
                         }
-                    }
+                    }*/
+                    multiItemEntities.addAll(list);
                     mActivity.updateRecomment(multiItemEntities);
-                }*/
+                }
             }
         });
 
-        HttpManager.getInstance().doHttpDealBackground(apiHomeNews);
+        HttpManager.getInstance().doHttpDeal(apiHomeNews);
     }
 
     /**

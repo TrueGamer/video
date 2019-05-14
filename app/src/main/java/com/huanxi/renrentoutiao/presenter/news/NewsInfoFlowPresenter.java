@@ -190,7 +190,7 @@ public class NewsInfoFlowPresenter {
     private MultiItemEntity getAd(ResNewsAndVideoBean.HomeInfoBean homeInfoBean) {
         Log.i("info" , "addType=========="+homeInfoBean.getType());
         MultiItemEntity multiItemEntity = null;
-        /*if (homeInfoBean.isTaAd()) {
+        if (homeInfoBean.isTaAd()) {
             multiItemEntity = getTuiAAd(homeInfoBean);
         } else if (homeInfoBean.isCustomAd()) {
             multiItemEntity = getCustomAd(homeInfoBean);
@@ -202,10 +202,10 @@ public class NewsInfoFlowPresenter {
         } else {
             // if (homeInfoBean.isGdtAd())
             multiItemEntity = getGdtAd(homeInfoBean);
-        }*/
+        }
 //        adCount++;
 //        if(adCount%2 == 1){
-            multiItemEntity = getGdtAd(homeInfoBean);
+//            multiItemEntity = getGdtAd(homeInfoBean);
 //        } else {
 //            multiItemEntity = getCstAd(homeInfoBean);
 //        }

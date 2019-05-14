@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">人人头条</string>
+    <string name="app_name">当日头条</string>
 
     <!-- 状态视图  -->
     <string name="loading">加载中...</string>

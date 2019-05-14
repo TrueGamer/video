@@ -367,6 +367,9 @@
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <activity android:name=".ui.activity.TiXianWebActivity"
+            android:screenOrientation="portrait"/>
+
         <provider
             android:name="com.baidu.mobads.openad.FileProvider"
             android:authorities="com.huanxi.renrentoutiao.bd.provider"

@@ -102,9 +102,9 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
 //        loadListAd();
 
         mNewsInfoFlowPresenter = new NewsInfoFlowPresenter(mGdtImgAds ,mGdtAdLists ,mTaLeftTitleRightImgAds,mTTAdNative,mData);
+        initData();
     }
 
-    private CountDownLatch latch;
 
     /**
      * 加载feed广告
@@ -135,9 +135,7 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
             @Override
             public void onError(int code, String message) {
                 LogUtil.e("info","loadFeedAd error:"+message);
-                if(latch.getCount() > 0) {
-                    latch.countDown();
-                }
+                getData(isFirst);
             }
             @Override
             public void onFeedAdLoad(List<TTFeedAd> ads) {
@@ -147,9 +145,7 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
 //                }
                 mData.addAll(ads);
                 Log.i("info" , "ads size=="+mData.size());
-                if(latch.getCount() > 0) {
-                    latch.countDown();
-                }
+                getData(isFirst);
             }
         });
     }
@@ -171,55 +167,39 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
 
             @Override
             public void onNext(ResNewsAndVideoBean resNewsAndVideoBean) {
+                if (resNewsAndVideoBean.getList() != null && resNewsAndVideoBean.getList().size() > 0) {
+                    mPage = 2;
+                    mAdapter.replaceData(mNewsInfoFlowPresenter.filterData(resNewsAndVideoBean.getList()));
+                    if (isShowContent) {
+                        showSuccess();
+                    } else {
+                        refreshComplete();
+                        if (resNewsAndVideoBean.getList().size() > 0) {
 
-                try {
-                    latch.await(3,TimeUnit.SECONDS);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (resNewsAndVideoBean.getList() != null && resNewsAndVideoBean.getList().size() > 0) {
-                            mPage = 2;
-                            mAdapter.replaceData(mNewsInfoFlowPresenter.filterData(resNewsAndVideoBean.getList()));
-                            if (isShowContent) {
-                                showSuccess();
-                            } else {
-                                refreshComplete();
-                                if (resNewsAndVideoBean.getList().size() > 0) {
+                            ((MainActivity) getBaseActivity()).getNewsFragment().showRefreshBanner(resNewsAndVideoBean.getList().size());
 
-                                    ((MainActivity) getBaseActivity()).getNewsFragment().showRefreshBanner(resNewsAndVideoBean.getList().size());
-
-                                }
-                            }
-                        } else {
-                            showEmpty();
                         }
                     }
-                });
+                } else {
+                    showEmpty();
+                }
             }
 
             @Override
             public void onError(Throwable e) {
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if (isShowContent) {
-                                showFaild();
-                            } else {
-                                refreshComplete();
-                            }
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
+                try {
+                    if (isShowContent) {
+                        showFaild();
+                    } else {
+                        refreshComplete();
                     }
-                });
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         }, ((RxAppCompatActivity) getActivity()), paramsMap);
 
-        HttpManager.getInstance().doHttpDealBackground(apiHomeNews);
+        HttpManager.getInstance().doHttpDeal(apiHomeNews);
     }
 
     /**
@@ -287,11 +267,7 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
 
     @Override
     public void requestAdapterData(boolean isFirst) {
-        latch = new CountDownLatch(6);
-        for(int i = 0; i < 10; i++) {
-            loadListAd("refresh", isFirst);
-        }
-        getData(isFirst);
+        loadListAd("refresh", isFirst);
     }
 
     @Override
