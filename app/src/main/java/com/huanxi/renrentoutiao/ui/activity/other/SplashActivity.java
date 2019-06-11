@@ -152,31 +152,30 @@ public class SplashActivity extends BaseActivity {
                 //第二次直接进入广告；
                 Log.i("info" , "ResSplashAds="+resSplashAds.toString());
                 BaseFragment baseFragment = null;
-                SharedPreferencesUtils.getInstance(mContext).setSplashType(mContext,resSplashAds.getSplash().getType());
                 String splashType = SharedPreferencesUtils.getInstance(mContext).getSplashType(mContext);
                 Log.i("info" , "splashType="+splashType);
-                if(ResSplashAds.SplashBean.TYPE_BD.equals(splashType)) {
+//                if(ResSplashAds.SplashBean.TYPE_BD.equals(splashType)) {
 //                    SharedPreferencesUtils.getInstance(mContext).setSplashType(mContext , ResSplashAds.SplashBean.TYPE_GDT);
-                    loadBDAd();
-                } else {
-                    if(ResSplashAds.SplashBean.TYPE_GDT.equals(splashType)) {
+//                    loadBDAd();
+//                } else {
+//                    if(ResSplashAds.SplashBean.TYPE_GDT.equals(splashType)) {
                         // 广点通
                         baseFragment = new SplashGDTFragment();
-//                        SharedPreferencesUtils.getInstance(mContext).setSplashType(mContext , ResSplashAds.SplashBean.TYPE_TA);
-                    } else if(ResSplashAds.SplashBean.TYPE_CUSTOM.equals(splashType)) {
-                        // 普通广告
-                        baseFragment = SplashH5AdFragment.getSplashH5Fragment(SplashActivity.this, resSplashAds.getSplash().getImgurl(), resSplashAds.getSplash().getUrl());
-                    } else {
-                        //这里我们要执行的是推啊的广告；
-                        baseFragment = new SplashTuiAFragment();
+                        SharedPreferencesUtils.getInstance(mContext).setSplashType(mContext , ResSplashAds.SplashBean.TYPE_TA);
+//                    } else if(ResSplashAds.SplashBean.TYPE_CUSTOM.equals(splashType)) {
+//                        // 普通广告
+//                        baseFragment = SplashH5AdFragment.getSplashH5Fragment(SplashActivity.this, resSplashAds.getSplash().getImgurl(), resSplashAds.getSplash().getUrl());
+//                    } else {
+//                        //这里我们要执行的是推啊的广告；
+//                        baseFragment = new SplashTuiAFragment();
 //                        SharedPreferencesUtils.getInstance(mContext).setSplashType(mContext , ResSplashAds.SplashBean.TYPE_GDT);
-                    }
+//                    }
 
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.fl_ad_container, baseFragment)
                             .commitAllowingStateLoss();
-                }
+//                }
 //                loadCsjAd();
 
                 ((MyApplication) getApplication()).setResAds(resSplashAds);

@@ -261,16 +261,6 @@ public class ResSplashAds implements Serializable{
         public void setId(String id) {
             this.id = id;
         }
-
-        @Override
-        public String toString() {
-            return "SplashBean{" +
-                    "type='" + type + '\'' +
-                    ", id='" + id + '\'' +
-                    ", imgurl='" + imgurl + '\'' +
-                    ", url='" + url + '\'' +
-                    '}';
-        }
     }
 
     public static class VideoDetailAds implements Serializable{
