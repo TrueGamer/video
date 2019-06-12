@@ -16,19 +16,25 @@ import android.widget.TextView;
 
 import com.ajguan.library.EasyRefreshLayout;
 import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdManager;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.bytedance.sdk.openadsdk.TTImage;
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.huanxi.renrentoutiao.R;
 import com.huanxi.renrentoutiao.globle.ConstantAd;
 import com.huanxi.renrentoutiao.model.bean.AdVideoBean;
 import com.huanxi.renrentoutiao.net.api.news.ApiNewsCommentList;
 import com.huanxi.renrentoutiao.net.api.user.ApiInviteFriendDesc;
 import com.huanxi.renrentoutiao.net.api.user.ApiUserDoLike;
+import com.huanxi.renrentoutiao.net.api.video.ApiVedioList;
+import com.huanxi.renrentoutiao.net.api.video.ApiVedioListDetail;
 import com.huanxi.renrentoutiao.net.bean.ResEmpty;
 import com.huanxi.renrentoutiao.net.bean.ResInviteFriendDesc;
 import com.huanxi.renrentoutiao.net.bean.ResSplashAds;
 import com.huanxi.renrentoutiao.net.bean.comment.ResNewsCommentList;
+import com.huanxi.renrentoutiao.net.bean.video.ResVideoList;
 import com.huanxi.renrentoutiao.presenter.LoginPresenter;
 import com.huanxi.renrentoutiao.ui.activity.WebHelperActivity;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseActivity;
@@ -36,21 +42,31 @@ import com.huanxi.renrentoutiao.ui.activity.video.VideoItemDetailActivity;
 import com.huanxi.renrentoutiao.ui.adapter.AdBean;
 import com.huanxi.renrentoutiao.ui.adapter.AdsAdapter;
 import com.huanxi.renrentoutiao.ui.adapter.VideoDetailAdapter;
+import com.huanxi.renrentoutiao.ui.adapter.bean.VideoBean;
+import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.VideoListAdapter;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.video.VideoListBean;
 import com.huanxi.renrentoutiao.ui.fragment.base.BaseLoadingFrament;
+import com.huanxi.renrentoutiao.ui.media.TTFeedGroupPicAd;
+import com.huanxi.renrentoutiao.ui.media.TTFeedLargePicAd;
+import com.huanxi.renrentoutiao.ui.media.TTFeedSmallPicAd;
+import com.huanxi.renrentoutiao.ui.media.TTFeedVideoAd;
 import com.huanxi.renrentoutiao.utils.TTAdManagerHolder;
 import com.qq.e.ads.banner.ADSize;
 import com.qq.e.ads.banner.AbstractBannerADListener;
 import com.qq.e.ads.banner.BannerView;
 import com.qq.e.comm.util.AdError;
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.zhxu.library.http.HttpManager;
 import com.zhxu.library.listener.HttpOnNextListener;
+import com.zhxu.library.utils.SystemUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.BindView;
+import cn.tongdun.android.shell.db.utils.LogUtil;
 
 /**
  * Created by Dinosa on 2018/3/6.
@@ -59,6 +75,7 @@ import butterknife.BindView;
 public class VideoDetailFragment extends BaseLoadingFrament {
 
 
+    public static final String HOME_TAB_ID = "home_tab_id";
     @BindView(R.id.rv_home)
     RecyclerView mRvHome;
 
@@ -87,8 +104,6 @@ public class VideoDetailFragment extends BaseLoadingFrament {
     @BindView(R.id.iv_close)
     View mIvPopClose;
 
-
-
     @BindView(R.id.rl_pop_window)
     View mRlPopWidow;
 
@@ -102,6 +117,7 @@ public class VideoDetailFragment extends BaseLoadingFrament {
     LinearLayout mLlAdBannerContainer;
     private View mLlTitleContainer;
     private View mNsView;
+    private String homeTabId;
 
 
     @Override
@@ -120,6 +136,10 @@ public class VideoDetailFragment extends BaseLoadingFrament {
     @Override
     protected void initView() {
         super.initView();
+
+        if(getArguments() != null) {
+            homeTabId = getArguments().getString(HOME_TAB_ID);
+        }
 
         mRvHome.setLayoutManager(new LinearLayoutManager(getBaseActivity()));
         mRvHome.setAdapter(getAdapter());
@@ -336,43 +356,177 @@ public class VideoDetailFragment extends BaseLoadingFrament {
         }
     }
 
-    List<TTFeedAd> mData;
+    LinkedList<TTFeedAd> mData;
 
     /**
      * 加载feed广告
      */
     private void loadListAd() {
-        mData = new ArrayList<>();
+        mData = new LinkedList<>();
         TTAdManager ttAdManager = TTAdManagerHolder.getInstance(getActivity());
         TTAdNative mTTAdNative = ttAdManager.createAdNative(getActivity());
         TTAdManagerHolder.getInstance(getActivity()).requestPermissionIfNecessary(getActivity());
 
         //feed广告请求类型参数
         AdSlot adSlot = new AdSlot.Builder()
-                .setCodeId("902510857")
+                .setCodeId(ConstantAd.CSJAD.VIDEO_DETAIL_ID)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(640, 320)
-                .setAdCount(3)
+                .setAdCount(5)
                 .build();
         //调用feed广告异步请求接口
         mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
             @Override
             public void onError(int code, String message) {
-                initAdsNew();
+                LogUtil.e("info","loadFeedAd error "+message);
+                loadRecommendData();
             }
             @Override
             public void onFeedAdLoad(List<TTFeedAd> ads) {
+                LogUtil.d("info","onFeedAdLoad ads=== "+ads.size());
                 mData.clear();
                 mData.addAll(ads);
-                initAdsNew();
+                loadRecommendData();
             }
         });
     }
 
     List<AdBean> videoAdList;
 
-    private void initAdsNew() {
+    private void loadRecommendData() {
 
+        HashMap<String, String> paramsMap = new HashMap<>();
+
+        if(TextUtils.isEmpty(homeTabId))
+            throw new IllegalArgumentException("homeTabId is null");
+        paramsMap.put(ApiVedioList.CATEGORY, homeTabId);
+
+        paramsMap.put("device_id", SystemUtils.getIMEI(getActivity()));
+        paramsMap.put("device_platform", "android");
+        paramsMap.put("device_type", SystemUtils.getSystemModel());
+        paramsMap.put("device_brand", SystemUtils.getDeviceBrand());
+        paramsMap.put("os_api", SystemUtils.getSystemApi());
+        paramsMap.put("os_version", SystemUtils.getSystemVersion());
+        paramsMap.put("uuid", SystemUtils.getIMEI(getActivity()));
+        paramsMap.put("openudid", SystemUtils.getOpenUid(getActivity()));
+        paramsMap.put("resolution", SystemUtils.getResolution(getActivity()));
+        paramsMap.put("dpi", SystemUtils.getDensity(getActivity()));
+        paramsMap.put(ApiVedioList.PAGE_NUM, "1");
+        ApiVedioList apiVedioListDetail = new ApiVedioList(new HttpOnNextListener<ResVideoList>() {
+            @Override
+            public void onNext(ResVideoList vedioDataBeen) {
+
+                List<MultiItemEntity> multiItemEntities = new ArrayList<>();
+                int count = 0;
+                for(VideoBean bean : vedioDataBeen.getList()) {
+                    if(bean.isAd()) continue;
+                    if(count > 5) break;
+                    MultiItemEntity entity = getCstAd();
+                    if(entity != null) {
+                        multiItemEntities.add(entity);
+                    }
+                    multiItemEntities.add(getVideo(bean));
+                    count++;
+                }
+
+                RecyclerView adRecyclerView = (RecyclerView) mNsView.findViewById(R.id.rv_ads);
+
+                adRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseActivity()){
+                    @Override
+                    public boolean canScrollVertically() {
+                        return false;
+                    }
+                });
+
+                VideoListAdapter adapter = new VideoListAdapter(multiItemEntities,homeTabId);
+                adRecyclerView.setAdapter(adapter);
+            }
+        },paramsMap,(RxAppCompatActivity) getActivity());
+        HttpManager.getInstance().doHttpDeal(apiVedioListDetail);
+    }
+
+    private MultiItemEntity getVideo(VideoBean videoBean) {
+
+        //这里表示是视频的逻辑
+        MultiItemEntity multiItemEntity = null;
+
+        String title = videoBean.getContent().getTitle();
+        String source = videoBean.getContent().getSource();
+        String urlMd5 = videoBean.getUrlmd5();
+        String imageUrl = "";
+        String item_id = videoBean.getContent().getItem_id();
+        String group_id = videoBean.getContent().getGroup_id();
+        String video_id = videoBean.getContent().getVideo_id();
+        String publishTime = videoBean.getContent().getPublish_time();
+        Long duration = videoBean.getContent().getVideo_duration();
+
+        try {
+            if(videoBean.getContent().getLarge_image_list() != null) {
+                imageUrl = videoBean.getContent().getLarge_image_list().get(0).getUrl();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        multiItemEntity = new VideoListBean(source, urlMd5, title, imageUrl, item_id, group_id, video_id, publishTime, duration);
+
+        return multiItemEntity;
+    }
+
+    /**
+     * 这里是获取穿山甲的广告
+     *
+     * @return
+     */
+    private MultiItemEntity getCstAd() {
+
+        MultiItemEntity multiItemEntity = null;
+
+        if(mData != null && mData.size()>0) {
+            TTFeedAd ttFeedAd = mData.removeFirst();
+
+            String title = ttFeedAd.getTitle();
+            String des = ttFeedAd.getDescription();
+            String source = ttFeedAd.getSource();
+            TTImage icon = ttFeedAd.getIcon();
+            List<TTImage> imageList = ttFeedAd.getImageList();
+            int interactionType = ttFeedAd.getInteractionType();
+            int imageMode = ttFeedAd.getImageMode();
+            View view = ttFeedAd.getAdView();
+
+            Log.i("info" , "ads-------"+title+",imageMode="+imageMode+",icon="+icon.getImageUrl());
+            if (ttFeedAd.getImageMode() == TTAdConstant.IMAGE_MODE_SMALL_IMG) {
+                TTFeedSmallPicAd smallPicAd = new TTFeedSmallPicAd(title , des , source , icon
+                        , imageList , interactionType , imageMode , view);
+                smallPicAd.setTtFeedAd(ttFeedAd);
+//                smallPicAd.setAdid(homeInfoBean.getAdid());
+                multiItemEntity = smallPicAd;
+            } else if (ttFeedAd.getImageMode() == TTAdConstant.IMAGE_MODE_LARGE_IMG) {
+                TTFeedLargePicAd largePicAd = new TTFeedLargePicAd(title , des , source , icon
+                        , imageList , interactionType , imageMode , view);
+                largePicAd.setTtFeedAd(ttFeedAd);
+//                largePicAd.setAdid(homeInfoBean.getAdid());
+                multiItemEntity = largePicAd;
+            } else if (ttFeedAd.getImageMode() == TTAdConstant.IMAGE_MODE_GROUP_IMG) {
+                TTFeedGroupPicAd groupPicAd = new TTFeedGroupPicAd(title , des , source , icon
+                        , imageList , interactionType , imageMode , view);
+                groupPicAd.setTtFeedAd(ttFeedAd);
+//                groupPicAd.setAdid(homeInfoBean.getAdid());
+                multiItemEntity = groupPicAd;
+            } else if (ttFeedAd.getImageMode() == TTAdConstant.IMAGE_MODE_VIDEO) {
+                TTFeedVideoAd videoAd = new TTFeedVideoAd(title , des , source , icon
+                        , imageList , interactionType , imageMode , view);
+                videoAd.setTtFeedAd(ttFeedAd);
+//                videoAd.setAdid(homeInfoBean.getAdid());
+                multiItemEntity = videoAd;
+            }
+        }
+
+        return multiItemEntity;
+    }
+
+    private void initAdsNew() {
+        LogUtil.d("info","initAdsNew");
         //这里是header广告；
         RecyclerView adRecyclerView = (RecyclerView) mNsView.findViewById(R.id.rv_ads);
 
@@ -399,17 +553,25 @@ public class VideoDetailFragment extends BaseLoadingFrament {
 //        AdBean adBean1 = new AdBean();
 //        adBean1.setType("gdt");
 //        adBean1.setAdtype("upimgdowntext");
-        setAd(videoList2);
-        setAd(videoList3);
-        setAd(videoList1);
-        setAd(videoList4);
-        setAd(videoList5);
-        setAd(videoList6);
-        setAd(videoList7);
-        setAd(videoList8);
-        setAd(videoList9);
-        setAd(videoList10);
-
+//        setAd(videoList2);
+//        setAd(videoList3);
+//        setAd(videoList1);
+//        setAd(videoList4);
+//        setAd(videoList5);
+//        setAd(videoList6);
+//        setAd(videoList7);
+//        setAd(videoList8);
+//        setAd(videoList9);
+//        setAd(videoList10);
+        LogUtil.d("info","initAdsNew 111 videoAdList "+videoAdList);
+        LogUtil.d("info","mData size "+mData.size()+" mData "+mData);
+        for(int i = 0; i < mData.size() && i < 5; i++) {
+            AdBean adBean1 = new AdBean();
+            adBean1.setType(AdBean.TYPE_CSJ);
+            adBean1.setTtFeedAd(mData.get(i));
+            videoAdList.add(adBean1);
+        }
+        LogUtil.d("info","initAdsNew 222 videoAdList "+videoAdList);
         AdsAdapter adsAdapter = new AdsAdapter(videoAdList); //resAds.getVideodetail()
         adRecyclerView.setAdapter(adsAdapter);
 
@@ -424,31 +586,35 @@ public class VideoDetailFragment extends BaseLoadingFrament {
 //        mRvFloatAd.setAdapter(floatAdapter);
     }
 
+    int number = 0;
     private void setAd(List<AdVideoBean> list) {
         if(list != null && list.size()>0) {
             for(int i=0;i<list.size();i++) {
                 AdBean adBean1 = new AdBean();
-                if("gdt".equals(list.get(i).getType())) {
-                    adBean1.setType("gdt");
-                    adBean1.setAdtype("upimgdowntext");
-//                    list.set(i , adBean1);
-                } else if ("csj".equals(list.get(i).getType())){
+                LogUtil.d("info","adbean type: "+list.get(i).getType());
+//                if("gdt".equals(list.get(i).getType())) {
+//                    adBean1.setType("gdt");
+//                    adBean1.setAdtype("upimgdowntext");
+////                    list.set(i , adBean1);
+//                } else if ("csj".equals(list.get(i).getType())){
                     if(mData != null) {
                         if(mData.size() > i) {
+                            LogUtil.d("info","mData size large than i:"+i+" number: "+number);
                             adBean1.setType("csj");
                             adBean1.setTtFeedAd(mData.get(i));
                         } else {
+                            LogUtil.d("info","mData size less than i:"+i);
                             adBean1.setType("csj");
                             adBean1.setTtFeedAd(mData.get(0));
                         }
 //                        list.set(i , adBean1);
                     }
-                } else if ("ta".equals(list.get(i).getType())) {
-                    adBean1.setType("ta");
-                    adBean1.setAdtype("upimgdowntext");
-                } else if ("baidu".equals(list.get(i).getType())) {
-                    adBean1.setType("baidu");
-                }
+//                } else if ("ta".equals(list.get(i).getType())) {
+//                    adBean1.setType("ta");
+//                    adBean1.setAdtype("upimgdowntext");
+//                } else if ("baidu".equals(list.get(i).getType())) {
+//                    adBean1.setType("baidu");
+//                }
                 videoAdList.add(adBean1);
             }
 //            videoAdList.addAll(list);
@@ -661,10 +827,11 @@ public class VideoDetailFragment extends BaseLoadingFrament {
         mVideoDetail = (VideoListBean) arguments.getSerializable(VIDEDO_DETAIL);
     }
 
-    public static VideoDetailFragment getFragment(VideoListBean detail) {
+    public static VideoDetailFragment getFragment(VideoListBean detail,String homeTabId) {
         VideoDetailFragment videoItemDetailFragment = new VideoDetailFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable(VIDEDO_DETAIL, detail);
+        bundle.putString(HOME_TAB_ID,homeTabId);
         videoItemDetailFragment.setArguments(bundle);
         return videoItemDetailFragment;
     }

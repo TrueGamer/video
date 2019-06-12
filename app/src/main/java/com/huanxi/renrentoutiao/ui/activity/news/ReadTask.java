@@ -5,12 +5,10 @@ import android.util.Log;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by yanzhang on 2018/7/16.
@@ -64,7 +62,6 @@ public class ReadTask {
                     0,
                     1,
                     TimeUnit.SECONDS)
-                    .subscribeOn(Schedulers.computation())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnNext(new Consumer<Long>() {
                         @Override

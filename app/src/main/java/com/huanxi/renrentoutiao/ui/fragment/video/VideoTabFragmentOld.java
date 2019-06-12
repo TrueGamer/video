@@ -117,7 +117,7 @@ public class VideoTabFragmentOld extends BaseLoadingRecyclerViewFragment {
     @Override
     public RecyclerView.Adapter getAdapter() {
         if (mVideoListAdapter == null) {
-            mVideoListAdapter = new VideoListAdapter(getActivity(),null,mTaAdViews);
+            mVideoListAdapter = new VideoListAdapter(getActivity(),null,mTaAdViews,mHomeTabBean.getCode());
         }
         return mVideoListAdapter;
     }

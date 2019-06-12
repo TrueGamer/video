@@ -26,7 +26,7 @@ public class VideoCollectionFragment extends BaseLoadingRecyclerViewFragment {
     public RecyclerView.Adapter getAdapter() {
         if (mVideoListAdapter == null) {
 
-            mVideoListAdapter = new VideoListAdapter(getActivity(),null,new LinkedList<View>());
+            mVideoListAdapter = new VideoListAdapter(getActivity(),null,new LinkedList<View>(),null);
         }
         return mVideoListAdapter;
     }

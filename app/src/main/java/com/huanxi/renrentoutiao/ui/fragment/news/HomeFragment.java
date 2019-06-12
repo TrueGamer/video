@@ -146,15 +146,15 @@ public class HomeFragment extends BaseFragment {
             }
         });
         tabSpecs = SharedPreferencesUtils.getInstance(getBaseActivity()).getBoolean(ConstantUrl.IS_SHOW);
-//        if(tabSpecs) {//TODO modify
-//            mFloatContainer.setVisibility(View.VISIBLE);
-//            mIvAdd.setVisibility(View.VISIBLE);
-//            ll_red_pack.setVisibility(View.VISIBLE);
-//        } else {
+        if(tabSpecs) {
+            mFloatContainer.setVisibility(View.VISIBLE);
+            mIvAdd.setVisibility(View.VISIBLE);
+            ll_red_pack.setVisibility(View.VISIBLE);
+        } else {
             mFloatContainer.setVisibility(View.GONE);
             mIvAdd.setVisibility(View.GONE);
             ll_red_pack.setVisibility(View.GONE);
-//        }
+        }
 
         initViewPager();
 
@@ -181,7 +181,7 @@ public class HomeFragment extends BaseFragment {
                 //这里要做的一个操作就是显示对应的
                 if ("1".equals(resInviteFriendDesc.getShowTextForLogin())) {
                     //这里要做的一个逻辑就是显示title
-                    mLlNavigation.setVisibility(View.GONE);//TODO modify
+                    mLlNavigation.setVisibility(View.VISIBLE);
                     //这里要做的另一个逻辑就是；
                     if(!isLogin()){
 

@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.google.gson.reflect.TypeToken;
-import com.huanxi.renrentoutiao.globle.ConstantUrl;
 import com.huanxi.renrentoutiao.model.bean.UserBean;
 import com.huanxi.renrentoutiao.net.bean.news.HomeTabBean;
 
@@ -38,8 +37,6 @@ public class SharedPreferencesUtils {
     public static final String RewardNum = "rewardNum"; // 看广告获取奖励金币数
 
     public static final String WITHDRAW = "withdraw";   //   Ad ids
-
-    public static final String CHANNEL = "channel";
 
     public static SharedPreferencesUtils sharedPreferencesUtils;
     private final SharedPreferences sharedPreferences;

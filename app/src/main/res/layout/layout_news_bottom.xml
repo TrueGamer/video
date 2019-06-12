@@ -64,8 +64,7 @@
         style="@style/newsItemDescBaseStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
-        />
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/iv_item_delete"

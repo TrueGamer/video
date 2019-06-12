@@ -38,7 +38,7 @@ public class VideoBrowerRecordFragment extends BaseLoadingRecyclerViewFragment {
     @Override
     public RecyclerView.Adapter getAdapter() {
         if (mHomeTabFragmentAdapter == null) {
-            mHomeTabFragmentAdapter = new VideoListAdapter(((BaseActivity) getActivity()), null,new LinkedList<View>());
+            mHomeTabFragmentAdapter = new VideoListAdapter(((BaseActivity) getActivity()), null,new LinkedList<View>(),null);
 
 
             //下面的是页面；

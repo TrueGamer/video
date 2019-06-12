@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.MainThread;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.baidu.mobads.SplashAd;
 import com.baidu.mobads.SplashAdListener;
@@ -28,30 +26,21 @@ import com.huanxi.renrentoutiao.globle.ConstantAd;
 import com.huanxi.renrentoutiao.globle.ConstantUrl;
 import com.huanxi.renrentoutiao.model.bean.AdsBean;
 import com.huanxi.renrentoutiao.model.bean.JPushBroadcastBean;
-import com.huanxi.renrentoutiao.model.bean.UserBean;
 import com.huanxi.renrentoutiao.net.api.ApiAds;
-import com.huanxi.renrentoutiao.net.api.ApiCheckService;
 import com.huanxi.renrentoutiao.net.api.ApiSplashAds;
-import com.huanxi.renrentoutiao.net.api.news.ApiNewAdLog;
-import com.huanxi.renrentoutiao.net.bean.ResEmpty;
 import com.huanxi.renrentoutiao.net.bean.ResSplashAds;
-import com.huanxi.renrentoutiao.ui.activity.TaskWebHelperActivity;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseActivity;
 import com.huanxi.renrentoutiao.ui.fragment.base.BaseFragment;
 import com.huanxi.renrentoutiao.ui.fragment.main.SplashGDTFragment;
 import com.huanxi.renrentoutiao.ui.fragment.main.SplashH5AdFragment;
 import com.huanxi.renrentoutiao.ui.fragment.main.SplashTuiAFragment;
-import com.huanxi.renrentoutiao.utils.InfoUtil;
 import com.huanxi.renrentoutiao.utils.SharedPreferencesUtils;
 import com.huanxi.renrentoutiao.utils.SystemUtils;
 import com.huanxi.renrentoutiao.utils.TTAdManagerHolder;
-import com.hubcloud.adhubsdk.AdListener;
 import com.tbruyelle.rxpermissions.RxPermissions;
-import com.zhxu.library.exception.HttpTimeException;
 import com.zhxu.library.http.HttpManager;
 import com.zhxu.library.listener.HttpOnNextListener;
 
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -65,6 +54,9 @@ import rx.functions.Action1;
 
 public class SplashActivity extends BaseActivity {
 
+
+    @BindView(R.id.ll_root)
+    LinearLayout llRoot;
 
     @BindView(R.id.fl_ad_container)
     FrameLayout mFrameLayout;
@@ -80,7 +72,6 @@ public class SplashActivity extends BaseActivity {
     private Context mContext;
     private TTAdNative mTTAdNative;
     private static final int AD_TIME_OUT = 3000;
-    private boolean canJumpImmediately;
 
     @Override
     public int getContentLayout() {
@@ -92,8 +83,9 @@ public class SplashActivity extends BaseActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
         String[] permissions = {
-                Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA
         };
 
@@ -108,6 +100,7 @@ public class SplashActivity extends BaseActivity {
                     @Override
                     public void call(Boolean aBoolean) {
                         if (aBoolean) {
+
                             //这里表示获取权限成功
                             if (isFirst()) {
                                 getMyApplication().clearUser();
@@ -118,6 +111,7 @@ public class SplashActivity extends BaseActivity {
                             } else {
                                 getAdsIS();
                             }
+
                         } else {
                             // 如果用户没有授权，那么应该说明意图，引导用户去设置里面授权。
                             toast("应用缺少必要的权限！请点击'权限'，打开所需要的权限。");
@@ -145,7 +139,6 @@ public class SplashActivity extends BaseActivity {
         return mExtras;
     }
 
-
     /**
      * 获取所有的广告信息；
      */
@@ -159,8 +152,8 @@ public class SplashActivity extends BaseActivity {
                 //第二次直接进入广告；
                 Log.i("info" , "ResSplashAds="+resSplashAds.toString());
                 BaseFragment baseFragment = null;
-//                String splashType = SharedPreferencesUtils.getInstance(mContext).getSplashType(mContext);
-//                Log.i("info" , "splashType="+splashType);
+                String splashType = SharedPreferencesUtils.getInstance(mContext).getSplashType(mContext);
+                Log.i("info" , "splashType="+splashType);
 //                if(ResSplashAds.SplashBean.TYPE_BD.equals(splashType)) {
 //                    SharedPreferencesUtils.getInstance(mContext).setSplashType(mContext , ResSplashAds.SplashBean.TYPE_GDT);
 //                    loadBDAd();
@@ -183,9 +176,9 @@ public class SplashActivity extends BaseActivity {
                             .replace(R.id.fl_ad_container, baseFragment)
                             .commitAllowingStateLoss();
 //                }
+//                loadCsjAd();
 
                 ((MyApplication) getApplication()).setResAds(resSplashAds);
-//                addAdHubAd();
             }
 
             @Override
@@ -205,143 +198,6 @@ public class SplashActivity extends BaseActivity {
             }
         }, this);
         HttpManager.getInstance().doHttpDeal(apiSplashAds);
-    }
-
-    private void addAdHubAd() {
-        //以下AdHub广告
-        AdListener listener = new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                Log.i("SplashActivity", "onAdLoaded");
-            }
-
-            @Override
-            public void onAdShown() {
-                Log.i("SplashActivity", "onAdShown");
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                Log.i("SplashActivity", "onAdFailedToLoad "+errorCode);
-                jumpMain();
-            }
-
-            @Override
-            public void onAdClosed() {
-                Log.i("SplashActivity", "onAdClosed");
-                adhubAdEnd();
-                jumpWhenCanClick(); // 跳转至您的应用主界面
-            }
-
-            @Override
-            public void onAdClicked() {
-                Log.i("SplashActivity", "onAdClick");
-                // 设置开屏可接受点击时，该回调可用
-                adhubAdStart();
-            }
-        };
-        com.hubcloud.adhubsdk.SplashAd splashAd = new com.hubcloud.adhubsdk.SplashAd(mContext, mFrameLayout, listener, ConstantAd.ADHUBAD.FPLASH_AD);
-        splashAd.setCloseButtonPadding(10, 20, 10, 10);
-    }
-
-    private void adhubAdStart() {
-        InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-            @Override
-            public void onSuccess(String value) {
-                HashMap<String, String> paramsMap = new HashMap<>();
-                paramsMap.put(ApiNewAdLog.TYPE,"2");
-                paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(getApplicationContext()).getString(SharedPreferencesUtils.CHANNEL));
-                paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                paramsMap.put(ApiNewAdLog.IP,value);
-                paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-                paramsMap.put(ApiNewAdLog.AD_ID,ConstantAd.ADHUBAD.FPLASH_AD);
-//                paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                    @Override
-                    public void onNext(String str) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                    }
-                },SplashActivity.this,paramsMap);
-                HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    private void adhubAdEnd() {
-        InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-            @Override
-            public void onSuccess(String value) {
-                HashMap<String, String> paramsMap = new HashMap<>();
-                paramsMap.put(ApiNewAdLog.TYPE,"3");
-                paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(getApplicationContext()).getString(SharedPreferencesUtils.CHANNEL));
-                paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                paramsMap.put(ApiNewAdLog.IP,value);
-                paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-                paramsMap.put(ApiNewAdLog.AD_ID,ConstantAd.ADHUBAD.FPLASH_AD);
-//                paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                    @Override
-                    public void onNext(String str) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                    }
-                },SplashActivity.this,paramsMap);
-                HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    private void jumpWhenCanClick() {
-        Log.d("SplashActivity", "canJumpImmediately:" + canJumpImmediately);
-        if (canJumpImmediately) {
-            jumpMain();
-        } else {
-            canJumpImmediately = true;
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("SplashActivity", "onPause:" + canJumpImmediately);
-        canJumpImmediately = false;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("SplashActivity", "onPause:" + canJumpImmediately);
-        if (canJumpImmediately) {
-            jumpWhenCanClick();
-        }
-        canJumpImmediately = true;
     }
 
     private void getAdsIS() {
@@ -420,10 +276,10 @@ public class SplashActivity extends BaseActivity {
     /**
      * 加载穿山甲开屏广告
      */
-    private void loadSplashAd() {
+    private void loadCsjAd() {
         //开屏广告参数
         AdSlot adSlot = new AdSlot.Builder()
-                .setCodeId(ConstantAd.CSJAD.APP_ID)
+                .setCodeId(ConstantAd.CSJAD.SPLASH_AD)
                 .setSupportDeepLink(true)
                 .setImageAcceptedSize(1080, 1840)
                 .build();
@@ -451,9 +307,9 @@ public class SplashActivity extends BaseActivity {
                 }
                 //获取SplashView
                 View view = ad.getSplashView();
-                mFrameLayout.removeAllViews();
+                llRoot.removeAllViews();
                 //把SplashView 添加到ViewGroup中
-                mFrameLayout.addView(view);
+                llRoot.addView(view);
                 //设置不开启开屏广告倒计时功能以及不显示跳过按钮
                 //ad.setNotAllowSdkCountdown();
 

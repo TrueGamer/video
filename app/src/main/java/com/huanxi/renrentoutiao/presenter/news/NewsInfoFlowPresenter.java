@@ -5,18 +5,17 @@ import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.View;
 
-import com.baidu.mobad.feeds.NativeResponse;
+import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.DownloadStatusController;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
+import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.huanxi.renrentoutiao.MyApplication;
 import com.huanxi.renrentoutiao.globle.ConstantAd;
 import com.huanxi.renrentoutiao.net.bean.news.ResNewsAndVideoBean;
-import com.huanxi.renrentoutiao.ui.activity.base.BaseActivity;
-import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.ads.adhub.AdhubNativeBean;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.ads.baidu.BaiDuBannerBean;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.ads.custom.CustomBanner20_3Bean;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.ads.custom.CustomBigBannerBean;
@@ -34,9 +33,6 @@ import com.huanxi.renrentoutiao.ui.media.TTFeedGroupPicAd;
 import com.huanxi.renrentoutiao.ui.media.TTFeedLargePicAd;
 import com.huanxi.renrentoutiao.ui.media.TTFeedSmallPicAd;
 import com.huanxi.renrentoutiao.ui.media.TTFeedVideoAd;
-import com.hubcloud.adhubsdk.NativeAd;
-import com.hubcloud.adhubsdk.NativeAdListener;
-import com.hubcloud.adhubsdk.NativeAdResponse;
 import com.qq.e.ads.nativ.NativeExpressADView;
 
 import net.lucode.hackware.magicindicator.buildins.UIUtil;
@@ -55,52 +51,25 @@ import cn.tongdun.android.shell.db.utils.LogUtil;
 public class NewsInfoFlowPresenter {
 
     public LinkedList<NativeExpressADView> mGdtAdLists;
+    private GDTImgAds mGdtImgAds;
     private TaLeftTitleRightImgAds mTaLeftTitleRightImgAds;
-    public LinkedList<TTFeedAd> mFeedAdList;
-    private LinkedList<NativeAdResponse> mAdhubNativeData;
-    private List<? extends View> mAdhubResponseViews;
-    private NativeAd mNativeAd;
-    private BaseActivity baseActivity;
+    private LinkedList<TTFeedAd> mFeedAdList; // 网盟广告列表
+    private TTAdNative mTTAdNative;
+    private int adCount;
 
-    public NewsInfoFlowPresenter(BaseActivity baseActivity, GDTImgAds gdtImgAds, LinkedList<NativeExpressADView> gdtList
-            , TaLeftTitleRightImgAds taLeftTitleRightImgAds
-            , LinkedList<NativeAdResponse> adhubNativeData, NativeAd nativeAd) {
-        this.baseActivity = baseActivity;
+    public NewsInfoFlowPresenter(GDTImgAds gdtImgAds, LinkedList<NativeExpressADView> gdtList
+            , TaLeftTitleRightImgAds taLeftTitleRightImgAds,TTAdNative mTTAdNative, LinkedList<TTFeedAd> mData) {
+
+        mGdtImgAds = gdtImgAds;
         mGdtAdLists = gdtList;
         mTaLeftTitleRightImgAds = taLeftTitleRightImgAds;
-        mAdhubNativeData = adhubNativeData;
-        mNativeAd = nativeAd;
-//        loadAdhubAd();
-//        loadAdhubAd();
+
+        this.mTTAdNative = mTTAdNative;
+        this.mFeedAdList = mData;
     }
 
-    private void loadGdtAd() {
-        GDTImgAds mGdtImgAds = new GDTImgAds(new GDTImgAds.OnAdReceived() {
-            @Override
-            public void onGdtImgAdReceived(List<NativeExpressADView> mImgAds) {
-                if (mImgAds != null) {
-                    mGdtAdLists.clear();
-                    mGdtAdLists.addAll(mImgAds);
-                }
-            }
-        }, baseActivity);
-        mGdtImgAds.load();
-    }
-
-    private void loadAdhubAd() {
-        mNativeAd = new NativeAd(getContext(),ConstantAd.ADHUBAD.NATIVE_ID, 1, new NativeAdListener() {
-            @Override
-            public void onAdLoaded(NativeAdResponse nativeAdResponse) {
-                mAdhubNativeData.add(nativeAdResponse);
-            }
-
-            @Override
-            public void onAdFailed(int i) {
-                LogUtil.e("info","adhub load add fail "+i);
-//                throw new IllegalStateException("adhub load add fail "+i);
-            }
-        });
-        mNativeAd.loadAd();
+    public void setGdtImgAds(GDTImgAds mGdtImgAds) {
+        this.mGdtImgAds = mGdtImgAds;
     }
 
     /**
@@ -108,9 +77,7 @@ public class NewsInfoFlowPresenter {
      *
      * @param list
      */
-    public List<MultiItemEntity> filterData(List<ResNewsAndVideoBean.HomeInfoBean> list
-            , LinkedList<TTFeedAd> feedAdList) {
-        mFeedAdList = feedAdList;
+    public List<MultiItemEntity> filterData(List<ResNewsAndVideoBean.HomeInfoBean> list) {
 
         ArrayList<MultiItemEntity> multiItemEntities = new ArrayList<>();
 
@@ -127,15 +94,6 @@ public class NewsInfoFlowPresenter {
                     multiItemEntities.add(getVideo(homeInfoBean));
                     continue;
                 }
-
-                /*if(homeInfoBean.isAd()) {
-                    MultiItemEntity entity = getAdhubNativeAd(homeInfoBean);
-                    if(entity != null) {
-                        multiItemEntities.add(entity);
-                    } else {
-                        LogUtil.e("info","getAdhubNativeAd is null");
-                    }
-                }*/
 
                 if (homeInfoBean.isAd()) {
                     //这里暂时不做任何处理的操作；
@@ -232,18 +190,24 @@ public class NewsInfoFlowPresenter {
     private MultiItemEntity getAd(ResNewsAndVideoBean.HomeInfoBean homeInfoBean) {
         Log.i("info" , "addType=========="+homeInfoBean.getType());
         MultiItemEntity multiItemEntity = null;
-//        if (homeInfoBean.isTaAd()) {
-//            multiItemEntity = getTuiAAd(homeInfoBean);
-//        } else if (homeInfoBean.isCustomAd()) {
-//            multiItemEntity = getCustomAd(homeInfoBean);
-//        } else if (homeInfoBean.isCST()) {
-//            multiItemEntity = getCstAd(homeInfoBean);
-////            multiItemEntity = getBaiDuAd(homeInfoBean);
-//        } else if (homeInfoBean.isBaiDu()) {
+        /*if (homeInfoBean.isTaAd()) {
+            multiItemEntity = getTuiAAd(homeInfoBean);
+        } else if (homeInfoBean.isCustomAd()) {
+            multiItemEntity = getCustomAd(homeInfoBean);
+        } else if (homeInfoBean.isCST()) {
+            multiItemEntity = getCstAd(homeInfoBean);
 //            multiItemEntity = getBaiDuAd(homeInfoBean);
-//        } else {
-//            // if (homeInfoBean.isGdtAd())
+        } else if (homeInfoBean.isBaiDu()) {
+            multiItemEntity = getBaiDuAd(homeInfoBean);
+        } else {
+            // if (homeInfoBean.isGdtAd())
             multiItemEntity = getGdtAd(homeInfoBean);
+        }*/
+//        adCount++;
+//        if(adCount%2 == 1){
+            multiItemEntity = getGdtAd(homeInfoBean);
+//        } else {
+//            multiItemEntity = getCstAd(homeInfoBean);
 //        }
 
         // homeInfoBean
@@ -316,6 +280,7 @@ public class NewsInfoFlowPresenter {
         MultiItemEntity multiItemEntity=null;
 
         if (mGdtAdLists!=null && mGdtAdLists.size()>0) {
+            LogUtil.d("info","getGdtAd mGdtAdLists more than 0");
             NativeExpressADView gdtadView = mGdtAdLists.removeFirst();
 
             gdtadView.setPadding(UIUtil.dip2px(getContext(), 12), UIUtil.dip2px(getContext(), 12),
@@ -326,10 +291,10 @@ public class NewsInfoFlowPresenter {
             gdtBigBannerBean.setAdid(homeInfoBean.getAdid());
             multiItemEntity = gdtBigBannerBean;
             if(mGdtAdLists.size()<2){
-                loadGdtAd();
+                mGdtImgAds.load();
             }
         }else{
-            loadGdtAd();
+            mGdtImgAds.load();
         }
         return multiItemEntity;
     }
@@ -355,6 +320,7 @@ public class NewsInfoFlowPresenter {
         MultiItemEntity multiItemEntity = null;
 
         if(mFeedAdList != null && mFeedAdList.size()>0) {
+            LogUtil.d("info","getCstAd mFeedAdList more than 0");
             TTFeedAd ttFeedAd = mFeedAdList.removeFirst();
 
             String title = ttFeedAd.getTitle();
@@ -392,34 +358,47 @@ public class NewsInfoFlowPresenter {
                 videoAd.setAdid(homeInfoBean.getAdid());
                 multiItemEntity = videoAd;
             }
-        }
-
-        return multiItemEntity;
-    }
-
-    private MultiItemEntity getAdhubNativeAd(ResNewsAndVideoBean.HomeInfoBean homeInfoBean) {
-        MultiItemEntity multiItemEntity = null;
-        if(mAdhubNativeData != null && mAdhubNativeData.size() > 0) {
-            NativeAdResponse response = mAdhubNativeData.removeFirst();
-            AdhubNativeBean bean = new AdhubNativeBean();
-
-            bean.setResponse(response);
-            bean.setNativeAd(mNativeAd);
-            multiItemEntity = bean;
-            if(mAdhubNativeData.size() < 2) {
-                loadAdhubAd();
-                loadAdhubAd();
+            if(mFeedAdList.size() <= 3) {
+                for(int i = 0; i < 10; i++) {
+                    loadTtFeedList();
+                }
             }
-        } else {
-            loadAdhubAd();
         }
+
         return multiItemEntity;
     }
+
+    private void loadTtFeedList() {
+        //feed广告请求类型参数
+        AdSlot adSlot = new AdSlot.Builder()
+                .setCodeId(ConstantAd.CSJAD.APP_ID)
+                .setSupportDeepLink(true)
+                .setImageAcceptedSize(640, 320)
+                .setAdCount(10)
+                .build();
+
+        mTTAdNative.loadFeedAd(adSlot, new TTAdNative.FeedAdListener() {
+            @Override
+            public void onError(int code, String message) {
+                LogUtil.e("info","loadFeedAd error:"+message);
+            }
+            @Override
+            public void onFeedAdLoad(List<TTFeedAd> ads) {
+//                if (ads == null || ads.isEmpty()) {
+//                    TToast.show(getContext(), "on FeedAdLoaded: ad is null!");
+//                    return;
+//                }
+                mFeedAdList.addAll(ads);
+                Log.i("info" , "ads size="+mFeedAdList.size());
+            }
+        });
+    }
+
 
     public void destory(){
-//        if (mGdtImgAds != null) {
-//            mGdtImgAds.destory();
-//        }
+        if (mGdtImgAds != null) {
+            mGdtImgAds.destory();
+        }
 
         if (mTaLeftTitleRightImgAds != null) {
             mTaLeftTitleRightImgAds.destory();

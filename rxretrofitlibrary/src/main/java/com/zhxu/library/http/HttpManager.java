@@ -103,6 +103,64 @@ public class HttpManager  {
 
     }
 
+    /**
+     * 处理http请求
+     *
+     * @param basePar 封装的请求数据
+     */
+    public void doHttpDealBackground(BaseApi basePar) {
+        //手动创建一个OkHttpClient并设置超时时间缓存等设置
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.connectTimeout(basePar.getConnectionTime(), TimeUnit.SECONDS);
+        // builder.addInterceptor(new CookieInterceptor(basePar.isCache(), basePar.getUrl()));
+        //添加 Cookie
+        builder.addInterceptor(new ParamsInterceptor(basePar.getRxAppCompatActivity()));
+
+        if(RxRetrofitApp.isDebug()){
+            builder.addInterceptor(getHttpLoggingInterceptor());
+        }
+
+        /*创建retrofit对象*/
+        Retrofit retrofit = new Retrofit.Builder()
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .baseUrl(basePar.getBaseUrl())
+                .build();
+
+        /*rx处理*/
+
+        ProgressSubscriber subscriber = new ProgressSubscriber(basePar,mDialogClass);
+
+        //定义Observable，并没有执行，只有订阅的时候才会执行
+        Observable observable = basePar.getObservable(retrofit)
+                /*失败后的retry配置*/
+                .retryWhen(new RetryWhenNetworkException(basePar.getRetryCount(),
+                        basePar.getRetryDelay(), basePar.getRetryIncreaseDelay()))
+                /*生命周期管理*/
+//                .compose(basePar.getRxAppCompatActivity().bindToLifecycle())
+                .compose(basePar.getRxAppCompatActivity().bindUntilEvent(ActivityEvent.DESTROY))
+                /*http请求线程*/
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                /*回调线程*/
+                .observeOn(Schedulers.io())
+                /*结果判断*/
+                .map(basePar);
+
+
+        /*链接式对象返回*/
+        // SoftReference<HttpOnNextListener> httpOnNextListener = basePar.getListener();
+        HttpOnNextListener httpOnNextListener = basePar.getListener();
+        if (httpOnNextListener != null) {
+            httpOnNextListener.onNext(observable);
+        }
+
+        /*数据回调*///完成订阅
+        observable.subscribe(subscriber);
+
+    }
+
 
     /**
      * 日志输出

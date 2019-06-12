@@ -51,7 +51,6 @@ import com.huanxi.renrentoutiao.net.bean.ResRequestShare;
 import com.huanxi.renrentoutiao.net.bean.news.ResAward;
 import com.huanxi.renrentoutiao.ui.activity.WebHelperActivity;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseActivity;
-import com.huanxi.renrentoutiao.ui.activity.other.ChannelActivity;
 import com.huanxi.renrentoutiao.ui.activity.other.ContactKeFuActivity;
 import com.huanxi.renrentoutiao.ui.activity.other.FriendRankingActivity;
 import com.huanxi.renrentoutiao.ui.activity.other.InviteFriendActivityNew;
@@ -537,18 +536,10 @@ public class UserFragmentV1 extends BaseFragment {
     }
 
 
-    @OnClick({R.id.ll_contacts,R.id.ll_channel})
-    public  void  onClickContactKeFu(View view){
-        switch (view.getId()) {
-            case R.id.ll_contacts:
-                startActivity(new Intent(getActivity(), ContactKeFuActivity.class));
-                break;
-            case R.id.ll_channel:
-                Intent intent = new Intent(getActivity(), ChannelActivity.class);
-                intent.putExtra("from","from_mine");
-                startActivity(intent);
-                break;
-        }
+    @OnClick(R.id.ll_contacts)
+    public  void  onClickContactKeFu(){
+
+        startActivity(new Intent(getActivity(), ContactKeFuActivity.class));
     }
 
     public final int requestExit = 2;

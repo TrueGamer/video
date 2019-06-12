@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 
 import com.huanxi.renrentoutiao.net.api.ads.ApiEndReadAd;
 import com.huanxi.renrentoutiao.net.api.ads.ApiStartReadAd;
-import com.huanxi.renrentoutiao.net.api.news.ApiNewAdLog;
 import com.huanxi.renrentoutiao.net.bean.ResEmpty;
 import com.huanxi.renrentoutiao.net.bean.ResReadAwarad;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseActivity;
@@ -121,7 +119,7 @@ public class Utils {
      * 这里开始计时操作?
      */
     public static void getBeganStart(BaseActivity mActivity , String adId){
-        /*HashMap<String, String> paramsMap = new HashMap<>();
+        HashMap<String, String> paramsMap = new HashMap<>();
         paramsMap.put(ApiStartReadAd.FROM_UID, mActivity.getUserBean().getUserid());
         paramsMap.put(ApiStartReadAd.ADID , adId);
         paramsMap.put(ApiStartReadAd.TYPE , "90");
@@ -147,59 +145,14 @@ public class Utils {
                 }
             }
         }, mActivity ,paramsMap);
-        HttpManager.getInstance().doHttpDeal(apiStartReadAd);*/
-        InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-            @Override
-            public void onSuccess(String value) {
-                HashMap<String, String> paramsMap = new HashMap<>();
-                paramsMap.put(ApiNewAdLog.TYPE,"2");
-                paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(mActivity).getString(SharedPreferencesUtils.CHANNEL));
-                paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                paramsMap.put(ApiNewAdLog.IP,value);
-                paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-                paramsMap.put(ApiNewAdLog.AD_ID,adId);
-//                paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                    @Override
-                    public void onNext(String str) {
-//                mActivity.requestStartCountDown();
-                        getReadCoin(mActivity,adId);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                        if (e instanceof HttpTimeException) {
-                            HttpTimeException exception = (HttpTimeException) e;
-                            //这里表示已经领取过该任务了
-                            Toast toast = Toast.makeText(mActivity , exception.getMessage() , Toast.LENGTH_SHORT);
-                            TextView v = (TextView)toast.getView().findViewById(android.R.id.message);
-                            v.setTextSize(20);
-                            toast.show();
-//                   mActivity.hideReadProgress();
-                        }
-                    }
-                },mActivity,paramsMap);
-                HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                e.printStackTrace();
-            }
-        });
+        HttpManager.getInstance().doHttpDeal(apiStartReadAd);
     }
 
     /**
      * 结束计时操作
      */
     public static void getReadCoin(BaseActivity mActivity , String adId) {
-        /*HashMap<String, String> paramsMap = new HashMap<>();
+        HashMap<String, String> paramsMap = new HashMap<>();
         paramsMap.put(ApiEndReadAd.FROM_UID,mActivity.getUserBean().getUserid());
         paramsMap.put(ApiEndReadAd.ADID , adId);
         paramsMap.put(ApiStartReadAd.TYPE , "90");
@@ -219,41 +172,7 @@ public class Utils {
                 super.onError(e);
             }
         },mActivity,paramsMap);
-        HttpManager.getInstance().doHttpDeal(apiEndReadAd);*/
-        InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-            @Override
-            public void onSuccess(String value) {
-                HashMap<String, String> paramsMap = new HashMap<>();
-                paramsMap.put(ApiNewAdLog.TYPE,"3");
-                paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(mActivity).getString(SharedPreferencesUtils.CHANNEL));
-                paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                paramsMap.put(ApiNewAdLog.IP,value);
-                paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-                paramsMap.put(ApiNewAdLog.AD_ID,adId);
-//                paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                    @Override
-                    public void onNext(String str) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                    }
-                },mActivity,paramsMap);
-                HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                e.printStackTrace();
-            }
-        });
+        HttpManager.getInstance().doHttpDeal(apiEndReadAd);
     }
 
     /**

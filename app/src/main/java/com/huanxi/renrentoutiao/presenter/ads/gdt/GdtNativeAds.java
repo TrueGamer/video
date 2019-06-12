@@ -14,6 +14,7 @@ import com.qq.e.comm.util.AdError;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Dinosa on 2018/3/1.
@@ -63,14 +64,18 @@ public class GdtNativeAds  {
      * 这里是纯图的广告；
      */
     private void initImageAds() {
+        Random random = new Random();
+        int position = random.nextInt(9);
         ADSize adSize = new ADSize(ADSize.FULL_WIDTH, ADSize.FULL_WIDTH); // 消息流中用AUTO_HEIGHT
-        mImgAdManager = new NativeExpressAD(MyApplication.getConstantContext(), adSize, ConstantAd.GdtAD.APPID, ConstantAd.GdtAD.NATIVE_VIDEO_IMG, mImgAdListener);
+        mImgAdManager = new NativeExpressAD(MyApplication.getConstantContext(), adSize, ConstantAd.GdtAD.APPID, ConstantAd.GdtAD.AD_CODE[position], mImgAdListener);
         mImgAdManager.loadAD(AD_COUNT);
     }
 
     private void initUpTextDownImg() {
+        Random random = new Random();
+        int position = random.nextInt(9);
         ADSize adSize = new ADSize(ADSize.FULL_WIDTH, ADSize.FULL_WIDTH); // 消息流中用AUTO_HEIGHT
-        mUpTextADManager = new NativeExpressAD(MyApplication.getConstantContext(), adSize, ConstantAd.GdtAD.APPID, ConstantAd.GdtAD.NATIVE_VIDEO_IMG, mUpTextDownImgListener);
+        mUpTextADManager = new NativeExpressAD(MyApplication.getConstantContext(), adSize, ConstantAd.GdtAD.APPID, ConstantAd.GdtAD.AD_CODE[position], mUpTextDownImgListener);
         mUpTextADManager.loadAD(AD_COUNT);
     }
 

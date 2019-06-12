@@ -19,6 +19,14 @@ import com.huanxi.renrentoutiao.utils.FormatUtils;
 
 public class VideoListBeanHolder extends BaseMuiltyViewHolder<VideoListBean> {
 
+    private String homeTabId;
+
+    public VideoListBeanHolder(){}
+
+    public VideoListBeanHolder(String homeTabId) {
+        this.homeTabId = homeTabId;
+    }
+
     @Override
     public void init(final VideoListBean videoBean, BaseViewHolder helper, final Context context) {
         //这里初始化视频的条目；
@@ -35,7 +43,7 @@ public class VideoListBeanHolder extends BaseMuiltyViewHolder<VideoListBean> {
             helper.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    context.startActivity(VideoItemDetailActivity.getIntent(context, videoBean));
+                    context.startActivity(VideoItemDetailActivity.getIntent(context, videoBean,homeTabId));
                 }
             });
         } catch (Exception e) {

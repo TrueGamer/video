@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rlADGroupPic"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
     <TextView
         android:id="@+id/tv_listitem_ad_title"
@@ -46,12 +47,23 @@
             android:scaleType="centerCrop" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#99888888"
+        android:layout_alignBottom="@id/layout_image_group"
+        android:layout_alignParentRight="true"
+        android:text="广告"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
     <ImageView
         android:id="@+id/iv_listitem_icon"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_below="@id/layout_image_group"
-        android:layout_marginLeft="3dp" />
+        android:layout_marginLeft="3dp"
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/tv_source_desc_layout"
@@ -59,15 +71,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_image_group"
         android:layout_toRightOf="@id/iv_listitem_icon"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/tv_listitem_ad_desc"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
             android:layout_toRightOf="@id/iv_listitem_icon"
             android:ellipsize="end"
             android:singleLine="true"
@@ -84,22 +97,23 @@
 
         <!--==== 测试下载状态控制功能 begin ========-->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_listitem_stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="暂停"/>
+                android:text="暂停"
+                android:visibility="gone" />
+
             <Button
                 android:id="@+id/btn_listitem_remove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="删除"/>
+                android:text="删除"
+                android:visibility="gone" />
         </LinearLayout>
         <!--==== 测试下载状态控制功能 end ========-->
 
@@ -112,6 +126,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/tv_source_desc_layout"
         android:layout_marginRight="14dp"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:visibility="gone"/>
 
 </RelativeLayout>

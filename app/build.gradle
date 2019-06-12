@@ -200,13 +200,6 @@ android {
     }
 }
 
-
-repositories {
-    flatDir {
-        dirs 'libs', '../adpoymer/libs'
-    }
-}
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.ext.dependencies["appcompat-v7"]
@@ -232,8 +225,8 @@ dependencies {
     //极光
     // 此处以JPush 3.1.1 版本为例。
     // 此处以JCore 1.1.9 版本为例。
-//    implementation files('libs/GDTUnionSDK.4.16.564.min.jar')
-//    implementation files('libs/android-query-full.0.26.7.jar')
+    implementation files('libs/GDTUnionSDK.4.22.584.min.jar')
+    implementation files('libs/android-query-full.0.26.7.jar')
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
     //没有使用特殊Header，可以不加这行
     implementation rootProject.ext.dependencies["rebound"]
@@ -261,15 +254,10 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
     // RxBinding
     implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.1.1'
-    implementation(name: 'open_ad_sdk', ext: 'aar')
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
-//    implementation files('libs/Baidu_MobAds_SDK.jar')
+    implementation files('libs/Baidu_MobAds_SDK.jar')
     implementation 'com.facebook.fresco:fresco:1.9.0'
     implementation 'com.facebook.fresco:animated-gif:1.9.0'
 
-    //adhub广告
-    implementation(name: 'adhub_sdk_2.2.2', ext: 'aar')
     implementation(name: 'open_ad_sdk', ext: 'aar')
-    implementation(name: 'adpoymer', ext: 'aar')
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
 }

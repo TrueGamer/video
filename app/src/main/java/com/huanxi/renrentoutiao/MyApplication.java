@@ -5,15 +5,18 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
+import com.bytedance.sdk.openadsdk.TTAdConfig;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.db.ta.sdk.TaSDK;
 import com.huanxi.renrentoutiao.globle.ConstantAd;
 import com.huanxi.renrentoutiao.globle.ConstantThreePart;
 import com.huanxi.renrentoutiao.model.bean.UserBean;
 import com.huanxi.renrentoutiao.net.bean.ResSplashAds;
+import com.huanxi.renrentoutiao.service.AppDownloadStatusListener;
 import com.huanxi.renrentoutiao.ui.dialog.LoadingDialog;
 import com.huanxi.renrentoutiao.utils.SharedPreferencesUtils;
 import com.huanxi.renrentoutiao.utils.SystemUtils;
-import com.hubcloud.adhubsdk.AdHub;
 import com.mob.MobSDK;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
@@ -25,6 +28,7 @@ import java.util.List;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.MultiActionsNotificationBuilder;
+import cn.tongdun.android.shell.db.utils.LogUtil;
 
 /**
  * Created by Dinosa on 2018/1/18.
@@ -54,18 +58,28 @@ public class MyApplication extends Application {
 
         initTa();
 
-        initAdhub();
-
         mContext=this;
 
-        initFaceData();
+        initCsj();
+
+        LogUtil.openLog();
     }
 
-    private void initFaceData() {
-        UserBean fakeUser = new UserBean();//TODO MODIFY
-        fakeUser.setUserid("7");
-        updateUser(fakeUser);
+    private void initCsj() {
+        TTAdSdk.init(mContext, new TTAdConfig.Builder()
+                .appId(ConstantAd.CSJAD.APP_ID)
+                .useTextureView(true) //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView
+                .appName(getString(R.string.app_name))
+                .titleBarTheme(TTAdConstant.TITLE_BAR_THEME_DARK)
+                .allowShowNotify(true) //是否允许sdk展示通知栏提示
+                .allowShowPageWhenScreenLock(true) //是否在锁屏场景支持展示广告落地页
+                .debug(true) //测试阶段打开，可以通过日志排查问题，上线时去除该调用
+                .globalDownloadListener(new AppDownloadStatusListener(mContext)) //下载任务的全局监听
+                .directDownloadNetworkType(TTAdConstant.NETWORK_STATE_WIFI, TTAdConstant.NETWORK_STATE_3G) //允许直接下载的网络状态集合
+                .supportMultiProcess(false)
+                .build());
     }
+
 
 
     private void initTa() {
@@ -121,10 +135,6 @@ public class MyApplication extends Application {
 
         UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, null);
 
-    }
-
-    private void initAdhub() {
-        com.hubcloud.adhubsdk.AdHub.initialize(this, ConstantAd.ADHUBAD.APP_ID);
     }
 
 

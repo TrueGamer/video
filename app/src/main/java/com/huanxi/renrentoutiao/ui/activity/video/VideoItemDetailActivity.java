@@ -158,7 +158,7 @@ public class VideoItemDetailActivity extends BaseActivity {
         mPbReadProgressBar.setShowChargingIcon(true);
         mPbReadProgressBar.setShowElectriText(false);
 
-        mCommentsFragment = VideoDetailFragment.getFragment(mVideoBean);
+        mCommentsFragment = VideoDetailFragment.getFragment(mVideoBean,getIntent().getStringExtra(VideoDetailFragment.HOME_TAB_ID));
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -636,9 +636,10 @@ public class VideoItemDetailActivity extends BaseActivity {
      *
      * @return
      */
-    public static Intent getIntent(Context context, VideoListBean bean) {
+    public static Intent getIntent(Context context, VideoListBean bean,String homeTabId) {
         Intent intent = new Intent(context, VideoItemDetailActivity.class);
         intent.putExtra(VIDEO_BEAN, bean);
+        intent.putExtra(VideoDetailFragment.HOME_TAB_ID,homeTabId);
         return intent;
     }
 

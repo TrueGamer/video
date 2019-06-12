@@ -91,7 +91,7 @@ public class LargeAdViewHolder extends BaseMuiltyViewHolder<TTFeedLargePicAd> {
         mTitle.setText(ad.getTitle());
         mDescription.setText(ad.getDescription());
         mSource.setText(ad.getSource() == null ? "广告来源" : ad.getSource());
-        TTImage icon = ad.getIcon();
+        /*TTImage icon = ad.getIcon();
         if (icon != null && icon.isValid()) {
             ImageOptions options = new ImageOptions();
             mAQuery.id(mIcon).image(icon.getImageUrl(), options);
@@ -129,7 +129,7 @@ public class LargeAdViewHolder extends BaseMuiltyViewHolder<TTFeedLargePicAd> {
                 mStopButton.setVisibility(View.GONE);
                 mRemoveButton.setVisibility(View.GONE);
                 TToast.show(context, "交互类型异常");
-        }
+        }*/
     }
 
     public void init2(TTFeedAd ad , BaseViewHolder helper, Context context) {
@@ -186,7 +186,7 @@ public class LargeAdViewHolder extends BaseMuiltyViewHolder<TTFeedLargePicAd> {
         mTitle.setText(ad.getTitle());
         mDescription.setText(ad.getDescription());
         mSource.setText(ad.getSource() == null ? "广告来源" : ad.getSource());
-        TTImage icon = ad.getIcon();
+        /*TTImage icon = ad.getIcon();
         if (icon != null && icon.isValid()) {
             ImageOptions options = new ImageOptions();
             mAQuery.id(mIcon).image(icon.getImageUrl(), options);
@@ -224,7 +224,7 @@ public class LargeAdViewHolder extends BaseMuiltyViewHolder<TTFeedLargePicAd> {
                 mStopButton.setVisibility(View.GONE);
                 mRemoveButton.setVisibility(View.GONE);
                 TToast.show(context, "交互类型异常");
-        }
+        }*/
     }
 
     private void bindDownLoadStatusController(Button mStopButton , Button mRemoveButton
@@ -267,7 +267,7 @@ public class LargeAdViewHolder extends BaseMuiltyViewHolder<TTFeedLargePicAd> {
                 if (!isValid()) {
                     return;
                 }
-                if (totalBytes < 0L) {
+                if (totalBytes <= 0L) {
                     adCreativeButton.setText("下载中 percent: 0");
                 } else {
                     adCreativeButton.setText("下载中 percent: " + (currBytes * 100 / totalBytes));

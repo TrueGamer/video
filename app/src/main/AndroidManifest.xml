@@ -49,8 +49,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
     <application
         android:name=".MyApplication"
@@ -71,6 +70,9 @@
             android:name="UMENG_APPKEY"
             android:value="5b3ca7d0f29d980cf40000a7"/>
 
+        <!-- 广点通的key -->
+        <meta-data android:name="com.tencent.rdm.uuid" android:value="2f045d33-de20-423a-86d3-d32d7f3ee8ae" />
+
         <!-- 推啊的key; -->
         <meta-data
             android:name="TUIA_APPKEY"
@@ -85,9 +87,15 @@
             android:name=".ui.activity.other.SplashActivity"
             android:screenOrientation="portrait">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
         </activity>
 
-        <!--<provider
+        <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.huanxi.renrentoutiao.fileprovider"
             android:exported="false"
@@ -95,7 +103,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"/>
-        </provider>-->
+        </provider>
 
         <activity
             android:name=".ui.activity.other.MainActivity"
@@ -240,14 +248,22 @@
             android:screenOrientation="portrait"/>
 
         <!-- 广点通广告必加 -->
-        <!--<service
+        <service
             android:name="com.qq.e.comm.DownloadService"
-            android:exported="false"/>-->
+            android:exported="false"/>
 
-        <!--<activity
+        <!-- 请开发者注意字母的大小写，ADActivity，而不是AdActivity -->
+        <activity
             android:name="com.qq.e.ads.ADActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>-->
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name="com.qq.e.ads.PortraitADActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.qq.e.ads.LandscapeADActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".ui.activity.Test3Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -347,64 +363,39 @@
         <activity android:name=".ui.media.MediaArticleDetailActivity"
             android:screenOrientation="portrait"/>
 
-        <!--<activity android:name="com.baidu.mobads.AppActivity"-->
-            <!--android:configChanges="keyboard|keyboardHidden|orientation"-->
-            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
-
-        <!--<provider
-            android:name="com.baidu.mobads.openad.FileProvider"
-            android:authorities="com.huanxi.renrentoutiao.bd.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/bd_file_paths" />
-
-        </provider>-->
-
-        <!-- Adhub-->
-        <activity
-            android:name="com.hubcloud.adhubsdk.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@style/AdhubDialogStyle" />
-        <service
-            android:name="com.qq.e.comm.DownloadService"
-            android:exported="false" />
-        <activity
-            android:name="com.qq.e.ads.ADActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name="com.baidu.mobads.AppActivity"
-            android:configChanges="screenSize|keyboard|keyboardHidden|orientation"
+        <activity android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".ui.activity.other.ChannelActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.huanxi.renrentoutiao.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/gdt_file_path" />
-        </provider>
         <provider
             android:name="com.baidu.mobads.openad.FileProvider"
             android:authorities="com.huanxi.renrentoutiao.bd.provider"
             android:exported="false"
             android:grantUriPermissions="true">
+
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/bd_file_paths" />
+
         </provider>
-        <!-- Adhub-->
+
+        <!-- 穿山甲广告 -->
+        <!-- 适配Anroid7.0 -->
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
+            android:authorities="${applicationId}.TTFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <!-- 多进程provider配置 -->
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
+            android:authorities="${applicationId}.TTMultiProvider"
+            android:exported="false" />
+        <!-- 穿山甲广告 -->
 
     </application>
 

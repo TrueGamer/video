@@ -32,11 +32,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huanxi.renrentoutiao.R;
-import com.huanxi.renrentoutiao.globle.ConstantAd;
 import com.huanxi.renrentoutiao.globle.ConstantUrl;
 import com.huanxi.renrentoutiao.model.bean.NewsCommentBean;
 import com.huanxi.renrentoutiao.model.bean.NewsItemBean;
-import com.huanxi.renrentoutiao.model.bean.media.MediaChannelDao;
 import com.huanxi.renrentoutiao.net.api.share.ApiShareNewsAndVideoContent;
 import com.huanxi.renrentoutiao.net.bean.ResInviteFriendDesc;
 import com.huanxi.renrentoutiao.net.bean.ResReadAwarad;
@@ -62,9 +60,6 @@ import com.huanxi.renrentoutiao.utils.ErrorAction;
 import com.huanxi.renrentoutiao.utils.FormatUtils;
 import com.huanxi.renrentoutiao.utils.SharedPreferencesUtils;
 import com.huanxi.renrentoutiao.utils.StringUtils;
-import com.hubcloud.adhubsdk.NativeAd;
-import com.hubcloud.adhubsdk.NativeAdListener;
-import com.hubcloud.adhubsdk.NativeAdResponse;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -74,7 +69,6 @@ import net.lucode.hackware.magicindicator.buildins.UIUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -82,7 +76,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
-import cn.tongdun.android.shell.db.utils.LogUtil;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -176,7 +169,6 @@ public class NewsDetailActivity2 extends BaseActivity implements ReadTask.TimeLi
      */
     private int SOURCE_EASTDAY = 1;
     private int SOURCE_YIGOUU = 2;
-    LinkedList<NativeAdResponse> mAdhubNativeData = new LinkedList<>();
 
     public NewsDetailPresenter2 getPresenter() {
         return mPresenter;
@@ -223,20 +215,7 @@ public class NewsDetailActivity2 extends BaseActivity implements ReadTask.TimeLi
     protected void initView(View rootView, Bundle savedInstanceState) {
 
         tabSpecs = SharedPreferencesUtils.getInstance(getApplicationContext()).getBoolean(ConstantUrl.IS_SHOW);
-        NativeAd mNativeAd = new NativeAd(this, ConstantAd.ADHUBAD.NATIVE_ID, 1, new NativeAdListener() {
-            @Override
-            public void onAdLoaded(NativeAdResponse nativeAdResponse) {
-                mAdhubNativeData.add(nativeAdResponse);
-            }
-
-            @Override
-            public void onAdFailed(int i) {
-                LogUtil.e("info", "adhub load add fail " + i);
-//                throw new IllegalStateException("adhub load add fail " + i);
-            }
-        });
-        mNativeAd.loadAd();
-        mPresenter = new NewsDetailPresenter2(this, mAdhubNativeData);
+        mPresenter = new NewsDetailPresenter2(this);
         initStateView();
 
         initRecyclerView();

@@ -21,6 +21,7 @@ public class ConstantUrl {
     //视频
     public static final String VEDIO_URL="top/get_video_list";
     public static final String VEDIO_URL_NEW="top/get_video_list_threa";
+    public static final String VEDIO_URL_DETAIL="top/get_video_list_four";
 
     public static final String VEDIO_SOURCE_DEATIL_URL="top/get_video_detail";
 
@@ -62,11 +63,6 @@ public class ConstantUrl {
     public static final String END_READ_ISSURE="new/readmoneyend";
     //开始阅读文章
     public static final String START_READ_ISSURE="new/readmoneystart";
-
-    //type（必须）  0任务开始1任务结束2广告点击开始3广告点击结束
-    public static final String NEW_AD_LOG="ad/newAdLog";
-
-    public static final String CHECK_SERVICE="ad/checkService";
 
     // 开始读取广告
     public static final String START_READ_AD = "new/checkTaskStart";

@@ -22,9 +22,9 @@ import com.huanxi.renrentoutiao.service.AdDownloadServiceNew;
 import com.huanxi.renrentoutiao.ui.activity.WebHelperActivity;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseActivity;
 import com.huanxi.renrentoutiao.ui.activity.news.NewsDetailActivity2;
-import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.adhub.AdhubNativeHolder;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.holder.ads.baidu.BaiDuAdHolder;
 import com.huanxi.renrentoutiao.ui.media.TTFeedLargePicAd;
+import com.huanxi.renrentoutiao.ui.media.hoder.GroupAdViewHolder;
 import com.huanxi.renrentoutiao.ui.media.hoder.LargeAdViewHolder;
 import com.huanxi.renrentoutiao.utils.ImageUtils;
 import com.qq.e.ads.nativ.NativeExpressADView;
@@ -48,7 +48,7 @@ public class HomeTabFragmentAdapter extends BaseMultiItemQuickAdapter<NewsItemBe
     private final TaLeftTextRightImgPresenter mTaLeftTextRightImgPresenter;
     private final LargeAdViewHolder largeAdViewHolder;
     private final BaiDuAdHolder baiDuAdHolder;
-    private final AdhubNativeHolder adhubNativeHolder;
+    private final GroupAdViewHolder groupAdViewHolder;
 
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with
@@ -65,7 +65,7 @@ public class HomeTabFragmentAdapter extends BaseMultiItemQuickAdapter<NewsItemBe
         addItemType(NewsItemBean.GDT_NATIVE_AD, R.layout.item_gdt_up_text_down_img);
         addItemType(NewsItemBean.TA_NATIVE_AD, R.layout.item_ta_left_text_right_img);
         // 穿山甲
-        addItemType(NewsItemBean.CSJ_NATIVE_AD , R.layout.listitem_ad_large_pic);
+        addItemType(NewsItemBean.CSJ_NATIVE_AD , R.layout.listitem_ad_group_pic);
 
         addItemType(NewsItemBean.CUSTOM_ONLY_IMG, R.layout.item_customer_ad1);
         addItemType(NewsItemBean.CUSTOM_UP_TITLE_DOWN_IMG, R.layout.item_customer_ad2);
@@ -83,9 +83,7 @@ public class HomeTabFragmentAdapter extends BaseMultiItemQuickAdapter<NewsItemBe
 
         largeAdViewHolder = new LargeAdViewHolder();
         baiDuAdHolder = new BaiDuAdHolder();
-
-        addItemType(NewsItemBean.ADHUB_NATIVE_AD, R.layout.item_adhub_native);
-        adhubNativeHolder = new AdhubNativeHolder();
+        groupAdViewHolder = new GroupAdViewHolder();
     }
 
     @Override
@@ -138,14 +136,11 @@ public class HomeTabFragmentAdapter extends BaseMultiItemQuickAdapter<NewsItemBe
                 break;
             case NewsItemBean.CSJ_NATIVE_AD:
                 if(item.getTtFeedAd() != null) {
-                    largeAdViewHolder.init2(item.getTtFeedAd() , helper , mActivity);
+                    groupAdViewHolder.init2(item.getTtFeedAd(),helper,mActivity);
                 }
                 break;
             case NewsItemBean.BAIDU_AD:
                 baiDuAdHolder.init2(helper , mActivity);
-                break;
-            case NewsItemBean.ADHUB_NATIVE_AD:
-                adhubNativeHolder.init(item.getNativeAdResponse(),helper,mActivity);
                 break;
         }
     }

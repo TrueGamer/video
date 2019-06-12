@@ -72,6 +72,10 @@ public interface ApiServices {
     @GET(ConstantUrl.VEDIO_URL_NEW)
     public Observable<BaseResultEntity<ResVideoList>> getVedioList(@QueryMap HashMap<String, String> paramsMap);
 
+    //获取视频列表；
+    @GET(ConstantUrl.VEDIO_URL_DETAIL)
+    public Observable<BaseResultEntity<ResVideoList>> getVedioListDetail(@QueryMap HashMap<String, String> paramsMap);
+
     //获取视频源信息
     @GET(ConstantUrl.VEDIO_SOURCE_DEATIL_URL)
     public Observable<BaseResultEntity<ResVedioSource>> getVedioSourceDetail(@QueryMap HashMap<String, String> paramsMap);
@@ -154,12 +158,6 @@ public interface ApiServices {
     //进行提现进度；
     @GET(ConstantUrl.START_READ_ISSURE)
     public Observable<BaseResultEntity<ResEmpty>> startReadIssue(@QueryMap HashMap<String, String> paramsMap);
-
-    @GET(ConstantUrl.NEW_AD_LOG)
-    public Observable<BaseResultEntity<String>> newAdLog(@QueryMap HashMap<String, String> paramsMap);
-
-    @GET(ConstantUrl.CHECK_SERVICE)
-    public Observable<BaseResultEntity<String>> checkService(@QueryMap HashMap<String, String> paramsMap);
 
     //进行提现进度；
     @GET(ConstantUrl.END_READ_ISSURE)

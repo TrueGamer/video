@@ -3,20 +3,16 @@ package com.huanxi.renrentoutiao.ui.activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
 import com.huanxi.renrentoutiao.R;
-import com.huanxi.renrentoutiao.net.api.news.ApiNewAdLog;
 import com.huanxi.renrentoutiao.net.api.user.task.ApiCustomTaskEnd;
 import com.huanxi.renrentoutiao.net.api.user.task.ApiCustomTaskStart;
 import com.huanxi.renrentoutiao.net.bean.news.ResAward;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseTitleActivity;
 import com.huanxi.renrentoutiao.ui.dialog.RedPacketDialog;
 import com.huanxi.renrentoutiao.ui.fragment.WebViewFragment;
-import com.huanxi.renrentoutiao.utils.InfoUtil;
-import com.huanxi.renrentoutiao.utils.SharedPreferencesUtils;
 import com.zhxu.library.http.HttpManager;
 import com.zhxu.library.listener.HttpOnNextListener;
 
@@ -76,7 +72,7 @@ public class TaskWebHelperActivity extends BaseTitleActivity  {
 
     public void startTask(){
 
-        /*HashMap<String, String> paramsMap = new HashMap<>();
+        HashMap<String, String> paramsMap = new HashMap<>();
         paramsMap.put(ApiCustomTaskEnd.FROM_UID,getUserBean().getUserid());
         paramsMap.put(ApiCustomTaskEnd.TASK_ID,mTaskId);
 
@@ -89,46 +85,12 @@ public class TaskWebHelperActivity extends BaseTitleActivity  {
 
         },this,paramsMap);
 
-        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);*/
-        InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-            @Override
-            public void onSuccess(String value) {
-                HashMap<String, String> paramsMap = new HashMap<>();
-                paramsMap.put(ApiNewAdLog.TYPE,"0");
-                paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(TaskWebHelperActivity.this).getString(SharedPreferencesUtils.CHANNEL));
-                paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                paramsMap.put(ApiNewAdLog.IP,value);
-                paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-//                paramsMap.put(ApiNewAdLog.AD_ID,);
-//                paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                    @Override
-                    public void onNext(String str) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                    }
-                },TaskWebHelperActivity.this,paramsMap);
-                HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                e.printStackTrace();
-            }
-        });
+        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);
     }
 
     public void endTask(){
 
-        /*HashMap<String, String> paramsMap = new HashMap<>();
+        HashMap<String, String> paramsMap = new HashMap<>();
         paramsMap.put(ApiCustomTaskEnd.FROM_UID,getUserBean().getUserid());
         paramsMap.put(ApiCustomTaskEnd.TASK_ID,mTaskId);
 
@@ -152,41 +114,7 @@ public class TaskWebHelperActivity extends BaseTitleActivity  {
             }
         },this,paramsMap);
 
-        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);*/
-        InfoUtil.getNetIp(new InfoUtil.NetCallback() {
-            @Override
-            public void onSuccess(String value) {
-                HashMap<String, String> paramsMap = new HashMap<>();
-                paramsMap.put(ApiNewAdLog.TYPE,"1");
-                paramsMap.put(ApiNewAdLog.SERVER_NUMBER,SharedPreferencesUtils.getInstance(TaskWebHelperActivity.this).getString(SharedPreferencesUtils.CHANNEL));
-                paramsMap.put(ApiNewAdLog.MAC_ADDRESS,InfoUtil.getMacAddress());
-                paramsMap.put(ApiNewAdLog.PHONE_BRAND,Build.BRAND);
-                paramsMap.put(ApiNewAdLog.PHONE_MODULE,Build.MODEL);
-                paramsMap.put(ApiNewAdLog.SYSTEM_VERSION,Build.VERSION.RELEASE);
-                paramsMap.put(ApiNewAdLog.IP,value);
-                paramsMap.put(ApiNewAdLog.AD_CHANNEL_NUM,ApiNewAdLog.AD_CHANNEL_ADHUB);
-//                paramsMap.put(ApiNewAdLog.AD_ID,);
-//                paramsMap.put(ApiNewAdLog.NEWS_ID,mMd5Url);
-
-                ApiNewAdLog apiStartReadIssure = new ApiNewAdLog(new HttpOnNextListener<String>() {
-
-                    @Override
-                    public void onNext(String str) {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                    }
-                },TaskWebHelperActivity.this,paramsMap);
-                HttpManager.getInstance().doHttpDeal(apiStartReadIssure);
-            }
-
-            @Override
-            public void onFail(Exception e) {
-                e.printStackTrace();
-            }
-        });
+        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);
     }
 
 

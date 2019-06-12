@@ -39,6 +39,8 @@ public class ConstantAd {
             , "6000939719868453" , "8040435997683614" , "6030338967387625" , "2080736937585658" , "3000538637427119",
                 "2080334607220270"};
 
+        public static final String AD_CODE_2 = "3050250425101232";
+        public static final String[] AD_CODE_3 = {"5080830779360404","6000939719868453"};
     }
 
     /**
@@ -63,6 +65,12 @@ public class ConstantAd {
         public static final String APP_ID = "902510857";
 
         public static final String BannerID = "902510218";
+
+        public static final String SPLASH_AD = "802510252";
+        public static final String VIDEO_AD = "902510903";
+        public static final String VIDEO_DETAIL_ID = "902510585";
+
+        public static final String NEWS_DETAIL_AD = "902510346";
     }
 
     /**
@@ -75,14 +83,5 @@ public class ConstantAd {
 
         public static final String SPLASH_AD = "5897390";
 
-    }
-
-    public static class ADHUBAD {
-
-        public static final String APP_ID = "2544";
-
-        public static final String FPLASH_AD = "7299";
-
-        public static final String NATIVE_ID = "7377";
     }
 }
