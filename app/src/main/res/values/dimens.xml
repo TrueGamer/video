@@ -10,4 +10,6 @@
     <dimen name="dp_25">25dp</dimen>
 
     <dimen name="money_detail_default_text_size">16sp</dimen>
+
+    <dimen name="main_bottom_height">46dp</dimen>
 </resources>

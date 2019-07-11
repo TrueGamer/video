@@ -14,6 +14,7 @@
     <string name="main_tab_task">任务</string>
     <string name="main_tab_name_user">我的</string>
     <string name="main_tab_name_picture">美图</string>
+    <string name="main_tab_name_l_video">小视频</string>
     <string name="main_tab_name_rrh">人人号</string>
 
 
@@ -64,4 +65,86 @@
           <font color=#c6c6c6> —</font>
           ]]>
     </string>
+
+    <string name="video_loading">努力加载中</string>
+    <string name="mp4_error">播放失败</string>
+    <string name="cannot_zan_self">不能给自己点赞</string>
+    <string name="video_say">喜欢就要说出来</string>
+    <string name="no_more_data">没有更多数据</string>
+    <string name="load_failure">加载失败</string>
+    <string name="reload">重新加载</string>
+    <string name="all_replys">查看全部回复</string>
+    <string name="please_login_2">登录状态失效，请重新登录</string>
+    <string name="no_data">暂无数据</string>
+    <string name="comment">评论</string>
+    <string name="reply">回复</string>
+    <string name="cannot_like_self">不能给自己点赞</string>
+    <string name="cannot_reply_self">不能回复自己</string>
+    <string name="comment_tips_null">回复内容不能为空</string>
+    <string name="say_something">说点什么吧~</string>
+    <string name="send">发送</string>
+    <string name="refresh_down_1">下拉可以刷新</string>
+    <string name="refresh_down_2">松开立即刷新</string>
+    <string name="refresh_down_3">正在刷新数据中</string>
+    <string name="refresh_up_1">上拉加载更多</string>
+    <string name="refresh_up_2">松开加载更多</string>
+    <string name="refresh_up_3">正在加载更多中</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="auth_login_ing">正在授权登录</string>
+    <string name="wallet">钱包</string>
+    <string name="add_follow">+ 关注</string>
+    <string name="private_msg">私信</string>
+    <string name="sign_hint2">这家伙很懒，什么都没有留下。</string>
+    <string name="cannot_follow_self">不能关注自己</string>
+    <string name="please_login">请先登录</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="please_input_right_date">请选择正确的日期</string>
+    <string name="you_have_at_him">你已经@过他了</string>
+    <string name="you_have_at_him_2">已经@了相同昵称的人</string>
+    <string name="no_comment">暂无评论，快来抢沙发吧</string>
+    <string name="please_input_content">请输入内容</string>
+    <string name="report">举报</string>
+    <string name="save">保存</string>
+    <string name="black">拉黑</string>
+    <string name="copy">复制</string>
+    <string name="delete">删除</string>
+    <string name="processing">处理中</string>
+    <string name="share_fail">分享失败</string>
+    <string name="share_cancel">分享取消</string>
+    <string name="share_success">分享成功</string>
+    <string name="clip_success">复制成功</string>
+    <string name="download_success">下载成功</string>
+    <string name="download_fail">下载失败</string>
+    <string name="storage_permission_refused">您拒绝了文件读写的权限，请到设置中修改</string>
+    <string name="camera_permission_refused">您拒绝了使用摄像头的权限，请到设置中修改</string>
+    <string name="record_audio_permission_refused">您拒绝了使用麦克风的权限，请到设置中修改</string>
+    <string name="location_permission_refused">您拒绝了使用定位的权限，请到设置中修改</string>
+    <string name="read_phone_status_permission_refused">您拒绝了读取手机信息的权限，请到设置中修改</string>
+    <string name="call_permission_refused">您拒绝了打电话的权限，请到设置中修改</string>
+    <string name="downloading">下载中</string>
+    <string name="zuoping">作品</string>
+    <string name="like">喜欢</string>
+    <string name="fans">粉丝</string>
+    <string name="my_fans">我的粉丝</string>
+    <string name="my_fans_2">TA的粉丝</string>
+    <string name="get_zan">获赞</string>
+    <string name="follow">关注</string>
+    <string name="set_black_success">拉黑成功</string>
+    <string name="cancel_black">取消拉黑</string>
+    <string name="cancel_black_success">解除拉黑成功</string>
+    <string name="no_like_video">你赞过的作品都会放到这里</string>
+    <string name="no_like_video_2">TA还没有喜欢的视频</string>
+    <string name="no_work_video">TA还没有作品</string>
+    <string name="music_suffix">创作的原声</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_qzone">QQ空间</string>
+    <string name="share_wx">微信</string>
+    <string name="share_wx_pyq">朋友圈</string>
+    <string name="share_wx_facebook">facebook</string>
+    <string name="share_wx_twitter">推特</string>
+
+    <string name="奖励">奖励</string>
+    <string name="邀请注册送">邀请注册送</string>
 </resources>

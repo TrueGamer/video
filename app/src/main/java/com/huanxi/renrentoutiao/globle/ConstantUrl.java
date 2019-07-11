@@ -176,4 +176,9 @@ public class ConstantUrl {
     // 文章详情
     public static final String MediaArticalDetailURL = "http://118.190.204.3:8180/apps/app/news/view?id=%s&userId=%s";
 
+    //小视频开始播放
+    public static final String START_Play_ISSURE="top/checkTaskVideoHongbaoMini";
+    //小视频播放结束
+    public static final String END_Play_ISSURE="top/taskVideoHongbaoMini";
+
 }

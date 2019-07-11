@@ -27,5 +27,66 @@
         <attr name="android:scaleType" />
     </declare-styleable>
 
+    <declare-styleable name="LoadingBar">
+        <attr name="LoadingBgColor" format="color"/>
+        <attr name="LoadingFgColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="RefreshLayout">
+        <attr name="loadMoreEnable" format="boolean"/>
+        <attr name="refreshEnable" format="boolean"/>
+        <attr name="loadStyle" format="enum">
+            <enum name="black" value="0"/>
+            <enum name="white" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RefreshView">
+        <attr name="enableLoadMore" format="boolean"/>
+        <attr name="enableRefresh" format="boolean"/>
+        <attr name="showNoData" format="boolean"/>
+        <attr name="showLoading" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ImageTextView">
+        <attr name="imageSrc" format="reference"/>
+        <attr name="imageWidth" format="dimension"/>
+        <attr name="text1" format="string"/>
+        <attr name="textColor1" format="color"/>
+        <attr name="textHeight" format="dimension"/>
+        <attr name="textSize1" format="dimension"/>
+        <attr name="textMargin" format="dimension"/>
+        <attr name="textMarginLeft" format="dimension"/>
+        <attr name="textMarginRight" format="dimension"/>
+        <attr name="textMarginTop" format="dimension"/>
+        <attr name="textMarginBottom" format="dimension"/>
+        <attr name="imageMargin" format="dimension"/>
+        <attr name="imageMarginLeft" format="dimension"/>
+        <attr name="imageMarginRight" format="dimension"/>
+        <attr name="imageMarginTop" format="dimension"/>
+        <attr name="imageMarginBottom" format="dimension"/>
+        <attr name="imagePadding" format="dimension"/>
+        <attr name="isChecked" format="boolean"/>
+        <attr name="checkedImageSrc" format="reference"/>
+        <attr name="checkedTextColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="title_textSize" format="dimension"/>
+        <attr name="indicatorWidth" format="dimension"/>
+        <attr name="indicatorHeight" format="dimension"/>
+        <attr name="normalColor" format="color"/>
+        <attr name="lightColor" format="color"/>
+        <attr name="currentItem" format="integer"/>
+    </declare-styleable>
+
+    <!--圆弧进度条-->
+    <declare-styleable name="TasksCompletedView">
+        <attr name="radius" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+        <attr name="ringBgColor" format="color"/>
+    </declare-styleable>
 
 </resources>

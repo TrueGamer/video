@@ -40,11 +40,12 @@ public class MyApplication extends Application {
     public static Context mContext;
     private List<String> mAllPackageName;
 
+    public static MyApplication sInstance;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        sInstance = this;
 
         initUM();
 

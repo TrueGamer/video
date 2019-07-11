@@ -1,7 +1,13 @@
 package com.huanxi.renrentoutiao.wxapi;
 
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
+
+import com.tencent.mm.opensdk.constants.ConstantsAPI;
+import com.tencent.mm.opensdk.modelbase.BaseResp;
+import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
+
 import cn.sharesdk.wechat.utils.WXAppExtendObject;
 import cn.sharesdk.wechat.utils.WXMediaMessage;
 import cn.sharesdk.wechat.utils.WechatHandlerActivity;
@@ -37,6 +43,15 @@ public class WXEntryActivity extends WechatHandlerActivity {
         if (msg != null && msg.mediaObject != null && (msg.mediaObject instanceof WXAppExtendObject)) {
             WXAppExtendObject obj = (WXAppExtendObject) msg.mediaObject;
             Toast.makeText(this, obj.extInfo, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onResp(BaseResp resp) {
+        if (resp.getType() == ConstantsAPI.COMMAND_LAUNCH_WX_MINIPROGRAM) {
+            WXLaunchMiniProgram.Resp launchMiniProResp = (WXLaunchMiniProgram.Resp) resp;
+            String extraData =launchMiniProResp.extMsg; //对应小程序组件 <button open-type="launchApp"> 中的 app-parameter 属性
+
+            Log.i("info" , "extraData="+extraData);
         }
     }
 

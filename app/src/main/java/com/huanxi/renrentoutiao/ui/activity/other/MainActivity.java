@@ -37,6 +37,7 @@ import com.huanxi.renrentoutiao.ui.activity.video.VideoItemDetailActivity;
 import com.huanxi.renrentoutiao.ui.adapter.recyclerview.muiltyAdapter.bean.video.VideoListBean;
 import com.huanxi.renrentoutiao.ui.dialog.UpdateDialog;
 import com.huanxi.renrentoutiao.ui.fragment.apprentice.ApprenticeFragment;
+import com.huanxi.renrentoutiao.ui.fragment.l_video.HomeHotFragment;
 import com.huanxi.renrentoutiao.ui.fragment.news.HomeFragment;
 import com.huanxi.renrentoutiao.ui.fragment.picture.PictureFragment;
 import com.huanxi.renrentoutiao.ui.fragment.video.NewVideoFragment;
@@ -81,7 +82,7 @@ public class MainActivity extends BaseActivity {
     public static final int HOME = 0;
     public static final int VIDEO = 1;
     public static final int Picture = 2;
-    public static final int APPRENTICE = 3;
+    public static final int APPRENTICE = 3; // 收徒 -- 小视频
     public static final int TASK = 4;
     public static final int MINE = 5;
 
@@ -281,7 +282,6 @@ public class MainActivity extends BaseActivity {
                         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                         startActivity(intent);
                     } else if (String.valueOf(R.string.main_tab_name_apprentice).equals(tabId)) {
-
                         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                         startActivity(intent);
                     }
@@ -327,8 +327,7 @@ public class MainActivity extends BaseActivity {
                     if(getNewsFragment() != null) {
                         try{
                             getVideoFragment().refresh();
-                        }catch (Exception e)
-                        {
+                        }catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -359,24 +358,40 @@ public class MainActivity extends BaseActivity {
             mTabhost.getTabWidget().getChildAt(APPRENTICE).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(mTabhost != null) {
+                        if (mTabhost.getCurrentTab() == APPRENTICE) {
+                            //这里表示当前是在新闻页面的时候；
+                            getVideoRecommendFraagment().refresh();
+//                            android.support.v4.app.FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+//                            tx.add(R.id.fl_container, getVideoRecommendFraagment());
+//                            tx.show(getVideoRecommendFraagment());
+//                            tx.commit();
+                        } else {
+                            mTabhost.setCurrentTab(APPRENTICE);
+//                            getVideoRecommendFraagment().refresh();
+                        }
+                    }
                     //这里我们做一下判断操作；
-                    checkLogin(new CheckLoginCallBack() {
-                        @Override
-                        public void loginSuccess() {
-                            Intent webIntent = WebHelperActivity.getIntent(
-                                    MainActivity.this,
-                                    ConstantUrl.JKD_WEB_URL + getUserBean().getUserid()+"&time="+System.currentTimeMillis(),
-                                    getString(R.string.main_tab_name_apprentice),
-                                    false);
-                            startActivity(webIntent);
-                        }
-
-                        @Override
-                        public void loginFaild() {
-                            //失败我就显示
-                            mTabhost.setCurrentTab(mTabhost.getCurrentTab());
-                        }
-                    });
+//                    checkLogin(new CheckLoginCallBack() {
+//                        @Override
+//                        public void loginSuccess() {
+//                            // 收徒 -- 小视频
+//                            Intent webIntent = WebHelperActivity.getIntent(
+//                                    MainActivity.this,
+//                                    ConstantUrl.JKD_WEB_URL + getUserBean().getUserid()+"&time="+System.currentTimeMillis(),
+//                                    getString(R.string.main_tab_name_apprentice),
+//                                    false);
+//                            startActivity(webIntent);.
+//
+//
+//                        }
+//
+//                        @Override
+//                        public void loginFaild() {
+//                            //失败我就显示
+//                            mTabhost.setCurrentTab(mTabhost.getCurrentTab());
+//                        }
+//                    });
                 }
             });
         } else {
@@ -491,6 +506,17 @@ public class MainActivity extends BaseActivity {
     public NewVideoFragment getVideoFragment() {
 
         return ((NewVideoFragment) getSupportFragmentManager().findFragmentByTag("视频"));
+
+    }
+
+    /**
+     * 这里我们是获取短视频的Fragment
+     *
+     * @return
+     */
+    public HomeHotFragment getVideoRecommendFraagment() {
+
+        return ((HomeHotFragment) getSupportFragmentManager().findFragmentByTag("小视频"));
 
     }
 

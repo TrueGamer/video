@@ -328,4 +328,12 @@ public interface ApiServices {
     @GET(ConstantUrl.REQUST_USER_AWARD_RECORD_LIST)
     public Observable<BaseResultEntity<List<ResLuckwalkProductBean>>> requestUserLuckyWalkAwardRecord(@QueryMap HashMap<String, String> paramsMap);
 
+    //小视频任务开始；
+    @GET(ConstantUrl.START_Play_ISSURE)
+    public Observable<BaseResultEntity<ResEmpty>> startPlayIssue(@QueryMap HashMap<String, String> paramsMap);
+
+    //小视频任务结束；
+    @GET(ConstantUrl.END_Play_ISSURE)
+    public Observable<BaseResultEntity<ResReadAwarad>> endPlayIssue(@QueryMap HashMap<String, String> paramsMap);
+
 }

@@ -2,6 +2,7 @@ package com.huanxi.renrentoutiao.ui.adapter;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.annotation.IntRange;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
@@ -11,7 +12,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
+import com.bytedance.sdk.openadsdk.TTAdManager;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.IExpandable;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
@@ -24,6 +32,7 @@ import com.huanxi.renrentoutiao.net.api.user.userInfo.ApiBindPhoneNumber;
 import com.huanxi.renrentoutiao.net.api.user.userInfo.ApiOnlyBindPhoneNumber;
 import com.huanxi.renrentoutiao.net.bean.ResEmpty;
 import com.huanxi.renrentoutiao.net.bean.news.ResAward;
+import com.huanxi.renrentoutiao.ui.activity.RewardVideoActivity;
 import com.huanxi.renrentoutiao.ui.activity.WebHelperActivity;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseActivity;
 import com.huanxi.renrentoutiao.ui.activity.other.InviteFriendActivityNew;
@@ -36,12 +45,18 @@ import com.huanxi.renrentoutiao.ui.adapter.bean.TaskItemContentBean;
 import com.huanxi.renrentoutiao.ui.adapter.bean.TaskTitleBean;
 import com.huanxi.renrentoutiao.ui.dialog.InputDialog;
 import com.huanxi.renrentoutiao.ui.dialog.RedPacketDialog;
+import com.huanxi.renrentoutiao.utils.TTAdManagerHolder;
+import com.huanxi.renrentoutiao.utils.TToast;
 import com.huanxi.renrentoutiao.utils.ValidUtils;
+import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.zhxu.library.http.HttpManager;
 import com.zhxu.library.listener.HttpOnNextListener;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Dinosa on 2018/1/22.
@@ -59,6 +74,9 @@ public class TaskAdapter extends BaseAdsAdapter<MultiItemEntity> {
     protected final TypeLevel2Presenter mTypeLevel2Presenter;
     protected final BaseActivity mBaseActivity;
 
+    private TTAdNative mTTAdNative;
+    private TTRewardVideoAd mttRewardVideoAd;
+    private boolean mHasShowDownloadActive = false;
 
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with
@@ -250,7 +268,6 @@ public class TaskAdapter extends BaseAdsAdapter<MultiItemEntity> {
                 public void onClick(View v) {
                     Log.i("info" , "getButtonContent="+bean.getButtonContent());
                     if(bean.getButtonContent().equals("签到")){
-                       // mBaseActivity.startActivity(new Intent(mBaseActivity, UserSignActivity.class));
                         UserTaskActivity baseActivity = (UserTaskActivity) mBaseActivity;
                         baseActivity.getTaskFragment().scrollToTop();
                         //这里是直接滚动到上面去；
@@ -323,16 +340,66 @@ public class TaskAdapter extends BaseAdsAdapter<MultiItemEntity> {
                         Intent intent = new Intent(mBaseActivity, InviteFriendActivityNew.class);
                         mBaseActivity.startActivity(intent);
 
-                    }else if(bean.getButtonContent().equals("提现")){
+                    } else if(bean.getButtonContent().equals("提现")){
 
                         //mBaseActivity.startActivity(new Intent(mBaseActivity, IntergralShopActivity.class));
                         mBaseActivity.startActivity(LuckyWalkActivity.getIntent(mBaseActivity,true));
 
-                    }else if("绑定手机号".equals(bean.getButtonContent())){
+                    } else if("绑定手机号".equals(bean.getButtonContent())){
 
                         // 这里我们要执行绑定手机号的逻辑；
                         doShowAddPhoneNumber(viewHolder);
 
+                    } else if("46".equals(bean.getId())){
+                        // 浏览激励视频
+                        mCurTaskId = bean.getId();
+                        HashMap<String, String> paramsMap = new HashMap<>();
+                        paramsMap.put(ApiCustomTaskEnd.FROM_UID,mBaseActivity.getUserBean().getUserid());
+                        paramsMap.put(ApiCustomTaskEnd.TASK_ID, mCurTaskId);
+
+                        ApiCustomTaskStart apiCustomTaskStart = new ApiCustomTaskStart(new HttpOnNextListener<ResAward>() {
+
+                            @Override
+                            public void onNext(ResAward s) {
+                                loadRewardCoin();
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                super.onError(e);
+                                e.printStackTrace();
+                                loadRewardCoin();
+                            }
+                        },mBaseActivity,paramsMap);
+
+                        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);
+                    } else if("跳转到小程序".equals(bean.getButtonContent())) {
+                        mCurTaskId = bean.getId();
+                        HashMap<String, String> paramsMap = new HashMap<>();
+                        paramsMap.put(ApiCustomTaskEnd.FROM_UID,mBaseActivity.getUserBean().getUserid());
+                        paramsMap.put(ApiCustomTaskEnd.TASK_ID, mCurTaskId);
+
+                        ApiCustomTaskStart apiCustomTaskStart = new ApiCustomTaskStart(new HttpOnNextListener<ResAward>() {
+
+                            @Override
+                            public void onNext(ResAward s) {
+                                jumpWCApp();
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                super.onError(e);
+                                e.printStackTrace();
+                                jumpWCApp();
+                            }
+                        },mBaseActivity,paramsMap);
+                        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);
+
+                    } else if("45".equals(bean.getId())) {
+                        // 短视频
+                        Intent intent = new Intent(mContext,MainActivity.class);
+                        intent.putExtra(MainActivity.TAB_INDEX,MainActivity.APPRENTICE);
+                        mBaseActivity.startActivity(intent);
                     } else if (!TextUtils.isEmpty(bean.getUrl())) {
                         //这里表示跳转网页；
 
@@ -369,6 +436,168 @@ public class TaskAdapter extends BaseAdsAdapter<MultiItemEntity> {
 
     public void onResume(){
 //        endTask();
+    }
+
+    /**
+     * 跳转微信小程序
+     */
+    private void jumpWCApp(){
+        String appId = "wxaddf8032a6b4fc30"; // 填应用AppId
+        IWXAPI api = WXAPIFactory.createWXAPI(mBaseActivity, appId);
+
+        if(api.isWXAppInstalled()) {
+            WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
+            req.userName = "gh_b6664957bab7"; // 小程序原始id  gh_b6664957bab7
+            req.path = "";    //拉起小程序页面的可带参路径，不填默认拉起小程序首页
+            req.miniprogramType = WXLaunchMiniProgram.Req.MINIPTOGRAM_TYPE_RELEASE;
+            api.sendReq(req);
+
+            try {
+                Thread.sleep(1000);
+                endTask();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(mBaseActivity , "请安装微信" , Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * 跳转激励视频
+     */
+    private void loadRewardCoin() {
+        TTAdManager ttAdManager = TTAdManagerHolder.getInstance(mBaseActivity);
+        TTAdManagerHolder.getInstance(mBaseActivity).requestPermissionIfNecessary(mBaseActivity);
+        //step3:创建TTAdNative对象,用于调用广告请求接口
+        mTTAdNative = ttAdManager.createAdNative(mBaseActivity);
+        loadAd("902510040", TTAdConstant.VERTICAL);
+    }
+
+    private void loadAd(String codeId, int orientation) {
+        //step4:创建广告请求参数AdSlot,具体参数含义参考文档
+        AdSlot adSlot = new AdSlot.Builder()
+                .setCodeId(codeId)
+                .setSupportDeepLink(true)
+                .setImageAcceptedSize(1080, 1920)
+                .setRewardName("金币") //奖励的名称
+                .setRewardAmount(3)  //奖励的数量
+                .setUserID(mBaseActivity.getUserBean().getUserid()) //用户id,必传参数
+                .setMediaExtra("media_extra") //附加参数，可选
+                .setOrientation(orientation) //必填参数，期望视频的播放方向：TTAdConstant.HORIZONTAL 或 TTAdConstant.VERTICAL
+                .build();
+        //step5:请求广告
+        mTTAdNative.loadRewardVideoAd(adSlot, new TTAdNative.RewardVideoAdListener() {
+            @Override
+            public void onError(int code, String message) {
+            }
+
+            //视频广告加载后，视频资源缓存到本地的回调，在此回调后，播放本地视频，流畅不阻塞。
+            @Override
+            public void onRewardVideoCached() {
+            }
+
+            //视频广告的素材加载完毕，比如视频url等，在此回调后，可以播放在线视频，网络不好可能出现加载缓冲，影响体验。
+            @Override
+            public void onRewardVideoAdLoad(TTRewardVideoAd ad) {
+                mttRewardVideoAd = ad;
+                mttRewardVideoAd.setRewardAdInteractionListener(new TTRewardVideoAd.RewardAdInteractionListener() {
+
+                    @Override
+                    public void onAdShow() {
+                    }
+
+                    @Override
+                    public void onAdVideoBarClick() {
+                    }
+
+                    @Override
+                    public void onAdClose() {
+                    }
+
+                    //视频播放完成回调
+                    @Override
+                    public void onVideoComplete() {
+                        // 播放完成  获取金币
+                        Log.i("info" , "complete============");
+                    }
+
+                    @Override
+                    public void onVideoError() {
+                    }
+
+                    //视频播放完成后，奖励验证回调，rewardVerify：是否有效，rewardAmount：奖励梳理，rewardName：奖励名称
+                    @Override
+                    public void onRewardVerify(boolean rewardVerify, int rewardAmount, String rewardName) {
+                        Log.i("info" , "onRewardVerify============");
+                        endTask();
+                    }
+
+//                    @Override
+//                    public void onSkippedVideo() {
+//                        TToast.show(RewardVideoActivity.this, "rewardVideoAd has onSkippedVideo");
+//                    }
+                });
+                mttRewardVideoAd.setDownloadListener(new TTAppDownloadListener() {
+                    @Override
+                    public void onIdle() {
+                        mHasShowDownloadActive = false;
+                    }
+
+                    @Override
+                    public void onDownloadActive(long totalBytes, long currBytes, String fileName, String appName) {
+                        if (!mHasShowDownloadActive) {
+                            mHasShowDownloadActive = true;
+                        }
+                    }
+
+                    @Override
+                    public void onDownloadPaused(long totalBytes, long currBytes, String fileName, String appName) {
+                    }
+
+                    @Override
+                    public void onDownloadFailed(long totalBytes, long currBytes, String fileName, String appName) {
+                    }
+
+                    @Override
+                    public void onDownloadFinished(long totalBytes, String fileName, String appName) {
+                    }
+
+                    @Override
+                    public void onInstalled(String fileName, String appName) {
+                    }
+                });
+
+                if (mttRewardVideoAd != null) {
+                    //展示广告，并传入广告展示的场景
+                    mttRewardVideoAd.showRewardVideoAd(mBaseActivity);
+                    mttRewardVideoAd = null;
+                } else {
+                    TToast.show(mBaseActivity, "请先加载广告");
+                }
+            }
+        });
+    }
+
+    /**
+     * 结束任务；
+     */
+    public void endTask(){
+
+        HashMap<String, String> paramsMap = new HashMap<>();
+        paramsMap.put(ApiCustomTaskEnd.FROM_UID,mBaseActivity.getUserBean().getUserid());
+        paramsMap.put(ApiCustomTaskEnd.TASK_ID, mCurTaskId);
+
+        ApiCustomTaskEnd apiCustomTaskStart=new ApiCustomTaskEnd(new HttpOnNextListener<ResAward>() {
+
+            @Override
+            public void onNext(ResAward resAward) {
+                RedPacketDialog.show(mBaseActivity, resAward.getIntegral(), null);
+            }
+
+        },mBaseActivity,paramsMap);
+
+        HttpManager.getInstance().doHttpDeal(apiCustomTaskStart);
     }
 
     /**

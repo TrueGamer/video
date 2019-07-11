@@ -76,7 +76,7 @@ android {
 
         ndk {
             //选择要添加的对应cpu类型的.so库。
-            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            abiFilters 'armeabi', 'armeabi-v7a'
 //            abiFilters 'armeabi-v7a'
             // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
@@ -257,7 +257,21 @@ dependencies {
     implementation files('libs/Baidu_MobAds_SDK.jar')
     implementation 'com.facebook.fresco:fresco:1.9.0'
     implementation 'com.facebook.fresco:animated-gif:1.9.0'
-
     implementation(name: 'open_ad_sdk', ext: 'aar')
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+    //使用okgo进行http网络请求
+    implementation 'com.lzy.net:okgo:3.0.4'
+    //fastJson解析json
+    implementation 'com.alibaba:fastjson:1.1.60.android'
+    //eventbus事件总线
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    //腾讯短视频sdk
+    implementation(name: 'LiteAVSDK_UGC_4.4.3774', ext: 'aar')
+    //带圆角，边框的的ImageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    //一个Picker控件，选择日期，城市用
+    implementation files('libs/AndroidPicker-1.5.6.jar')
+    implementation project(':video')
+    // 微信小程序
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
 }

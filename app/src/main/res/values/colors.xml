@@ -134,4 +134,17 @@
     <color name="color_half">#0fffffff</color>
 
     <color name="grey">#cdcdcd</color>
+    <color name="gray1">#6e6e6e</color>
+    <color name="gray2">#909090</color>
+    <color name="global">#ea377f</color>
+    <color name="black1">#15102C</color>
+    <color name="black2">#34304D</color>
+    <color name="black3">#2C2840</color>
+    <color name="black4">#1F1D35</color>
+    <color name="black5">#2B2A3F</color>
+    <color name="background">#110d24</color>
+    <color name="lineColor">#1affffff</color>
+
+    <color name="white2">#f5f3f3</color>
+    <color name="colorRed">#d50f09</color>
 </resources>

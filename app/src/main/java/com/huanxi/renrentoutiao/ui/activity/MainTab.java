@@ -2,6 +2,7 @@ package com.huanxi.renrentoutiao.ui.activity;
 
 import com.huanxi.renrentoutiao.R;
 import com.huanxi.renrentoutiao.ui.fragment.apprentice.ApprenticeFragment;
+import com.huanxi.renrentoutiao.ui.fragment.l_video.HomeHotFragment;
 import com.huanxi.renrentoutiao.ui.fragment.news.HomeFragment;
 import com.huanxi.renrentoutiao.ui.fragment.picture.PictureFragment;
 import com.huanxi.renrentoutiao.ui.fragment.user.TaskFragment;
@@ -30,7 +31,8 @@ public enum MainTab {
     VEDIO(1,R.string.main_tab_name_video, R.drawable.selector_tab_vedio, NewVideoFragment.class),
 //    Picture(2 , R.string.main_tab_name_picture , R.drawable.selector_tab_picture , PictureFragment.class),
     Picture(2 , R.string.main_tab_name_rrh , R.drawable.selector_tab_rrh , MediaNewFragment.class),
-    Apprentice(3,R.string.main_tab_name_apprentice, R.drawable.selector_tab_apprentice, ApprenticeFragment.class),
+//    Apprentice(3,R.string.main_tab_name_apprentice, R.drawable.selector_tab_apprentice, ApprenticeFragment.class),
+    Apprentice(3,R.string.main_tab_name_l_video, R.drawable.selector_tab_l_video, HomeHotFragment.class),
     TASK(4,R.string.main_tab_task, R.drawable.selector_tab_task, TaskFragment.class),
     USER(5,R.string.main_tab_name_user, R.drawable.selector_tab_user, UserFragmentV1.class);
 
