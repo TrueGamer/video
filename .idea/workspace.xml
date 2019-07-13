@@ -72,8 +72,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/http/HttpUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="392" column="7" lean-forward="true" selection-start-line="392" selection-start-column="7" selection-end-line="392" selection-end-column="7" />
+            <state relative-caret-position="238">
+              <caret line="248" column="50" lean-forward="true" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
+              <folding>
+                <element signature="e#10917#10927#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,8 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>VideoPlayWrap</find>
-      <find>TimeGetCoinURL</find>
       <find>icon_read_progress_close</find>
       <find>opensdk:wechat</find>
       <find>opensdk</find>
@@ -130,7 +131,12 @@
       <find>R.layout</find>
       <find>mStayCountDown</find>
       <find>please_login</find>
+      <find>vedio.xzdog.com</find>
+      <find>获取热门</find>
     </findStrings>
+    <replaceStrings>
+      <replace>vedio.xzdog.com</replace>
+    </replaceStrings>
   </component>
   <component name="GenerateSignedApkSettings">
     <option name="KEY_STORE_PATH" value="F:\renrentoutiao\renrentoutiao\app-shualiang-android\app\toutiaokey.jks" />
@@ -144,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/view/video/RefreshView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/SharedSdkUitl.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/view/video/ImageTextView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/view/video/RefreshLayout.java" />
@@ -195,6 +200,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_video_play.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/l_video/VideoPlayFragment.java" />
         <option value="$PROJECT_DIR$/config.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/http/HttpUtil.java" />
       </list>
     </option>
   </component>
@@ -412,6 +418,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29530916" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -521,7 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3466">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -666,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -772,8 +776,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/http/HttpUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="392" column="7" lean-forward="true" selection-start-line="392" selection-start-column="7" selection-end-line="392" selection-end-column="7" />
+        <state relative-caret-position="238">
+          <caret line="248" column="50" lean-forward="true" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
+          <folding>
+            <element signature="e#10917#10927#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

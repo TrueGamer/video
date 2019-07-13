@@ -245,7 +245,7 @@ public class HttpUtil {
      * 获取热门视频列表
      */
     public static void getVideoList(int p, HttpCallback callback) {
-        OkGo.<JsonBean>get(HTTP_URL + "service=Video.getVideoList")
+        OkGo.<JsonBean>get("http//program.xzdog.com/c/list")
                 .headers("Connection", CONNECTION)
                 .params("uid", AppConfig.getInstance().getUid())
                 .params("p", p)

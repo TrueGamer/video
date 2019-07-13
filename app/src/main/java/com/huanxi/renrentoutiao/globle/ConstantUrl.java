@@ -162,9 +162,9 @@ public class ConstantUrl {
 
     public static final String IS_SHOW ="ads_show";
     //收徒网页地址
-    public static final String JKD_WEB_URL="http://game.appshow.cn/html/h5/jkd/weixin20/shoutu.html?userId=";
+    public static final String JKD_WEB_URL="http://vedio.xzdog.com/html/h5/jkd/weixin20/shoutu.html?userId=";
 
-    // 头条号列表 http://game.appshow.cn/public/api/index.php/news/
+    // 头条号列表 http://vedio.xzdog.com/public/api/index.php/news/
     // http://118.190.204.3:8180/apps/app/news/
     public static final String MediaList_URL = "http://118.190.204.3:8180/apps/app/news/newsList?start=%d&pageSize=20&userId=%s";
 
