@@ -51,11 +51,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2904">
-              <caret line="202" column="52" selection-start-line="202" selection-start-column="52" selection-end-line="202" selection-end-column="52" />
+            <state relative-caret-position="229">
+              <caret line="81" column="37" lean-forward="true" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+              <folding>
+                <element signature="e#7407#7408#0" expanded="true" />
+                <element signature="e#7482#7483#0" expanded="true" />
+                <element signature="method#onTabChanged#0;class#9305:10488" />
+                <element signature="e#16907#16908#0" expanded="true" />
+                <element signature="e#18648#18649#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/MainTab.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="24" column="87" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
+              <folding>
+                <element signature="e#1896#1923#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/http/HttpUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="248" column="50" lean-forward="true" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
+            <state relative-caret-position="216">
+              <caret line="247" column="60" selection-start-line="247" selection-start-column="60" selection-end-line="247" selection-end-column="60" />
               <folding>
                 <element signature="e#10917#10927#0" expanded="true" />
               </folding>
@@ -103,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>icon_read_progress_close</find>
       <find>opensdk:wechat</find>
       <find>opensdk</find>
       <find>mLoadAdVertical</find>
@@ -133,6 +151,7 @@
       <find>please_login</find>
       <find>vedio.xzdog.com</find>
       <find>获取热门</find>
+      <find>HOME</find>
     </findStrings>
     <replaceStrings>
       <replace>vedio.xzdog.com</replace>
@@ -166,7 +185,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_list_follow.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/AppConfig.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home_hot.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/l_video/HomeHotFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/model/bean/l_video/CommentBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/adapter/l_video/CommentAdapter.java" />
@@ -189,7 +207,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_video_item_deatil.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/adapter/TaskAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/MainTab.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/video/AbsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/ApiServices.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/api/video/ApiStartPlayIssure.java" />
@@ -201,6 +218,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/l_video/VideoPlayFragment.java" />
         <option value="$PROJECT_DIR$/config.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/http/HttpUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/MainTab.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -420,7 +439,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29530916" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info id="Capture Tool" order="3" />
@@ -439,7 +458,7 @@
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="8" weight="0.103896104" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Build" order="10" visible="true" weight="0.42207792" />
+      <window_info active="true" anchor="bottom" id="Build" order="10" visible="true" weight="0.16558442" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -616,18 +635,18 @@
         <state relative-caret-position="1131">
           <caret line="407" column="49" lean-forward="true" selection-start-line="407" selection-start-column="49" selection-end-line="407" selection-end-column="49" />
           <folding>
-            <element signature="e#13567#13568#0" expanded="false" />
-            <element signature="e#13647#13648#0" expanded="false" />
-            <element signature="e#14677#14678#0" expanded="false" />
-            <element signature="e#14752#14753#0" expanded="false" />
-            <element signature="e#21135#21136#0" expanded="false" />
-            <element signature="e#21213#21214#0" expanded="false" />
-            <element signature="e#22845#23064#0" expanded="false" />
-            <element signature="e#23063#23064#0" expanded="false" />
-            <element signature="e#23536#23829#0" expanded="false" />
-            <element signature="e#23828#23829#0" expanded="false" />
-            <element signature="e#24723#25151#0" expanded="false" />
-            <element signature="e#25150#25151#0" expanded="false" />
+            <element signature="e#13567#13568#0" />
+            <element signature="e#13647#13648#0" />
+            <element signature="e#14677#14678#0" />
+            <element signature="e#14752#14753#0" />
+            <element signature="e#21135#21136#0" />
+            <element signature="e#21213#21214#0" />
+            <element signature="e#22845#23064#0" />
+            <element signature="e#23063#23064#0" />
+            <element signature="e#23536#23829#0" />
+            <element signature="e#23828#23829#0" />
+            <element signature="e#24723#25151#0" />
+            <element signature="e#25150#25151#0" />
           </folding>
         </state>
       </provider>
@@ -693,14 +712,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/MainTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="36" column="92" lean-forward="true" selection-start-line="36" selection-start-column="92" selection-end-line="36" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/user/UserTaskActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -746,13 +757,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/l_video/VideoPlayFragment.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/video/VideoPlayActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/l_video/VideoCommentFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2904">
-          <caret line="202" column="52" selection-start-line="202" selection-start-column="52" selection-end-line="202" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/globle/ConstantUrl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3916">
@@ -776,10 +780,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/http/HttpUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="248" column="50" lean-forward="true" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
+        <state relative-caret-position="216">
+          <caret line="247" column="60" selection-start-line="247" selection-start-column="60" selection-end-line="247" selection-end-column="60" />
           <folding>
             <element signature="e#10917#10927#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/MainTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="24" column="87" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
+          <folding>
+            <element signature="e#1896#1923#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="81" column="37" lean-forward="true" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+          <folding>
+            <element signature="e#7407#7408#0" expanded="true" />
+            <element signature="e#7482#7483#0" expanded="true" />
+            <element signature="method#onTabChanged#0;class#9305:10488" />
+            <element signature="e#16907#16908#0" expanded="true" />
+            <element signature="e#18648#18649#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -292,15 +292,15 @@ public class MainActivity extends BaseActivity {
         mTabhost.setup(MainActivity.this, supportFragmentManager, R.id.fl_container);
 
         MainTab[] values = MainTab.values();
-        boolean tabSpecs = SharedPreferencesUtils.getInstance(getApplicationContext()).getBoolean(ConstantUrl.IS_SHOW);
+        boolean tabSpecs = false; // SharedPreferencesUtils.getInstance(getApplicationContext()).getBoolean(ConstantUrl.IS_SHOW);
         for (MainTab value : values) {
 
             TabHost.TabSpec tabSpec = mTabhost.newTabSpec(getString(value.getDescResource()));
             View view = LayoutInflater.from(this).inflate(R.layout.tab_indicator_main, null);
-            if (value.getIdx() == 3 && !tabSpecs) {
+            if(value.getIdx() == 2) {
                 view.setVisibility(View.GONE);
             }
-            if(value.getIdx() == 2 && tabSpecs) {
+            if(value.getIdx() == 0) {
                 view.setVisibility(View.GONE);
             }
             TextView tab_tag = (TextView) view.findViewById(R.id.tv_tab_text);
@@ -314,7 +314,7 @@ public class MainActivity extends BaseActivity {
         //取消分割线，设置背景为白色，选中第一个
         mTabhost.getTabWidget().setDividerDrawable(null);
         mTabhost.setBackgroundColor(Color.WHITE);
-        mTabhost.setCurrentTab(HOME);
+        mTabhost.setCurrentTab(VIDEO);
 
         //要执行的一个操作就是点击我的就跳转到登陆的逻辑；
 
@@ -353,62 +353,24 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        if(tabSpecs) {
-            //要执行的一个操作就点击调转到收徒的页面
-            mTabhost.getTabWidget().getChildAt(APPRENTICE).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(mTabhost != null) {
-                        if (mTabhost.getCurrentTab() == APPRENTICE) {
-                            //这里表示当前是在新闻页面的时候；
-                            getVideoRecommendFraagment().refresh();
+        mTabhost.getTabWidget().getChildAt(APPRENTICE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mTabhost != null) {
+                    if (mTabhost.getCurrentTab() == APPRENTICE) {
+                        //这里表示当前是在新闻页面的时候；
+                        getVideoRecommendFraagment().refresh();
 //                            android.support.v4.app.FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
 //                            tx.add(R.id.fl_container, getVideoRecommendFraagment());
 //                            tx.show(getVideoRecommendFraagment());
 //                            tx.commit();
-                        } else {
-                            mTabhost.setCurrentTab(APPRENTICE);
-//                            getVideoRecommendFraagment().refresh();
-                        }
-                    }
-                    //这里我们做一下判断操作；
-//                    checkLogin(new CheckLoginCallBack() {
-//                        @Override
-//                        public void loginSuccess() {
-//                            // 收徒 -- 小视频
-//                            Intent webIntent = WebHelperActivity.getIntent(
-//                                    MainActivity.this,
-//                                    ConstantUrl.JKD_WEB_URL + getUserBean().getUserid()+"&time="+System.currentTimeMillis(),
-//                                    getString(R.string.main_tab_name_apprentice),
-//                                    false);
-//                            startActivity(webIntent);.
-//
-//
-//                        }
-//
-//                        @Override
-//                        public void loginFaild() {
-//                            //失败我就显示
-//                            mTabhost.setCurrentTab(mTabhost.getCurrentTab());
-//                        }
-//                    });
-                }
-            });
-        } else {
-            mTabhost.getTabWidget().getChildAt(Picture).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //这里我们做一下判断操作；
-                    if (mTabhost.getCurrentTab() == Picture) {
-                        //这里表示当前是在新闻页面的时候；
-//                        getPictureFragment().refresh();
-//                        getMediaoFragment();
                     } else {
-                        mTabhost.setCurrentTab(Picture);
+                        mTabhost.setCurrentTab(APPRENTICE);
+//                            getVideoRecommendFraagment().refresh();
                     }
                 }
-            });
-        }
+            }
+        });
 
         //要执行的一个操作就是点击我的就跳转到登陆的逻辑；
         mTabhost.getTabWidget().getChildAt(TASK).setOnClickListener(new View.OnClickListener() {
@@ -568,7 +530,7 @@ public class MainActivity extends BaseActivity {
         super.onNewIntent(intent);
 
         if (intent != null) {
-            int tabIndex = intent.getIntExtra(TAB_INDEX, HOME);
+            int tabIndex = intent.getIntExtra(TAB_INDEX, VIDEO);
             mTabhost.setCurrentTab(tabIndex);
         }
     }
