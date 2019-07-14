@@ -586,7 +586,16 @@ public class VideoItemDetailActivity extends BaseActivity {
 
     //这里我们是请求我们自己的vedio的url
     private void getVideoSourceData() {
+        String mp4 = mVideoBean.getMp4();
+        if (!mp4.equals("")  && mp4 != null) {
+            mVideoplayer.setUp(mp4
+                    , JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
+            mVideoplayer.backButton.setVisibility(View.VISIBLE);
+            mCbCollection.setChecked(false);
 
+            mVideoplayer.play();
+            return;
+        }
         UserBean userBean = getUserBean();
         HashMap<String, String> paramsMap = new HashMap<>();
 

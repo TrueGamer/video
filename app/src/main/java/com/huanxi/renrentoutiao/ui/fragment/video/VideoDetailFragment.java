@@ -458,6 +458,7 @@ public class VideoDetailFragment extends BaseLoadingFrament {
         String group_id = videoBean.getContent().getGroup_id();
         String video_id = videoBean.getContent().getVideo_id();
         String publishTime = videoBean.getContent().getPublish_time();
+        String mp4 = videoBean.getContent().getMp4();
         Long duration = videoBean.getContent().getVideo_duration();
 
         try {
@@ -468,7 +469,7 @@ public class VideoDetailFragment extends BaseLoadingFrament {
             e.printStackTrace();
         }
 
-        multiItemEntity = new VideoListBean(source, urlMd5, title, imageUrl, item_id, group_id, video_id, publishTime, duration);
+        multiItemEntity = new VideoListBean(source, urlMd5, title, imageUrl, item_id, group_id, video_id, publishTime, duration, mp4);
 
         return multiItemEntity;
     }

@@ -18,8 +18,9 @@ public class VideoListBean extends BaseMuiltyAdapterBean{
     public String video_id;
     public String publish_time;
     public Long video_duration;
+    public String mp4;
 
-    public VideoListBean(String source, String urlmd5, String title, String imgUrl, String item_id, String group_id, String video_id, String publish_time, Long video_duration) {
+    public VideoListBean(String source, String urlmd5, String title, String imgUrl, String item_id, String group_id, String video_id, String publish_time, Long video_duration, String mp4) {
         this.source = source;
         this.urlmd5 = urlmd5;
         this.title = title;
@@ -29,6 +30,7 @@ public class VideoListBean extends BaseMuiltyAdapterBean{
         this.video_id = video_id;
         this.publish_time = publish_time;
         this.video_duration = video_duration;
+        this.mp4 = mp4;
     }
 
     @Override
@@ -106,5 +108,13 @@ public class VideoListBean extends BaseMuiltyAdapterBean{
 
     public void setVideo_duration(Long video_duration) {
         this.video_duration = video_duration;
+    }
+
+    public String getMp4() {
+        return mp4;
+    }
+
+    public void setMp4(String mp4) {
+        this.mp4 = mp4;
     }
 }

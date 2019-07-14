@@ -121,6 +121,7 @@ public class NewsInfoFlowPresenter {
         String group_id = homeInfoBean.getGroup_id();
         String video_id = homeInfoBean.getVideo_id();
         String publishTime = homeInfoBean.getPublish_time();
+        String mp4 = "";
         Long duration = homeInfoBean.getVideo_duration();
 
         try {
@@ -129,7 +130,7 @@ public class NewsInfoFlowPresenter {
             e.printStackTrace();
         }
 
-        multiItemEntity = new VideoListBean(source, urlMd5, title, imageUrl, item_id, group_id, video_id, publishTime, duration);
+        multiItemEntity = new VideoListBean(source, urlMd5, title, imageUrl, item_id, group_id, video_id, publishTime, duration, mp4);
 
         return multiItemEntity;
     }

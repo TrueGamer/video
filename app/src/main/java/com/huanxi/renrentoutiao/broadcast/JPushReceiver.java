@@ -62,7 +62,7 @@ public class JPushReceiver extends BroadcastReceiver {
                     if (jPushBroadcastBean.getType().equals("2")) {
                         //这里是视频的详情页面；
 
-                        VideoListBean videoBean = new VideoListBean(null, jPushBroadcastBean.getUrlmd5(), jPushBroadcastBean.getTitle(), null, null, null, jPushBroadcastBean.getVideo_id(), null, null);
+                        VideoListBean videoBean = new VideoListBean(null, jPushBroadcastBean.getUrlmd5(), jPushBroadcastBean.getTitle(), null, null, null, jPushBroadcastBean.getVideo_id(), null, null, null);
 
                         Intent videoIntent = VideoItemDetailActivity.getIntent(context, videoBean,null);
                         videoIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

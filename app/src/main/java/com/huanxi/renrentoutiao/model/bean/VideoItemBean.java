@@ -78,7 +78,7 @@ public class VideoItemBean implements Serializable {
     private List<ActionListBean> action_list;
     private List<FilterWordsBean> filter_words;
     private List<LargeImageListBean> large_image_list;
-
+    private String mp4;
     public String getAbstractX() {
         return abstractX;
     }
@@ -261,6 +261,14 @@ public class VideoItemBean implements Serializable {
 
     public void setGroup_id(String group_id) {
         this.group_id = group_id;
+    }
+
+    public String getMp4() {
+        return mp4;
+    }
+
+    public void setMp4(String mp4) {
+        this.mp4 = mp4;
     }
 
     public boolean isHas_m3u8_video() {

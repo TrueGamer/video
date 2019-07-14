@@ -245,7 +245,7 @@ public class HttpUtil {
      * 获取热门视频列表
      */
     public static void getVideoList(int p, HttpCallback callback) {
-        OkGo.<JsonBean>get("http//program.xzdog.com/c/list")
+        OkGo.<JsonBean>get("http://program.xzdog.com/c/list")
                 .headers("Connection", CONNECTION)
                 .params("uid", AppConfig.getInstance().getUid())
                 .params("p", p)
@@ -298,7 +298,7 @@ public class HttpUtil {
      * @param touid 对方的id
      */
     public static void getHomeVideo(String touid, int p, HttpCallback callback) {
-        OkGo.<JsonBean>get(HTTP_URL + "service=Video.getHomeVideo")
+        OkGo.<JsonBean>get("http://program.xzdog.com/c/list")
                 .headers("Connection", CONNECTION)
                 .params("uid", AppConfig.getInstance().getUid())
                 .params("touid", touid)

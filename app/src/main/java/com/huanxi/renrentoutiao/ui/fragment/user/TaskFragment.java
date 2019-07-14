@@ -25,6 +25,7 @@ import com.huanxi.renrentoutiao.net.api.user.userInfo.ApiGetUserSign;
 import com.huanxi.renrentoutiao.net.bean.news.ResAward;
 import com.huanxi.renrentoutiao.net.bean.sign.ResGetSignList;
 import com.huanxi.renrentoutiao.net.bean.user.ResGetRedPacketBean;
+import com.huanxi.renrentoutiao.ui.activity.WebHelperActivity;
 import com.huanxi.renrentoutiao.ui.activity.base.BaseActivity;
 import com.huanxi.renrentoutiao.ui.activity.other.LuckyWalkActivity;
 import com.huanxi.renrentoutiao.ui.activity.other.SplashActivity;
@@ -80,7 +81,11 @@ public class TaskFragment extends BaseLoadingFrament {
     @BindView(R.id.iv_gold_game)
     ImageView iv_gold_game;
 
+    @BindView(R.id.liulan_gold)
+    ImageView liulan_gold;
 
+    @BindView(R.id.diandian_gold)
+    ImageView diandian_gold;
 
     private TaskAdapter mNewTaskAdapter; //新手任务；
     private TaskAdapter mAdvanceAdapter; //高级任务；
@@ -150,6 +155,22 @@ public class TaskFragment extends BaseLoadingFrament {
 
     }
 
+    @OnClick(R.id.liulan_gold)
+    public void onClickLiulanGold(){
+        String url = "http://vedio.xzdog.com/ad/remen.html";
+        startActivity(WebHelperActivity.getIntent(this.getContext(),url,"浏览赚金币",false));
+
+    }
+
+    @OnClick(R.id.diandian_gold)
+    public void onClickDiandianGold(){
+        UserBean userBean = getMyApplication().getUserBean();
+        long time=System.currentTimeMillis();
+        String url = "http://vedio.xzdog.com/ad/ad.html?from_uid=" + userBean.getUserid() + "&session_time=" + time;
+        startActivity(WebHelperActivity.getIntent(this.getContext(),url,"点点赚金币",false));
+
+    }
+
     public void scrollToTop() {
         mNestedScrollView.scrollTo(0, 0);
     }
@@ -203,15 +224,16 @@ public class TaskFragment extends BaseLoadingFrament {
         super.initData();
         //这里请求接口签到接口信息；
 
-        tabSpecs = SharedPreferencesUtils.getInstance(getBaseActivity()).getBoolean(ConstantUrl.IS_SHOW);
-        if(tabSpecs) {
-            mFlRedPacketContainer.setVisibility(View.VISIBLE);
-            iv_gold_game.setVisibility(View.VISIBLE);
-        } else {
-            mFlRedPacketContainer.setVisibility(View.GONE);
-            iv_gold_game.setVisibility(View.GONE);
-        }
-
+//        tabSpecs = SharedPreferencesUtils.getInstance(getBaseActivity()).getBoolean(ConstantUrl.IS_SHOW);
+//        if(tabSpecs) {
+//            mFlRedPacketContainer.setVisibility(View.VISIBLE);
+//            iv_gold_game.setVisibility(View.VISIBLE);
+//        } else {
+//            mFlRedPacketContainer.setVisibility(View.GONE);
+//            iv_gold_game.setVisibility(View.GONE);
+//        }
+        mFlRedPacketContainer.setVisibility(View.VISIBLE);
+        iv_gold_game.setVisibility(View.VISIBLE);
         //请求数据；
         getAllTask(true);
         getSignInfo();//获取签到信息

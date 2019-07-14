@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -122,9 +123,9 @@ public class VideoPlayActivity extends AudioAbsActivity implements ViewPager.OnP
 
             @Override
             public void loadMoreData(int p, HttpCallback callback) {
-//                if (mUserBean != null) {
-//                    HttpUtil.getHomeVideo(mUserBean.getId(), p, callback);
-//                }
+                if (mUserBean != null) {
+                    HttpUtil.getHomeVideo(mUserBean.getId(), p, callback);
+                }
             }
 
             @Override
@@ -180,7 +181,6 @@ public class VideoPlayActivity extends AudioAbsActivity implements ViewPager.OnP
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
     }
 
     @Override
