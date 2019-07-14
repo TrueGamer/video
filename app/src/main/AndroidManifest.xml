@@ -102,7 +102,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.huanxi.renrentoutiao.fileprovider"
+            android:authorities="com.kakayun.kkyvideo"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -336,7 +336,7 @@
                 <action android:name="cn.jpush.android.intent.CONNECTION"/>
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
 
-                <category android:name="com.huanxi.renrentoutiao"/>
+                <category android:name="com.kakayun.kkyvideo"/>
             </intent-filter>
         </receiver>
 
@@ -374,7 +374,7 @@
 
         <provider
             android:name="com.baidu.mobads.openad.FileProvider"
-            android:authorities="com.huanxi.renrentoutiao.bd.provider"
+            android:authorities="com.kakayun.kkyvideo"
             android:exported="false"
             android:grantUriPermissions="true">
 

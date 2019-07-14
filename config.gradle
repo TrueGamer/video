@@ -4,7 +4,7 @@ ext {
     android = [
             compileSdkVersion      : 27,
             buildToolsVersion      : "27.0.3",
-            applicationId          : "com.huanxi.renrentoutiao",
+            applicationId          : "com.kakayun.kkyvideo",
             minSdkVersion          : 16,
             targetSdkVersion       : 27,
             versionCode            : 18,
