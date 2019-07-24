@@ -93,7 +93,7 @@ public class LoginActivity extends BaseActivity {
         @Override
         public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
             dismissDialog();
-            //toast("onComplete");
+//            toast("onComplete");
             // Log.e("info", JSON.toJSONString(hashMap));
             final PlatformDb db = platform.getDb();
             System.out.println("从微信哪里获取的数据为：" + platform.getDb().exportData());

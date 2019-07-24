@@ -157,7 +157,9 @@ public class TaskFragment extends BaseLoadingFrament {
 
     @OnClick(R.id.liulan_gold)
     public void onClickLiulanGold(){
-        String url = "http://vedio.xzdog.com/ad/remen.html";
+        UserBean userBean = getMyApplication().getUserBean();
+        long time=System.currentTimeMillis();
+        String url = "http://vedio.xzdog.com/ad/remen.html?from_uid=" + userBean.getUserid() + "&session_time=" + time;
         startActivity(WebHelperActivity.getIntent(this.getContext(),url,"浏览赚金币",false));
 
     }

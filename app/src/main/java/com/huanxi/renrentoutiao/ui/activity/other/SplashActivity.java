@@ -176,7 +176,7 @@ public class SplashActivity extends BaseActivity {
                             .replace(R.id.fl_ad_container, baseFragment)
                             .commitAllowingStateLoss();
 //                }
-//                loadCsjAd();
+                loadCsjAd();
 
                 ((MyApplication) getApplication()).setResAds(resSplashAds);
             }

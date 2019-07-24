@@ -68,7 +68,7 @@ public class MyApplication extends Application {
 
     private void initCsj() {
         TTAdSdk.init(mContext, new TTAdConfig.Builder()
-                .appId(ConstantAd.CSJAD.APP_ID)
+                .appId("5023855")
                 .useTextureView(true) //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView
                 .appName(getString(R.string.app_name))
                 .titleBarTheme(TTAdConstant.TITLE_BAR_THEME_DARK)

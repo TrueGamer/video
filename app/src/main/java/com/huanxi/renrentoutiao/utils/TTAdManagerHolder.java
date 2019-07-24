@@ -28,8 +28,8 @@ public class TTAdManagerHolder {
     }
 
     private static void doInit(TTAdManager ttAdManager,Context context) {
-        ttAdManager.setAppId("5002510")
-                .setName("APP测试媒体").setTitleBarTheme(TTAdConstant.TITLE_BAR_THEME_DARK)
+        ttAdManager.setAppId("5023855")
+                .setName("卡卡云视频").setTitleBarTheme(TTAdConstant.TITLE_BAR_THEME_DARK)
                 .setAllowShowNotifiFromSDK(true)
                 .setAllowLandingPageShowWhenScreenLock(true)
                 .openDebugMode()

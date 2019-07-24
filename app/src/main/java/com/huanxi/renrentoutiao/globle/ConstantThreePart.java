@@ -19,8 +19,8 @@ public class ConstantThreePart {
     public static final String SHARE_SECRET="7470d8ee3d4d35dc17960322651d15ef"; //mob app secret
 
 
-    public static final String WECHAT_APP_KEY="wxaddf8032a6b4fc30";
-    public static final String WECHAT_APP_SECRET="9dd0fd0ef73b8fd13061e2ea5589344a";
+    public static final String WECHAT_APP_KEY="wx39476c2ddeeee7da";
+    public static final String WECHAT_APP_SECRET="669006ca06e7c04aa0d15b351161fa76";
 
 
     //东方头条物料id

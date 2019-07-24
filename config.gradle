@@ -15,9 +15,9 @@ ext {
 
 
     sign = [
-            storeFile    : "toutiaokey.jks",
+            storeFile    : "kkykey.jks",
             storePassword: "123456",
-            keyAlias     : "toutiaokey",
+            keyAlias     : "kkykey",
             keyPassword  : "123456"
     ]
 

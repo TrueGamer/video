@@ -442,7 +442,7 @@ public class TaskAdapter extends BaseAdsAdapter<MultiItemEntity> {
      * 跳转微信小程序
      */
     private void jumpWCApp(){
-        String appId = "wxaddf8032a6b4fc30"; // 填应用AppId
+        String appId = "wx39476c2ddeeee7da"; // 填应用AppId
         IWXAPI api = WXAPIFactory.createWXAPI(mBaseActivity, appId);
 
         if(api.isWXAppInstalled()) {

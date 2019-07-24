@@ -62,13 +62,13 @@ public class ConstantAd {
     }
 
     public static class CSJAD {
-        public static final String APP_ID = "902510857";
+        public static final String APP_ID = "5023855";
 
         public static final String BannerID = "902510218";
 
-        public static final String SPLASH_AD = "802510252";
-        public static final String VIDEO_AD = "902510903";
-        public static final String VIDEO_DETAIL_ID = "902510585";
+        public static final String  SPLASH_AD = "823855880"; //开屏广告
+        public static final String VIDEO_AD = "923855521"; // 信息流
+        public static final String VIDEO_DETAIL_ID = "923855244"; // 视频前图片
 
         public static final String NEWS_DETAIL_AD = "902510346";
     }
