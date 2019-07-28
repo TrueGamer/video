@@ -14,9 +14,9 @@ public class ConstantAd {
     public static class GdtAD{
 
 
-        public static final String APPID="1105693811";
+        public static final String APPID="1109578541";
 
-        public static final String SPLASH_AD="6080731677022282";  //开屏广告 实际中商用的
+        public static final String SPLASH_AD="2020475355431228";  //开屏广告 实际中商用的
         public static final String[] VIDEO_UP_IMG_DOWN_TEXT_AD= {"3030931677224158" , "8030733937086647"}; //上图下文
 
         public static final String BANNER_AD="5020532607828291";
@@ -28,7 +28,7 @@ public class ConstantAd {
 		public static final String TEXT_LEFT_IMG_RIGHT="5080830779360404";  //左文右图
         public static final String IMG_LEFT_TEXT_RIGHT="6000939719868453";  //左图右文
 
-        public static final String NATIVE_VIDEO_IMG="5020335607322207";  //纯图片  这个不知道尺寸大小
+        public static final String NATIVE_VIDEO_IMG="6020074355430370";  //纯图片  这个不知道尺寸大小
 
         public static final String[] TWO_TEXT_TWO_IMG = {"8040435997683614" ,
                 "6030338967387625" , "2080736937585658"};  //双图双文

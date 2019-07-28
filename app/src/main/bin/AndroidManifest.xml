@@ -73,7 +73,7 @@
             android:value="${UMENG_CHANNEL_VALUE}"/>
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5b3ca7d0f29d980cf40000a7"/>
+            android:value="5d3c14334ca35712130005bf"/>
 
         <!-- 广点通的key -->
         <meta-data android:name="com.tencent.rdm.uuid" android:value="2f045d33-de20-423a-86d3-d32d7f3ee8ae" />
