@@ -310,6 +310,13 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".ui.activity.other.ChapingActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/loginNoTitleTheme"
+            >
+        </activity>
+
         <service android:name=".service.AdDownloadServiceNew"/>
         <service android:name=".service.DownloadService"/>
 

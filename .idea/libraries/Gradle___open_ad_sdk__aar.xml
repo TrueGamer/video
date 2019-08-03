@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: :open_ad_sdk:@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/efb23828d71be63f7358089eb3899928/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/b851f5738220315022545f41e587eabc/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/efb23828d71be63f7358089eb3899928/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/efb23828d71be63f7358089eb3899928/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/efb23828d71be63f7358089eb3899928/jars/libs/openadsdk.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/b851f5738220315022545f41e587eabc/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/b851f5738220315022545f41e587eabc/jars/libs/openadsdk.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open_ad_sdk.aar/b851f5738220315022545f41e587eabc/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -217,6 +217,12 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
+            android:name=".ui.activity.other.ChapingActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/loginNoTitleTheme"
+            >
+        </activity>
+        <activity
             android:name=".ui.activity.news.search.SearchDetailActivity"
             android:screenOrientation="portrait">
         </activity>

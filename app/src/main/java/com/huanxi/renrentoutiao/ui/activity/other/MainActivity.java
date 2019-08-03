@@ -20,8 +20,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
+import com.qq.e.ads.interstitial.AbstractInterstitialADListener;
+import com.huanxi.renrentoutiao.globle.ConstantAd;
+import com.qq.e.ads.interstitial.InterstitialAD;
 import com.huanxi.renrentoutiao.R;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
+import com.qq.e.comm.util.AdError;
 import com.huanxi.renrentoutiao.globle.ConstantUrl;
 import com.huanxi.renrentoutiao.model.bean.JPushBroadcastBean;
 import com.huanxi.renrentoutiao.net.api.ApiCheckVersion;
@@ -47,6 +54,7 @@ import com.huanxi.renrentoutiao.ui.view.FragmentTabHost;
 import com.huanxi.renrentoutiao.utils.SharedPreferencesUtils;
 import com.huanxi.renrentoutiao.utils.SystemUtils;
 import com.huanxi.renrentoutiao.utils.UIUtils;
+import com.qq.e.ads.interstitial.InterstitialADListener;
 import com.qq.e.ads.nativ.NativeExpressADView;
 import com.zhxu.library.download.DownInfo;
 import com.zhxu.library.download.HttpDownManager;
@@ -58,6 +66,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import rx.Observable;
@@ -78,6 +87,8 @@ public class MainActivity extends BaseActivity {
     FragmentTabHost mTabhost;
 
     private GdtNativeAds mGdtNativeAds;
+
+    private UnifiedInterstitialAD iad;
 
     public static final int HOME = 0;
     public static final int VIDEO = 1;
@@ -117,6 +128,67 @@ public class MainActivity extends BaseActivity {
         //这里我们要做的一个操作就是取出来数据；
         JPushBroadcastBean jPushBroadcastBean = ((JPushBroadcastBean) getIntent().getSerializableExtra(JPUSH_BROAD_CAST_BEAN));
         jumpNewActivity(jPushBroadcastBean);
+
+//        //插屏1.0
+//        final InterstitialAD iad = new InterstitialAD(this, ConstantAd.GdtAD.APPID, ConstantAd.GdtAD.POPUPWINDOW_AD);
+//        iad.setADListener(new AbstractInterstitialADListener() {
+//
+//            @Override
+//            public void onNoAD(AdError error) {
+//                Log.i("AD_DEMO", String.format("LoadInterstitialAd Fail, error code: %d, error msg: %s", error.getErrorCode(), error.getErrorMsg()));
+//            }
+//
+//            @Override
+//            public void onADReceive() {
+//                /*
+//                 * 展示插屏广告，仅在回调接口的 adreceive 事件发生后调用才有效。
+//                 */
+//                iad.show();
+//            }
+//        });
+////请求插屏广告，每次重新请求都可以调用此方法。
+//        iad.loadAD();
+//        iad = new UnifiedInterstitialAD(this,ConstantAd.GdtAD.APPID, ConstantAd.GdtAD.POPUPWINDOW_AD, new UnifiedInterstitialADListener(){
+//            private final String TAG = "ZT";
+//            @Override
+//            public void onADReceive() {
+//                iad.showAsPopupWindow();
+//            }
+//
+//            @Override
+//            public void onNoAD(AdError error) {
+//                Log.i(TAG, "onNoAD");
+//            }
+//
+//            @Override
+//            public void onADOpened() {
+//                Log.i(TAG, "onADOpened");
+//            }
+//
+//            @Override
+//            public void onADExposure() {
+//                Log.i(TAG, "onADExposure");
+//            }
+//
+//            @Override
+//            public void onADClicked() {
+//                Log.i(TAG, "onADClicked : " + (iad.getExt() != null? iad.getExt().get("clickUrl") : ""));
+//            }
+//
+//            @Override
+//            public void onADLeftApplication() {
+//                Log.i(TAG, "onADLeftApplication");
+//            }
+//
+//            @Override
+//            public void onADClosed() {
+//                Log.i(TAG, "onADClosed");
+//                iad.destroy();
+//            }
+//        });
+//        iad.loadAD();
+        Intent intent = new Intent(MainActivity.this, ChapingActivity.class);
+        startActivity(intent);
     }
 
     private void jumpNewActivity(JPushBroadcastBean jPushBroadcastBean) {
@@ -678,3 +750,5 @@ public class MainActivity extends BaseActivity {
 
 
 }
+
+

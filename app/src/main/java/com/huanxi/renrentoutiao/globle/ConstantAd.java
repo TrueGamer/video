@@ -20,7 +20,7 @@ public class ConstantAd {
         public static final String[] VIDEO_UP_IMG_DOWN_TEXT_AD= {"3030931677224158" , "8030733937086647"}; //上图下文
 
         public static final String BANNER_AD="5020532607828291";
-        public static final String POPUPWINDOW_AD="4000532617424263";//插屏广告
+        public static final String POPUPWINDOW_AD="3010172325744837";//插屏广告
 
         public static final String NEWS_UP_TEXT_DOWN_IMG_AD_1="3000538637427119";  //上文下图1
         public static final String NEWS_UP_TEXT_DOWN_IMG_AD_2="2080334607220270";  //上文下图2

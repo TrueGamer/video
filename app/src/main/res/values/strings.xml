@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">卡卡云视频</string>
+    <string name="app_name">云赚视频</string>
 
     <!-- 状态视图  -->
     <string name="loading">加载中...</string>

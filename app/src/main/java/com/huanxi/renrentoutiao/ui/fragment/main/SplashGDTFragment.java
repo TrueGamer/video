@@ -18,8 +18,10 @@ import com.huanxi.renrentoutiao.net.bean.ResEmpty;
 import com.huanxi.renrentoutiao.net.bean.ResReadAwarad;
 import com.huanxi.renrentoutiao.ui.activity.other.SplashActivity;
 import com.huanxi.renrentoutiao.ui.fragment.base.BaseFragment;
+import com.qq.e.ads.interstitial.InterstitialAD;
 import com.qq.e.ads.splash.SplashAD;
 import com.qq.e.ads.splash.SplashADListener;
+import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.util.AdError;
 import com.zhxu.library.exception.HttpTimeException;
 import com.zhxu.library.http.HttpManager;
@@ -37,7 +39,7 @@ import butterknife.BindView;
 public class SplashGDTFragment extends BaseFragment implements SplashADListener{
 
     private SplashAD splashAD;
-
+    private InterstitialAD interstitialAD;
 
 
     @BindView(R.id.fl_splash_container)
@@ -77,7 +79,13 @@ public class SplashGDTFragment extends BaseFragment implements SplashADListener{
      */
     private void fetchSplashAD(Activity activity, ViewGroup adContainer, View skipContainer,
                                String appId, String posId, SplashADListener adListener, int fetchDelay) {
-        splashAD = new SplashAD(activity, adContainer, skipContainer, appId, posId, adListener, fetchDelay);
+        splashAD = new SplashAD(activity, skipContainer, appId, posId, adListener, fetchDelay);
+//        LoadAdParams params = new LoadAdParams();
+//        params.setLoginAppId("testAppId");
+//        params.setLoginOpenid("testOpenId");
+//        params.setUin("testUin");
+//        splashAD.setLoadAdParams(params);
+        splashAD.fetchAndShowIn(adContainer);
     }
 
     @Override

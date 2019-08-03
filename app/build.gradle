@@ -225,7 +225,8 @@ dependencies {
     //极光
     // 此处以JPush 3.1.1 版本为例。
     // 此处以JCore 1.1.9 版本为例。
-    implementation files('libs/GDTUnionSDK.4.22.584.min.jar')
+   // implementation files('libs/GDTUnionSDK.4.22.584.min.jar')
+    implementation files('libs/GDTSDK.union.4.63.933.jar')
     implementation files('libs/android-query-full.0.26.7.jar')
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
     //没有使用特殊Header，可以不加这行
