@@ -51,7 +51,7 @@ public class MyApplication extends Application {
 
         initMob();
 
-        initBugly();
+//        initBugly();
 
         initNet();
 

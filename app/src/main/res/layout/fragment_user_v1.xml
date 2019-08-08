@@ -608,7 +608,7 @@
                     android:layout_marginRight="@dimen/dp_10"
                     android:layout_weight="1"
                     android:gravity="end|center"
-                    android:text="人人头条如何赚钱?"
+                    android:text="云赚视频如何赚钱?"
                     android:textColor="@color/color_blue"
                     />
 

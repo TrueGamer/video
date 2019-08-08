@@ -45,99 +45,116 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="app-shualiang-android" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="app-shualiang-android" type="f1a62948:ProjectNode" />
+                <item name=":app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="app-shualiang-android" type="f1a62948:ProjectNode" />
+                <item name=":app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="app-shualiang-android" type="f1a62948:ProjectNode" />
+                <item name=":app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/LoginActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/user/WithdrawalsActivity2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+            <state relative-caret-position="281">
+              <caret line="325" column="19" selection-start-line="325" selection-start-column="19" selection-end-line="325" selection-end-column="19" />
               <folding>
-                <element signature="method#auth#0;class#LoginActivity#0" />
-                <element signature="class#MyPlatformActionListener#0;class#LoginActivity#0" />
-                <element signature="method#weChatLogin#0;class#LoginActivity#0" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/SharedSdkUitl.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/user/TaskFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1386">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            <state relative-caret-position="477">
+              <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_login_guide_new.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-              <folding>
-                <element signature="e#315#3858#0" />
-                <element signature="e#3865#4106#0" />
-              </folding>
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_bind_email.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_comment_dialog.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_invite_friend_share.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/LoginActivityFirst.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/bean/money/ApiUserWithdrawals.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="81" column="38" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
+            <state relative-caret-position="264">
+              <caret line="21" column="45" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_new_first.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="android-designer2" />
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.1/81eab7b0b54d862dc3921a0f5a73adf9f75921d2/rxjava-1.2.1-sources.jar!/rx/observers/SafeSubscriber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2112">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chaping.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.1/81eab7b0b54d862dc3921a0f5a73adf9f75921d2/rxjava-1.2.1-sources.jar!/rx/internal/operators/OnSubscribeMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1188">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.1/81eab7b0b54d862dc3921a0f5a73adf9f75921d2/rxjava-1.2.1-sources.jar!/rx/internal/operators/OperatorObserveOn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4334">
+              <caret line="223" selection-start-line="223" selection-end-line="223" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.1/81eab7b0b54d862dc3921a0f5a73adf9f75921d2/rxjava-1.2.1-sources.jar!/rx/internal/schedulers/ScheduledAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="704">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/os/Handler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1738">
+              <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -151,36 +168,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>6020074355430370</find>
-      <find>POPUPWINDOW_AD</find>
-      <find>AD_DEMO</find>
-      <find>GDTUnionSDK.4.22.584.min</find>
-      <find>AbstractInterstitialADListener</find>
-      <find>SplashAD(</find>
-      <find>3010172325744837</find>
-      <find>fetchSplashAD</find>
-      <find>splashAD</find>
-      <find>fetchAndShowIn</find>
-      <find>this.a =</find>
-      <find>onNoAD</find>
-      <find>InterstitialAD</find>
-      <find>toast.</find>
-      <find>卡卡云视频</find>
-      <find>EmptyActivity</find>
-      <find>savedInstanceState</find>
-      <find>login</find>
-      <find>iad</find>
-      <find>ChapingActivity</find>
-      <find>loginac</find>
-      <find>loginactivity</find>
-      <find>setStatusBarImmersive</find>
-      <find>trea</find>
-      <find>trans</find>
-      <find>tran</find>
-      <find>chapingactivity</find>
-      <find>LoginActivity</find>
-      <find>chaping</find>
-      <find>f</find>
+      <find>createWXAPI</find>
+      <find>WXAPIFactory.createWXAPI</find>
+      <find>super</find>
+      <find>WXCallBackActivity</find>
+      <find>access_token</find>
+      <find>wxapi.</find>
+      <find>setcallback</find>
+      <find>setCallback</find>
+      <find>WXEntr</find>
+      <find>Activity().</find>
+      <find>SSDKWXEntryActivity</find>
+      <find>app:preXiaomiReleaseBuild</find>
+      <find>splasha</find>
+      <find>WXEntryActivity</find>
+      <find>ssdkwx</find>
+      <find>wxa</find>
+      <find>mBaseActivity</find>
+      <find>TaskAdapter(</find>
+      <find>wx39476c2ddeeee7da</find>
+      <find>wxent</find>
+      <find>api</find>
+      <find>mBaseActivity =</find>
+      <find>IWXAPI</find>
+      <find>sendReq</find>
+      <find>布冯被禁赛</find>
+      <find>validInputData</find>
+      <find>jumpw</find>
+      <find>jumpWCApp</find>
+      <find>ALIPAY_ACCOUNT</find>
+      <find>diandian</find>
     </findStrings>
     <replaceStrings>
       <replace>vedio.xzdog.com</replace>
@@ -198,29 +215,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_video_wrap.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/view/video/VideoPlayWrap.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_reward_video.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/media/MediaNewFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/WechatTPNative.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/RewardVideoActivity.java" />
-        <option value="$PROJECT_DIR$/rxretrofitlibrary/src/main/java/com/zhxu/library/api/BaseApi.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_video_item_deatil.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/adapter/TaskAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/video/AbsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/ApiServices.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/api/video/ApiStartPlayIssure.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/api/video/ApiEndPlayIssure.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/globle/ConstantUrl.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_tab_l_video.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_video_play.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/MainTab.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/model/bean/VideoItemBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/video/VideoTabFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/video/VideoDetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/adapter/VideoListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/presenter/news/NewsInfoFlowPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/adapter/recyclerview/muiltyAdapter/bean/video/VideoListBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/broadcast/JPushReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/video/VideoItemDetailActivity.java" />
@@ -228,7 +225,6 @@
         <option value="$PROJECT_DIR$/app/build/generated/source/apt/vivo/release/com/huanxi/renrentoutiao/ui/fragment/user/TaskFragment_ViewBinding.java" />
         <option value="$PROJECT_DIR$/app/build/generated/source/apt/ali/debug/com/huanxi/renrentoutiao/ui/fragment/user/TaskFragment_ViewBinding.java" />
         <option value="$PROJECT_DIR$/app/build/generated/source/apt/xiaomi/release/com/huanxi/renrentoutiao/ui/fragment/user/TaskFragment_ViewBinding.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/user/TaskFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_newest_task.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/video/VideoPlayActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/l_video/VideoPlayFragment.java" />
@@ -244,17 +240,38 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/main/SplashGDTFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/TTAdManagerHolder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/chaping.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/ChapingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/presenter/news/NewsInfoFlowPresenter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/news/HomeTabFragmentOld.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/dialog/invite/ShareContentAndVideoDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/MyApplication.java" />
+        <option value="$PROJECT_DIR$/修改为_当日资讯.patch" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_exposure_income.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_search_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_about_us.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_login_guide_new.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_news_refresh_banner_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/ShareUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/bean/ResInviteFriendDesc.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/view/NewsRefreshBanner.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_user_v1.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/SSDKWXEntryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/WechatTPNative.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/bin/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/user/WithdrawalsActivity2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/user/TaskFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-5" />
-    <option name="y" value="539" />
+    <option name="x" value="-123" />
+    <option name="y" value="-21" />
     <option name="width" value="1789" />
     <option name="height" value="733" />
   </component>
@@ -266,8 +283,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -284,43 +299,36 @@
               <item name="app-shualiang-android" type="b2602c69:ProjectViewProjectNode" />
               <item name="app-shualiang-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app-shualiang-android" type="b2602c69:ProjectViewProjectNode" />
+              <item name="app-shualiang-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app-shualiang-android" type="b2602c69:ProjectViewProjectNode" />
               <item name="app-shualiang-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gradle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app-shualiang-android" type="b2602c69:ProjectViewProjectNode" />
               <item name="app-shualiang-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="library" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app-shualiang-android" type="b2602c69:ProjectViewProjectNode" />
               <item name="app-shualiang-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app-shualiang-android" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app-shualiang-android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
+              <item name="rxretrofitlibrary" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,7 +385,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.app-shualiang-android:app [assembleRelease]">
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -477,6 +485,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="app-shualiang-android:app [assembleRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assembleRelease" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -486,6 +513,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.app-shualiang-android:app [assembleRelease]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -524,24 +556,24 @@
       <window_info id="Resources Explorer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.75852877" visible="true" weight="0.23593074" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.39502165" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.75479746" visible="true" weight="0.28246754" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32900432" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info anchor="bottom" id="Logcat" order="8" sideWeight="0.7771855" weight="0.30627707" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49840087" weight="0.32900432" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" sideWeight="0.49946696" weight="0.32900432" />
+      <window_info anchor="bottom" id="Logcat" order="8" sideWeight="0.7734541" weight="0.38419914" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32900432" />
-      <window_info anchor="bottom" id="Build" order="10" sideWeight="0.6226013" weight="0.19805194" />
+      <window_info anchor="bottom" id="Build" order="10" sideWeight="0.7302772" visible="true" weight="0.13636364" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.24147122" side_tool="true" visible="true" weight="0.23593074" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.26972282" side_tool="true" visible="true" weight="0.13636364" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Preview" order="5" weight="0.13842663" />
-      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Gradle" order="6" visible="true" weight="0.15938166" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
@@ -721,10 +753,58 @@
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/widget/Toast.java</url>
-          <line>266</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java</url>
+          <line>49</line>
           <properties />
-          <option name="timeStamp" value="80" />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/user/WithdrawalsActivity2.java</url>
+          <line>343</line>
+          <properties />
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java</url>
@@ -736,274 +816,70 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="232" column="58" selection-start-line="232" selection-start-column="58" selection-end-line="232" selection-end-column="58" />
+        <state relative-caret-position="660">
+          <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTUnionSDK.4.22.584.min.jar!/com/qq/e/ads/interstitial/InterstitialADListener.class" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/Test3Activity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTUnionSDK.4.22.584.min.jar!/com/qq/e/ads/interstitial/AbstractInterstitialADListener.class" />
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTUnionSDK.4.22.584.min.jar!/com/qq/e/ads/splash/SplashADListener.class" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/globle/ConstantAd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_splash_gdt.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        <state relative-caret-position="638">
+          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTUnionSDK.4.22.584.min.jar!/com/qq/e/ads/splash/SplashAD.class" />
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTSDK.union.4.63.933.jar!/com/qq/e/ads/interstitial2/UnifiedInterstitialADListener.class">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_simple.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTSDK.union.4.63.933.jar!/com/qq/e/ads/interstitial/InterstitialADListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="30" selection-start-line="11" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTSDK.union.4.63.933.jar!/com/qq/e/comm/constants/LoadAdParams.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTSDK.union.4.63.933.jar!/com/qq/e/ads/splash/SplashAD.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2200">
-          <caret line="117" column="36" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/RewardVideoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2816">
-          <caret line="148" column="29" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rxretrofitlibrary/src/main/java/com/zhxu/library/api/BaseApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4070">
-          <caret line="239" column="23" selection-start-line="239" selection-start-column="23" selection-end-line="239" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/widget/Toast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4510">
-          <caret line="266" selection-start-line="266" selection-end-line="266" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/app/libs/GDTSDK.union.4.63.933.jar!/com/qq/e/ads/interstitial2/UnifiedInterstitialAD.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2926">
-          <caret line="147" column="18" selection-start-line="147" selection-start-column="11" selection-end-line="147" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/presenter/ads/gdt/GDTImgAds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/video/VideoItemDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18612">
-          <caret line="947" column="53" selection-start-line="947" selection-start-column="53" selection-end-line="947" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/TTAdManagerHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="5539" column="16" selection-start-line="5539" selection-start-column="16" selection-end-line="5539" selection-end-column="16" />
-          <folding>
-            <element signature="e#235860#235861#0" expanded="true" />
-            <element signature="e#235914#235915#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/EmptyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/MyApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/main/SplashGDTFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="131" column="7" selection-start-line="131" selection-start-column="7" selection-end-line="131" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3534#3535#0" expanded="true" />
-            <element signature="e#3579#3580#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/app/ActivityThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="2457" column="60" selection-start-line="2457" selection-start-column="60" selection-end-line="2457" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/project.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_base.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_empty.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_new.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_login_loading.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_login_guide.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jaeger.statusbarutil/library/1.4.0/e09e3de4ea75c5b7ca9dbf55afcddefa0ad97c67/library-1.4.0-sources.jar!/com/jaeger/library/StatusBarUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="419" column="23" selection-start-line="419" selection-start-column="23" selection-end-line="419" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bind_phone_number.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/base/BaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="109" column="36" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/bin/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="221" column="52" selection-start-line="221" selection-start-column="52" selection-end-line="221" selection-end-column="52" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/ChapingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#722:1757" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#1278#1279#0" expanded="true" />
-            <element signature="e#1532#1533#0" expanded="true" />
-            <element signature="e#1597#1598#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/BindPhoneNumberActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="205" column="45" selection-start-line="205" selection-start-column="45" selection-end-line="205" selection-end-column="45" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chaping.xml">
-      <provider editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/DialogUitl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="84" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/user/WithdrawalRecordsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_withdrawals2.xml">
+      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_lucky_walk.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/LuckyWalkActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="203" column="18" lean-forward="true" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="513" column="77" lean-forward="true" selection-start-line="513" selection-start-column="77" selection-end-line="513" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_login_guide_new.xml">
       <provider editor-type-id="text-editor">
@@ -1017,52 +893,308 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_bind_email.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_comment_dialog.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_invite_friend_share.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/LoginActivityFirst.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ShareSDK-3.6.2.1.aar/6bdc84e7e1debc0f65c371517343dc32/jars/libs/ShareSDK-Core-3.6.1.jar!/cn/sharesdk/framework/ShareSDK.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="81" column="38" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
+        <state relative-caret-position="88">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_new_first.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/base/BaseTitleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent.mm.opensdk/wechat-sdk-android-with-mta/5.4.0/8bef9a62e35f2c73bb891dd7f383d7baad86db14/wechat-sdk-android-with-mta-5.4.0.jar!/com/tencent/mm/opensdk/modelbiz/SubscribeMessage.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.sharesdk/ShareSDK-Wechat-Core/3.6.2.1/4a1c9514ae734478af2703c4cee1161c5099daeb/ShareSDK-Wechat-Core-3.6.2.1.jar!/cn/sharesdk/wechat/utils/i.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2508">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/SharedSdkUitl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="174" column="23" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/TestActivity2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="211" column="12" selection-start-line="211" selection-start-column="12" selection-end-line="211" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/bean/ResInviteFriendContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="11" column="160" selection-start-line="11" selection-start-column="160" selection-end-line="11" selection-end-column="160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent.mm.opensdk/wechat-sdk-android-with-mta/5.4.0/8bef9a62e35f2c73bb891dd7f383d7baad86db14/wechat-sdk-android-with-mta-5.4.0.jar!/com/tencent/mm/opensdk/openapi/IWXAPI.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent.mm.opensdk/wechat-sdk-android-with-mta/5.4.0/8bef9a62e35f2c73bb891dd7f383d7baad86db14/wechat-sdk-android-with-mta-5.4.0.jar!/com/tencent/mm/opensdk/openapi/WXAPIFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.sharesdk/ShareSDK-Wechat-Core/3.6.2.1/4a1c9514ae734478af2703c4cee1161c5099daeb/ShareSDK-Wechat-Core-3.6.2.1.jar!/cn/sharesdk/wechat/utils/WXMediaMessage.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.sharesdk/ShareSDK-Wechat-Core/3.6.2.1/4a1c9514ae734478af2703c4cee1161c5099daeb/ShareSDK-Wechat-Core-3.6.2.1.jar!/cn/sharesdk/wechat/utils/WechatHandlerActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent.mm.opensdk/wechat-sdk-android-with-mta/5.4.0/8bef9a62e35f2c73bb891dd7f383d7baad86db14/wechat-sdk-android-with-mta-5.4.0.jar!/com/tencent/mm/opensdk/openapi/BaseWXApiImplV10.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8206">
+          <caret line="404" column="19" selection-start-line="404" selection-start-column="19" selection-end-line="404" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/RewardVideoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/SSDKWXEntryActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/adapter/TaskAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="50" selection-start-line="50" selection-end-line="52" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/base/BaseFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="79" column="38" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+          <folding>
+            <element signature="e#1803#1804#0" expanded="true" />
+            <element signature="e#1856#1857#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/27.1.1/94732bda44fba11302c58e459b7c1f47e7521bf9/support-fragment-27.1.1-sources.jar!/android/support/v4/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11814">
+          <caret line="626" column="34" selection-start-line="626" selection-start-column="34" selection-end-line="626" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/wxapi/WXEntryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111474">
+          <caret line="5203" selection-start-line="5203" selection-end-line="5203" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8162">
+          <caret line="371" column="78" selection-start-line="371" selection-start-column="63" selection-end-line="371" selection-end-column="78" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/WechatTPNative.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="946">
+          <caret line="50" column="79" selection-start-line="50" selection-start-column="79" selection-end-line="50" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/bin/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8162">
+          <caret line="371" column="99" selection-start-line="371" selection-start-column="99" selection-end-line="371" selection-end-column="99" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+        <state relative-caret-position="682">
+          <caret line="70" column="25" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="25" />
           <folding>
-            <element signature="method#auth#0;class#LoginActivity#0" />
             <element signature="class#MyPlatformActionListener#0;class#LoginActivity#0" />
             <element signature="method#weChatLogin#0;class#LoginActivity#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/other/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/rxretrofitlibrary/src/main/java/com/zhxu/library/listener/HttpOnNextListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="455">
+          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+          <folding>
+            <element signature="e#843#844#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/SharedSdkUitl.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/utils/TToast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1386">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        <state relative-caret-position="212">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding>
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rxretrofitlibrary/src/main/java/com/zhxu/library/api/BaseApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="239" selection-start-line="239" selection-end-line="239" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="5550" selection-start-line="5550" selection-end-line="5550" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rxretrofitlibrary/src/main/java/com/zhxu/library/subscribers/ProgressSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="246" selection-start-line="246" selection-end-line="246" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="634" selection-start-line="634" selection-end-line="634" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/widget/Toast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="273" column="7" lean-forward="true" selection-start-line="273" selection-start-column="7" selection-end-line="273" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/rt.jar!/java/lang/reflect/Method.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="176" column="18" selection-start-line="176" selection-start-column="18" selection-end-line="176" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/app/ActivityThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="5526" selection-start-line="5526" selection-end-line="5526" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/activity/user/WithdrawalsActivity2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="325" column="19" selection-start-line="325" selection-start-column="19" selection-end-line="325" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/net/bean/money/ApiUserWithdrawals.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.1/81eab7b0b54d862dc3921a0f5a73adf9f75921d2/rxjava-1.2.1-sources.jar!/rx/observers/SafeSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2112">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.1/81eab7b0b54d862dc3921a0f5a73adf9f75921d2/rxjava-1.2.1-sources.jar!/rx/internal/operators/OnSubscribeMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.1/81eab7b0b54d862dc3921a0f5a73adf9f75921d2/rxjava-1.2.1-sources.jar!/rx/internal/operators/OperatorObserveOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4334">
+          <caret line="223" selection-start-line="223" selection-end-line="223" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.2.1/81eab7b0b54d862dc3921a0f5a73adf9f75921d2/rxjava-1.2.1-sources.jar!/rx/internal/schedulers/ScheduledAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/Android/Sdk/sources/android-27/android/os/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1738">
+          <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/huanxi/renrentoutiao/ui/fragment/user/TaskFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
         </state>
       </provider>
     </entry>

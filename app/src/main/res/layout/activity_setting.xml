@@ -124,7 +124,7 @@
 
         <TextView
             style="@style/settingLeftTextStyle"
-            android:text="给人人头条好评"
+            android:text="给云赚视频好评"
             />
 
         <android.support.v4.widget.Space

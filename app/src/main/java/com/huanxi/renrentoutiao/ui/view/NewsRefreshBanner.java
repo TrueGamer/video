@@ -43,7 +43,7 @@ public class NewsRefreshBanner extends FrameLayout {
 
     public void show(int contentNumber){
         //这里我们做一个动画：
-        mTvTitle.setText("「人人头条」  已为你刷新"+contentNumber+"条");
+        mTvTitle.setText("「云赚视频」  已为你刷新"+contentNumber+"条");
         ObjectAnimator objectAnimator=ObjectAnimator.ofFloat(this,"Alpha",0,1);
         objectAnimator.setDuration(1000);
 

@@ -24,26 +24,26 @@ public class ShareContentAndVideoDialog extends BaseShareDialog {
 
     @Override
     protected void onClickWechatComment() {
-        super.onClickWechatComment();
-
-        ShareUtils.requestContentWechatCommentShare(mBaseActivity,mUrlMd5,mContentType );
+//        super.onClickWechatComment();
+//
+//        ShareUtils.requestContentWechatCommentShare(mBaseActivity,mUrlMd5,mContentType );
     }
 
     @Override
     protected void onClickWechatFriend() {
-        super.onClickWechatFriend();
-        ShareUtils.requestContentWechatShare(mBaseActivity,mUrlMd5,mContentType );
+//        super.onClickWechatFriend();
+//        ShareUtils.requestContentWechatShare(mBaseActivity,mUrlMd5,mContentType );
     }
 
     @Override
     protected void onClickQQ() {
-        super.onClickQQ();
-        ShareUtils.requestContentQQShare(mBaseActivity ,mUrlMd5 , mContentType);
+//        super.onClickQQ();
+//        ShareUtils.requestContentQQShare(mBaseActivity ,mUrlMd5 , mContentType);
     }
 
     protected void onClickSina() {
-        super.onClickSina();
-        ShareUtils.requestContentSinaShare(mBaseActivity , mUrlMd5 , mContentType);
+//        super.onClickSina();
+//        ShareUtils.requestContentSinaShare(mBaseActivity , mUrlMd5 , mContentType);
     }
 
     /**

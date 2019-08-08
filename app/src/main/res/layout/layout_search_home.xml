@@ -26,7 +26,7 @@
             android:drawableLeft="@drawable/icon_new_search"
             android:drawablePadding="5dp"
             android:gravity="center_vertical"
-            android:hint="在人人头条赚钱"
+            android:hint="在云赚视频赚钱"
             android:paddingLeft="10dp"
             android:textColorHint="#cacaca"
             />

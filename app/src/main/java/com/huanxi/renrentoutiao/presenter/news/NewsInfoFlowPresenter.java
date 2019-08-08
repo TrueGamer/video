@@ -370,6 +370,10 @@ public class NewsInfoFlowPresenter {
     }
 
     private void loadTtFeedList() {
+        if(true){
+            return;
+        }
+
         //feed广告请求类型参数
         AdSlot adSlot = new AdSlot.Builder()
                 .setCodeId(ConstantAd.CSJAD.APP_ID)

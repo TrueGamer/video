@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我的人人头条赚了"
+                android:text="我的云赚视频赚了"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/text_black"
                 android:textSize="16sp"
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="或者在各大应用市场搜索(人人头条)下载，登陆后输入邀请码领取大奖"
+                android:text="或者在各大应用市场搜索(云赚视频)下载，登陆后输入邀请码领取大奖"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/text_black"
                 android:lineSpacingMultiplier="1.2"

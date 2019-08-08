@@ -367,7 +367,7 @@ public class ShareUtils {
         Platform.ShareParams wechatMoments = new Platform.ShareParams();
 
         wechatMoments.setTitle(title);
-        wechatMoments.setText("人人头条");
+        wechatMoments.setText("云赚视频");
         wechatMoments.setTitleUrl(url);
 //        wechatMoments.setUrl(url);
         wechatMoments.setImageUrl(avtor);
@@ -391,7 +391,7 @@ public class ShareUtils {
         Platform.ShareParams wechatMoments = new Platform.ShareParams();
 
         wechatMoments.setTitle(title);
-        wechatMoments.setText("人人头条");
+        wechatMoments.setText("云赚视频");
         wechatMoments.setTitleUrl(url);
 //        wechatMoments.setUrl(url);
         wechatMoments.setImageUrl(avtor);
@@ -480,7 +480,7 @@ public class ShareUtils {
         if(city != null) {
             city = city.replace("市" , "");
         }
-        String title = city + "最强推荐【人人头条】APP，下载每天红包拆不停，看新闻、视频还能领现金，收徒领现金";
+        String title = city + "最强推荐【云赚视频】APP，下载每天红包拆不停，看新闻、视频还能领现金，收徒领现金";
         String userIcon = userBean.getAvatar();
 
         Log.i("info" , "city="+city+",userIcon=="+userIcon);

@@ -110,6 +110,9 @@ public class HomeTabFragmentOld extends BaseLoadingRecyclerViewFragment {
      * 加载feed广告
      */
     private void loadListAd(String type , boolean isFirst) {
+        if(true){
+            return;
+        }
         //这里初始化广点通广告的逻辑
         mGdtImgAds = new GDTImgAds(new GDTImgAds.OnAdReceived() {
             @Override

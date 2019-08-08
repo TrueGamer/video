@@ -1,5 +1,6 @@
 package com.huanxi.renrentoutiao.ui.activity.user;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.huanxi.renrentoutiao.MyApplication;
 import com.huanxi.renrentoutiao.R;
@@ -37,11 +39,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
-
+import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /**
  * 这里是提现的activity;
  */
-public class WithdrawalsActivity2 extends BaseTitleActivity {
+public class WithdrawalsActivity2 extends BaseTitleActivity{
     private static final String TAG = "WithdrawalsActivity";
 
     @BindView(R.id.et_pay_username)
@@ -104,7 +108,6 @@ public class WithdrawalsActivity2 extends BaseTitleActivity {
     public int getBodyLayoutId() {
         return R.layout.activity_withdrawals2;
     }
-
 
     @Override
     protected void initView(View rootView, Bundle savedInstanceState) {
@@ -177,17 +180,51 @@ public class WithdrawalsActivity2 extends BaseTitleActivity {
             if (validInputData(payUsername, realName, withdrawalsMoney)) {
                 //这里表示输入是有效果的；
                 //这里做提现的操作；
-                sendReq(payUsername, withdrawalsMoney, realName, "zhifubao");
+//                sendReq(payUsername, withdrawalsMoney, realName, "zhifubao");
+                TToast.show(this , "支付宝提现正在建设中，请使用微信提现!!!");
             }
         } else {
-//            realName = user.getNickname();
-            //验证电话号号码的合法性；
-            if (TextUtils.isEmpty(realName)) {
-//                ToastUtils.INSTANCE.show("真实姓名不能为空!!!");
-                TToast.show(this , "真实姓名不能为空!!!");
-                return;
+            if (validInputData(payUsername, realName, withdrawalsMoney)) {
+                final Dialog dialog = new Dialog(this, R.style.dialog1);
+                dialog.setContentView(R.layout.dialog_simple);
+                dialog.setCancelable(true);
+                dialog.setCanceledOnTouchOutside(true);
+                TextView msgTextView = (TextView) dialog.findViewById(R.id.msg);
+                msgTextView.setText("需要关注公众号才可以提现，现在马上关注吗？");
+                View.OnClickListener listener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                        if (v.getId() == R.id.btn_confirm) {
+                            jumpWCApp();
+                            sendReq(payUsername, withdrawalsMoney, realName, "weixin");
+
+                        } else {
+                            sendReq(payUsername, withdrawalsMoney, realName, "weixin");
+                        }
+                    }
+                };
+                dialog.findViewById(R.id.btn_cancel).setOnClickListener(listener);
+                dialog.findViewById(R.id.btn_confirm).setOnClickListener(listener);
+                dialog.show();
             }
-            sendReq(payUsername, withdrawalsMoney, realName, "weixin");
+        }
+    }
+
+    private void jumpWCApp(){
+        String appId = "wx39476c2ddeeee7da"; // 填应用AppId
+        IWXAPI api = WXAPIFactory.createWXAPI(this, appId);
+
+        if(api.isWXAppInstalled()) {
+            WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
+            req.userName = "gh_5b7e29b40445"; // 小程序原始id  gh_b6664957bab7
+            req.path = "";    //拉起小程序页面的可带参路径，不填默认拉起小程序首页
+            req.miniprogramType = WXLaunchMiniProgram.Req.MINIPTOGRAM_TYPE_RELEASE;
+            api.sendReq(req);
+
+
+        } else {
+            Toast.makeText(this , "请安装微信" , Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -334,15 +371,15 @@ public class WithdrawalsActivity2 extends BaseTitleActivity {
             return false;
         }
 
-        if (TextUtils.isEmpty(payUsername)) {
-            toast("支付宝账号不能为空!!!");
-            return false;
-        } else {
-            if ((payUsername.contains("@") || payUsername.length() == 11)) {
-            } else {
-                toast("手机或邮箱格式不正确!!!");
-            }
-        }
+//        if (TextUtils.isEmpty(payUsername)) {
+//            toast("支付宝账号不能为空!!!");
+//            return false;
+//        } else {
+//            if ((payUsername.contains("@") || payUsername.length() == 11)) {
+//            } else {
+//                toast("手机或邮箱格式不正确!!!");
+//            }
+//        }
 
         //验证电话号号码的合法性；
         if (TextUtils.isEmpty(realName)) {

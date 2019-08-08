@@ -80,7 +80,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="人人头条详情查看"
+                android:text="云赚视频详情查看"
                 android:layout_marginLeft="10dp"
                 android:textSize="16sp"
                 android:textColor="#757575"

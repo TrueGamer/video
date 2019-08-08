@@ -9,7 +9,7 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
  
      public void show(int contentNumber){
          //这里我们做一个动画：
--        mTvTitle.setText("「人人头条」  已为你刷新"+contentNumber+"条");
+-        mTvTitle.setText("「yunzh」  已为你刷新"+contentNumber+"条");
 +        mTvTitle.setText("已为你刷新"+contentNumber+"条");
          ObjectAnimator objectAnimator=ObjectAnimator.ofFloat(this,"Alpha",0,1);
          objectAnimator.setDuration(1000);
@@ -63,7 +63,7 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
          android:id="@+id/tv_text"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
--        android:text="「人人头条」  已为你刷新12条"
+-        android:text="「云赚视频」  已为你刷新12条"
 +        android:text="已为你刷新12条"
          android:textColor="@color/text_light_black"
          android:textSize="16sp"
