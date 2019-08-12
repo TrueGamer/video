@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
@@ -142,12 +143,12 @@ public class VideoTabFragment extends BaseLoadingRecyclerViewFragment {
                 if("refresh".equals(type)) {
                     getDataFromNet(isFirst);
                 } else if("more".equals(type)) {
-                    loadMore();
-                }
-            }
-            @Override
-            public void onFeedAdLoad(List<TTFeedAd> ads) {
                 mData.clear();
+                loadMore();
+            }
+        }
+        @Override
+        public void onFeedAdLoad(List<TTFeedAd> ads) {
                 mData.addAll(ads);
                 Log.i("info" , "mode="+mData.get(0).getImageMode()+",title="+mData.get(0).getTitle());
                 if("refresh".equals(type)) {

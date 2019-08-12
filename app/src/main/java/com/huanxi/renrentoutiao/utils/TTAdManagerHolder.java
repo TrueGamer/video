@@ -28,7 +28,7 @@ public class TTAdManagerHolder {
     }
 
     private static void doInit(TTAdManager ttAdManager,Context context) {
-        ttAdManager.setAppId("5023855")
+        ttAdManager.setAppId("5026821")
                 .setName("云赚视频").setTitleBarTheme(TTAdConstant.TITLE_BAR_THEME_DARK)
                 .setAllowShowNotifiFromSDK(true)
                 .setAllowLandingPageShowWhenScreenLock(true)
