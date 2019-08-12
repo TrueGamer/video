@@ -64,7 +64,7 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
 -        android:text="「云赚视频」  已为你刷新12条"
-+        android:text="已为你刷新12条"
++        android:text="已为你刷新11条"
          android:textColor="@color/text_light_black"
          android:textSize="16sp"
          />
