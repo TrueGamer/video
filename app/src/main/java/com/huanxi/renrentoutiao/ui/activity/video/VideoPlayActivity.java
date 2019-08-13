@@ -51,7 +51,7 @@ import java.util.List;
 public class VideoPlayActivity extends AudioAbsActivity implements ViewPager.OnPageChangeListener, GlobalLayoutChangedListener, VideoChangeListener {
 
     private ViewPager mViewPager;
-    private VideoPlayFragment mVideoPlayFragment;
+    public VideoPlayFragment mVideoPlayFragment;
 //    private UserFragment mUserFragment;
     private UserBean mUserBean;
     private List<VideoBean> mVideoList;

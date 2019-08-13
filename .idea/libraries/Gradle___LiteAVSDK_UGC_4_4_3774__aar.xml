@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: :LiteAVSDK_UGC_4.4.3774:@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/LiteAVSDK_UGC_4.4.3774.aar/1787bb502070ba3dfa5d85c7d346fcf2/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/LiteAVSDK_UGC_4.4.3774.aar/1787bb502070ba3dfa5d85c7d346fcf2/jars/libs/LiteAVSDK_UGC.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/LiteAVSDK_UGC_4.4.3774.aar/1787bb502070ba3dfa5d85c7d346fcf2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/LiteAVSDK_UGC_4.4.3774.aar/fac5730bbe8466707c7bf9dcb46f7c75/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/LiteAVSDK_UGC_4.4.3774.aar/fac5730bbe8466707c7bf9dcb46f7c75/jars/libs/LiteAVSDK_UGC.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/LiteAVSDK_UGC_4.4.3774.aar/fac5730bbe8466707c7bf9dcb46f7c75/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

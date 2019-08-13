@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.huanxi.renrentoutiao.R;
 import com.huanxi.renrentoutiao.model.bean.l_video.VideoBean;
 import com.huanxi.renrentoutiao.ui.activity.video.VideoPlayActivity;
@@ -33,6 +34,9 @@ public class VideoPlayAdapter extends PagerAdapter {
     private OnPlayVideoListener mOnPlayVideoListener;
     private VideoPlayWrap.ActionListener mActionListener;
     private VerticalViewPager mViewPager;
+    private TTAdNative mTTAdNative; // 网盟广告
+    private int adNum = 3;
+    private int loopNum = 3;
 
     public VideoPlayAdapter(Context context, List<VideoBean> videoList) {
         mContext = context;
@@ -82,11 +86,16 @@ public class VideoPlayAdapter extends PagerAdapter {
     @Override
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
         if (mCurWrap != object) {
+            adNum -= 1;
             if (mCurWrap != null) {
                 mCurWrap.removePlayView();
             }
             mCurWrap = (VideoPlayWrap) object;
-            mCurWrap.addPlayView(mPlayView);
+            boolean isad = adNum < 0;
+            if (isad){
+                adNum = loopNum;
+            }
+            mCurWrap.addPlayView(mPlayView, isad);
             mCurWrap.play();
             if (mOnPlayVideoListener != null) {
                 mOnPlayVideoListener.onPlayVideo(mCurWrap.getVideoBean());

@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.huanxi.renrentoutiao.AppConfig;
@@ -116,6 +118,10 @@ public class VideoPlayFragment extends AbsFragment implements ViewPager.OnPageCh
         return R.layout.fragment_video_play;
     }
 
+    public void setComentVisible(int flag){
+        View commentGroup = mRootView.findViewById(R.id.comment_group);
+        commentGroup.setVisibility(flag);
+    }
     @Override
     protected void main() {
         if (mContext instanceof VideoPlayActivity) {

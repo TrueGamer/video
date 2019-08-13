@@ -3,21 +3,33 @@ package com.huanxi.renrentoutiao.ui.view.video;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import com.huanxi.renrentoutiao.ui.activity.video.VideoPlayActivity;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdManager;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.huanxi.renrentoutiao.AppConfig;
 import com.huanxi.renrentoutiao.R;
 import com.huanxi.renrentoutiao.model.bean.l_video.MusicBean;
@@ -30,9 +42,13 @@ import com.huanxi.renrentoutiao.ui.view.MusicAnimLayout;
 import com.huanxi.renrentoutiao.utils.FrameAnimUtil;
 import com.huanxi.renrentoutiao.utils.ImgLoader;
 import com.huanxi.renrentoutiao.utils.ScreenDimenUtil;
+import com.huanxi.renrentoutiao.utils.TTAdManagerHolder;
 import com.huanxi.renrentoutiao.utils.WordUtil;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by cxf on 2018/6/5.
@@ -47,6 +63,9 @@ public class VideoPlayWrap extends FrameLayout implements View.OnClickListener {
     private View mCover;
     private ImageView mCoverImg;
     private VideoPlayView mPlayView;
+    private View adView;
+    private TTDrawFeedAd cachedAd;
+    private TTDrawFeedAd curAd;
     private int mScreenWidth;
     private ImageView mAvatar;//头像
     private ImageView mBtnFollow;//关注按钮
@@ -58,12 +77,18 @@ public class VideoPlayWrap extends FrameLayout implements View.OnClickListener {
     private TextView mName;//昵称
     private TextView mMusicTitle;//音乐标题
     private MusicAnimLayout mMusicAnimLayout;
+    private  LinearLayout mRight;
+    private LinearLayout musicGroup;
+    private Button mBtnAD;
     private boolean mUsing;//是否在使用中
     private ActionListener mActionListener;
     private String mMusicSuffix;
     private static final String SPACE = "            ";
     private static int sFollowAnimHashCode;
     private ValueAnimator mFollowAnimator;
+
+    private TTAdNative mTTAdNative; // 网盟广告
+
 
     public VideoPlayWrap(Context context) {
         this(context, null);
@@ -78,6 +103,10 @@ public class VideoPlayWrap extends FrameLayout implements View.OnClickListener {
         mTag = String.valueOf(this.hashCode()) + HttpUtil.GET_VIDEO_INFO;
         mContext = context;
         mScreenWidth = ScreenDimenUtil.getInstance().getScreenWdith();
+        TTAdManager ttAdManager = TTAdManagerHolder.getInstance(mContext);
+        mTTAdNative = ttAdManager.createAdNative(mContext);
+        cachedAd = null;
+        loadListAd();
     }
 
     @Override
@@ -99,6 +128,10 @@ public class VideoPlayWrap extends FrameLayout implements View.OnClickListener {
         mName = (TextView) view.findViewById(R.id.name);
         mMusicTitle = (TextView) view.findViewById(R.id.music_title);
         mMusicAnimLayout = (MusicAnimLayout) view.findViewById(R.id.music_anim);
+        mRight = (LinearLayout)view.findViewById(R.id.right_sord);
+        musicGroup = (LinearLayout)view.findViewById(R.id.music_title_group);
+        mBtnAD = null;
+
         mAvatar.setOnClickListener(this);
         mBtnFollow.setOnClickListener(this);
         view.findViewById(R.id.btn_zan).setOnClickListener(this);
@@ -239,11 +272,38 @@ public class VideoPlayWrap extends FrameLayout implements View.OnClickListener {
         }
     }
 
+    public void setUIVisible(int flag) {
+        if (mRight.getVisibility() != flag) {
+            mRight.setVisibility(flag);
+        }
+        if (musicGroup.getVisibility() != flag) {
+            musicGroup.setVisibility(flag);
+        }
+        if (mMusicAnimLayout.getVisibility() != flag) {
+            mMusicAnimLayout.setVisibility(flag);
+        }
+        if (mCommentNum.getVisibility() != flag) {
+            mCommentNum.setVisibility(flag);
+        }
+        ((VideoPlayActivity) mContext).mVideoPlayFragment.setComentVisible(flag);
+    }
+
     public void removePlayView() {
         if (mContainer.getChildCount() > 0) {
             if (mPlayView != null) {
                 mContainer.removeView(mPlayView);
                 mPlayView = null;
+            }
+            if (adView != null){
+                mContainer.removeView(adView);
+                adView = null;
+                cachedAd = null;
+                loadListAd();
+                setUIVisible(VISIBLE);
+            }
+            if (mBtnAD != null){
+                mContainer.removeView(mBtnAD);
+                mBtnAD = null;
             }
         }
         showBg();
@@ -252,7 +312,10 @@ public class VideoPlayWrap extends FrameLayout implements View.OnClickListener {
         }
     }
 
-    public void addPlayView(VideoPlayView playView) {
+    public void addPlayView(VideoPlayView playView, boolean isAD) {
+        if(isAD && addAdView()){
+            return;
+        }
         mPlayView = playView;
         playView.setPlayWrap(this);
         ViewGroup parent = (ViewGroup) playView.getParent();
@@ -260,6 +323,109 @@ public class VideoPlayWrap extends FrameLayout implements View.OnClickListener {
             parent.removeView(playView);
         }
         mContainer.addView(playView);
+    }
+
+    public boolean addAdView(){
+        if (cachedAd == null){
+            loadListAd();
+            return false;
+        }
+        hideBg();
+        setUIVisible(INVISIBLE);
+        initAdViewAndAction(cachedAd);
+        adView = cachedAd.getAdView();
+        mTitle.setText(cachedAd.getDescription());
+        mName.setText(cachedAd.getTitle());
+        ViewGroup parent = (ViewGroup) adView.getParent();
+        if (parent != null) {
+            parent.removeView(adView);
+        }
+        mContainer.addView(adView);
+        return true;
+    }
+
+    public void loadListAd() {
+        //这里初始化广点通广告的逻辑
+        AdSlot adSlot = new AdSlot.Builder()
+                .setCodeId("926821115") //开发者申请的广告位
+                .setSupportDeepLink(true)
+                .setImageAcceptedSize(1080, 1920) //符合广告场景的广告尺寸
+                .setAdCount(1) //请求广告数量为1到3条
+                .build();
+        //加载广告
+        mTTAdNative.loadDrawFeedAd(adSlot, new TTAdNative.DrawFeedAdListener() {
+            @Override
+            public void onError(int code, String message) {
+                Log.d("error", message);
+                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onDrawFeedAdLoad(List<TTDrawFeedAd> ads) {
+               // Toast.makeText(mContext, "有广告", Toast.LENGTH_SHORT).show();
+                if (ads == null || ads.isEmpty()) {
+                    return;
+                }
+                cachedAd = ads.get(0);
+
+            }
+        });
+    }
+    private void initAdViewAndAction(TTDrawFeedAd ad){
+        ad.setActivityForDownloadApp((Activity) mContext);
+        Button action = new Button(mContext);
+        action.setText(ad.getButtonText());
+        mBtnAD = new Button(mContext);
+        mBtnAD.setText(ad.getButtonText());
+
+        //其他代码略
+
+        //响应点击区域的设置，分为普通的区域clickViews和创意区域creativeViews
+        //clickViews中的view被点击会尝试打开广告落地页；creativeViews中的view被点击会根据广告类型
+        //响应对应行为，如下载类广告直接下载，打开落地页类广告直接打开落地页。
+        //注意：ad.getAdView()获取的view请勿放入这两个区域中。
+        List<View> clickViews = new ArrayList<>();
+        clickViews.add(mBtnAD);
+        List<View> creativeViews = new ArrayList<>();
+        creativeViews.add(action);
+
+        int height = (int) dip2Px(mContext, 50);
+        int margin = (int) dip2Px(mContext, 10);
+        //noinspection SuspiciousNameCombination
+//        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(height * 3, height);
+//        lp.gravity = Gravity.END | Gravity.BOTTOM;
+//        lp.rightMargin = margin;
+//        lp.bottomMargin = margin;
+//        mContainer.addView(action, lp);
+
+        FrameLayout.LayoutParams lp1 = new FrameLayout.LayoutParams(height * 3, height);
+        lp1.gravity = Gravity.START | Gravity.BOTTOM;
+        lp1.rightMargin = margin;
+        lp1.bottomMargin = margin;
+        mContainer.addView(mBtnAD, lp1);
+
+        ad.registerViewForInteraction(mContainer, clickViews, creativeViews, new TTNativeAd.AdInteractionListener(){
+            @Override
+            public void onAdClicked(View view, TTNativeAd ad) {
+                Toast.makeText(mContext, "onAdClicked", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdCreativeClick(View view, TTNativeAd ad) {
+                Toast.makeText(mContext, "onAdCreativeClick", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdShow(TTNativeAd ad) {
+             //   Toast.makeText(mContext, "onAdShow", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+    private float dip2Px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return dipValue * scale + 0.5f;
     }
 
     public void play() {

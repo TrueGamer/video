@@ -63,7 +63,7 @@ public class HomeHotFragment extends AbsFragment implements OnItemClickListener<
         mData = new LinkedList<>();
         TTAdManager ttAdManager = TTAdManagerHolder.getInstance(getActivity());
         mTTAdNative = ttAdManager.createAdNative(getActivity());
-        loadListAd();
+//        loadListAd();
 
         mRefreshView = (RefreshView) mRootView.findViewById(R.id.refreshView);
         mRefreshView.setNoDataLayoutId(R.layout.view_no_data_default);

@@ -54,6 +54,7 @@
         />
 
     <LinearLayout
+        android:id="@+id/right_sord"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_above="@id/music_anim"
@@ -201,4 +202,13 @@
         android:textSize="18sp"
         android:textStyle="bold"
         />
+
+    <ImageView
+        android:id="@+id/btn_ad"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="5dp"
+        android:src="@mipmap/icon_video_comment"
+        />
+
 </RelativeLayout>
